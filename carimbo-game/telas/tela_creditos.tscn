@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bok2i3ulpkeq8"]
+[gd_scene format=3 uid="uid://bok2i3ulpkeq8"]
 
 [ext_resource type="Script" uid="uid://cs7fu3neb7tf" path="res://scripts/tela_creditos.gd" id="1_hcio5"]
 
-[node name="tela_creditos" type="Control"]
+[node name="tela_creditos" type="Control" unique_id=160994473]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hcio5")
 
-[node name="fundo" type="ColorRect" parent="."]
+[node name="fundo" type="ColorRect" parent="." unique_id=1055793957]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.19215687, 0.25882354, 0.29803923, 1)
 
-[node name="margin" type="MarginContainer" parent="."]
+[node name="margin" type="MarginContainer" parent="." unique_id=104009409]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,25 +32,28 @@ grow_vertical = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_right = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="margin"]
+[node name="VBoxContainer" type="VBoxContainer" parent="margin" unique_id=71956680]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="titulo" type="Label" parent="margin/VBoxContainer"]
+[node name="titulo" type="Label" parent="margin/VBoxContainer" unique_id=1261082838]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 48
 text = "Créditos"
 horizontal_alignment = 1
 
-[node name="artes_conceituais" type="Label" parent="margin/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="margin/VBoxContainer" unique_id=494142785]
+layout_mode = 2
+
+[node name="artes_conceituais" type="Label" parent="margin/VBoxContainer" unique_id=684827478]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Artes conceituais:
 - Mlee
 - Ahist"
 
-[node name="game-design" type="Label" parent="margin/VBoxContainer"]
+[node name="game-design" type="Label" parent="margin/VBoxContainer" unique_id=1879852604]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Game Design / Level design:
@@ -60,14 +63,14 @@ text = "Game Design / Level design:
 - Ashfox
 - Neki"
 
-[node name="narrativa" type="Label" parent="margin/VBoxContainer"]
+[node name="narrativa" type="Label" parent="margin/VBoxContainer" unique_id=1848332464]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Narrativa:
 - Mlee
 - Ahist"
 
-[node name="assets" type="Label" parent="margin/VBoxContainer"]
+[node name="assets" type="Label" parent="margin/VBoxContainer" unique_id=1084952642]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Assets:
@@ -75,7 +78,7 @@ text = "Assets:
 - Ahist
 - Victor Lazuli"
 
-[node name="programação" type="Label" parent="margin/VBoxContainer"]
+[node name="programação" type="Label" parent="margin/VBoxContainer" unique_id=950143019]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Programação:

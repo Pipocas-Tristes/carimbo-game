@@ -8,8 +8,21 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Carimbo Game"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://dfup2bdf5sdnw"
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=4
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"

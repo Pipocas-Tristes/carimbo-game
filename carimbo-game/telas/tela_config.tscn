@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://ds226ph62jpir"]
+
+[ext_resource type="Script" uid="uid://b1x35dq66vxb6" path="res://scripts/tela_config.gd" id="1_22k8j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byfl0"]
+
+[node name="tela_config" type="Control" unique_id=229657649]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_22k8j")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1046944325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19215687, 0.25882354, 0.29803923, 1)
+
+[node name="margin" type="MarginContainer" parent="." unique_id=892763130]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="margin" unique_id=804901583]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="margin/VBoxContainer" unique_id=931504384]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/tab_separation = 16
+theme_override_styles/panel = SubResource("StyleBoxEmpty_byfl0")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Interface" type="VBoxContainer" parent="margin/VBoxContainer/TabContainer" unique_id=875100870]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+metadata/_tab_index = 0
+
+[node name="modo" type="OptionButton" parent="margin/VBoxContainer/TabContainer/Interface" unique_id=1812377385]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 1
+selected = 1
+item_count = 2
+popup/item_0/text = "Window"
+popup/item_0/id = 1
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 0
+
+[node name="resolucao" type="OptionButton" parent="margin/VBoxContainer/TabContainer/Interface" unique_id=908432477]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 1
+selected = 1
+item_count = 4
+popup/item_0/text = "640x320"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+popup/item_3/text = "2560x1440"
+popup/item_3/id = 3
+
+[node name="aplicar" type="Button" parent="margin/VBoxContainer/TabContainer/Interface" unique_id=769099271]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "Aplicar"
+
+[node name="Áudio" type="VBoxContainer" parent="margin/VBoxContainer/TabContainer" unique_id=918948503]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+metadata/_tab_index = 1
+
+[node name="volume_geral" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Áudio" unique_id=904965155]
+layout_mode = 2
+
+[node name="geral_label" type="Label" parent="margin/VBoxContainer/TabContainer/Áudio/volume_geral" unique_id=1927178172]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volume geral"
+
+[node name="geral_slider" type="HSlider" parent="margin/VBoxContainer/TabContainer/Áudio/volume_geral" unique_id=280970556]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+
+[node name="vol_efeitos_sonoros" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Áudio" unique_id=2037130190]
+layout_mode = 2
+
+[node name="efeito_label" type="Label" parent="margin/VBoxContainer/TabContainer/Áudio/vol_efeitos_sonoros" unique_id=801860932]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Efeitos sonoros"
+
+[node name="efeito_slider" type="HSlider" parent="margin/VBoxContainer/TabContainer/Áudio/vol_efeitos_sonoros" unique_id=422434661]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+
+[node name="vol_musica" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Áudio" unique_id=1874390912]
+layout_mode = 2
+
+[node name="musica_label" type="Label" parent="margin/VBoxContainer/TabContainer/Áudio/vol_musica" unique_id=1586063400]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Música"
+
+[node name="musica_slider" type="HSlider" parent="margin/VBoxContainer/TabContainer/Áudio/vol_musica" unique_id=1910739502]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+
+[node name="Controles" type="VBoxContainer" parent="margin/VBoxContainer/TabContainer" unique_id=2046646443]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+metadata/_tab_index = 2
+
+[node name="para_cima" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Controles" unique_id=1765821657]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="margin/VBoxContainer/TabContainer/Controles/para_cima" unique_id=408239023]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mover para cima"
+
+[node name="Button" type="Button" parent="margin/VBoxContainer/TabContainer/Controles/para_cima" unique_id=365698165]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+toggle_mode = true
+text = "W"
+
+[node name="para_baixo" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Controles" unique_id=866811904]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="margin/VBoxContainer/TabContainer/Controles/para_baixo" unique_id=2005824375]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mover para baixo"
+
+[node name="Button" type="Button" parent="margin/VBoxContainer/TabContainer/Controles/para_baixo" unique_id=1768130493]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+toggle_mode = true
+text = "S"
+
+[node name="para_esquerda" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Controles" unique_id=376025062]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="margin/VBoxContainer/TabContainer/Controles/para_esquerda" unique_id=1432270915]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mover para esquerda"
+
+[node name="Button" type="Button" parent="margin/VBoxContainer/TabContainer/Controles/para_esquerda" unique_id=96822019]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+toggle_mode = true
+text = "A"
+
+[node name="para_direita" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Controles" unique_id=766682053]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="margin/VBoxContainer/TabContainer/Controles/para_direita" unique_id=758052029]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mover para direita"
+
+[node name="Button" type="Button" parent="margin/VBoxContainer/TabContainer/Controles/para_direita" unique_id=1199636032]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+toggle_mode = true
+text = "D"
+
+[node name="interagir" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Controles" unique_id=2122394294]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="margin/VBoxContainer/TabContainer/Controles/interagir" unique_id=1260461179]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Interagir"
+
+[node name="Button" type="Button" parent="margin/VBoxContainer/TabContainer/Controles/interagir" unique_id=1278946227]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+toggle_mode = true
+text = "E"
+
+[node name="voltar" type="Button" parent="margin/VBoxContainer" unique_id=465168556]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Voltar"
+
+[connection signal="item_selected" from="margin/VBoxContainer/TabContainer/Interface/modo" to="." method="_on_modo_item_selected"]
+[connection signal="item_selected" from="margin/VBoxContainer/TabContainer/Interface/resolucao" to="." method="_on_resolucao_item_selected"]
+[connection signal="button_up" from="margin/VBoxContainer/TabContainer/Interface/aplicar" to="." method="_on_aplicar_button_up"]
+[connection signal="value_changed" from="margin/VBoxContainer/TabContainer/Áudio/volume_geral/geral_slider" to="." method="_on_geral_slider_value_changed"]
+[connection signal="value_changed" from="margin/VBoxContainer/TabContainer/Áudio/vol_efeitos_sonoros/efeito_slider" to="." method="_on_efeito_slider_value_changed"]
+[connection signal="value_changed" from="margin/VBoxContainer/TabContainer/Áudio/vol_musica/musica_slider" to="." method="_on_musica_slider_value_changed"]
+[connection signal="button_up" from="margin/VBoxContainer/voltar" to="." method="_on_voltar_button_up"]
