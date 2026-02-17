@@ -1,7 +1,6 @@
 extends Control
 
 signal novo_jogo_opened
-signal configurar_opened
 
 const TELA_CREDITOS: PackedScene = preload("uid://bok2i3ulpkeq8")
 const TELA_CONFIG = preload("uid://ds226ph62jpir")
