@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfup2bdf5sdnw"]
+[gd_scene format=3 uid="uid://dfup2bdf5sdnw"]
 
 [ext_resource type="Script" uid="uid://7db7k17i621u" path="res://scripts/tela_inicial.gd" id="1_xs8lk"]
 
-[node name="tela_inicial" type="Control"]
+[node name="tela_inicial" type="Control" unique_id=1136923979]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xs8lk")
 
-[node name="fundo" type="ColorRect" parent="."]
+[node name="fundo" type="ColorRect" parent="." unique_id=1398445670]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.19215687, 0.25882354, 0.29803923, 1)
 
-[node name="margin" type="MarginContainer" parent="."]
+[node name="margin" type="MarginContainer" parent="." unique_id=124735404]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,29 +32,29 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="margin"]
+[node name="HBoxContainer" type="HBoxContainer" parent="margin" unique_id=888638415]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="margin/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="margin/HBoxContainer" unique_id=171905427]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="novo_jogo_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer"]
+[node name="novo_jogo_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=1066986068]
 layout_mode = 2
 text = "Novo jogo
 "
 
-[node name="configurar_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer"]
+[node name="configurar_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=151254374]
 layout_mode = 2
 text = "Configurações"
 
-[node name="creditos_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer"]
+[node name="creditos_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=86156091]
 layout_mode = 2
 text = "Créditos"
 
-[node name="sair_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer"]
+[node name="sair_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=1907102265]
 layout_mode = 2
 text = "Sair"
 
