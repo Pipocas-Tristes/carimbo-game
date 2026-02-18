@@ -5,6 +5,9 @@ signal voltar_pressed
 var _resolucao_value: Vector2i
 var _modo_value: Window.Mode
 
+@onready var modo_select: OptionButton = $margin/VBoxContainer/TabContainer/Interface/modo
+@onready var resolucao_select: OptionButton = $margin/VBoxContainer/TabContainer/Interface/resolucao
+
 @onready var aplicar_btn: Button = $margin/VBoxContainer/TabContainer/Interface/aplicar
 @onready var controles: VBoxContainer = $margin/VBoxContainer/TabContainer/Controles
 const INPUT_BUTTON = preload("uid://bk64nluu06ids")
@@ -21,18 +24,50 @@ const ACOES_DICT = {
 	"interagir": "Interagir",
 }
 
+const RESOLUCAO_DICT = {
+	"640x320" = Vector2i(640, 320),
+	"1280x720" = Vector2i(1280, 720),
+	"1920x1080" = Vector2i(1920, 1080),
+	"2560x1440" = Vector2i(2560, 1440),
+}
+const MODO_DICT = {
+	"Janela" = Window.MODE_WINDOWED,
+	"Tela cheia" = Window.MODE_EXCLUSIVE_FULLSCREEN,
+}
+
 func _ready() -> void:
-	_define_resolucao()
+	_define_variavel_resolucao()
 	_define_controles()
 
 func _process(_delta: float) -> void:
 	if (Input.is_action_pressed("ui_cancel")):
 		voltar_pressed.emit()
 
-func _define_resolucao():
-	get_tree().root.min_size = Vector2i(640, 360)
-	_resolucao_value = Vector2i(640, 360)
-	_modo_value = Window.MODE_EXCLUSIVE_FULLSCREEN
+func _input(event):
+	if (event is InputEventKey || (event is InputEventMouseButton && event.pressed)):
+		_atualiza_controles(event)
+
+func _define_variavel_resolucao():
+	_resolucao_value = get_tree().root.size
+	var id := 0
+	for key in RESOLUCAO_DICT:
+		resolucao_select.add_item(key, id)
+		if (RESOLUCAO_DICT[key] == _resolucao_value):
+			resolucao_select.select((id))
+		id += 1
+	
+	id = 0
+	_modo_value = get_tree().root.mode
+	for key in MODO_DICT:
+		modo_select.add_item(key, id)
+		if (MODO_DICT[key] == _modo_value):
+			modo_select.select((id))
+		id += 1
+
+func _salvar_nova_resolucao(resolucao: Vector2i, modo: Window.Mode):
+	get_tree().root.content_scale_size = resolucao
+	get_tree().root.mode = modo
+	aplicar_btn.disabled = true
 
 func _define_controles():
 	InputMap.load_from_project_settings()
@@ -51,18 +86,14 @@ func _define_controles():
 		input_lbl.text = (eventos.get(0) as InputEvent).as_text().trim_suffix(" - Physical") if eventos.get(0) else ""
 		
 		controles.add_child(input_btn)
-		input_btn.toggled.connect(_on_input_button_toggled.bind(input_btn, acao))
+		input_btn.pressed.connect(_on_input_button_pressed.bind(input_btn, acao))
 
-func _on_input_button_toggled(_toggled_on: bool, input_btn, acao):
+func _on_input_button_pressed(input_btn: Button, acao: StringName):
 	if not is_remapping:
 		is_remapping = true
 		acao_para_remap = acao
 		remap_btn = input_btn
 		input_btn.find_child("input_lbl").text = "Pressione uma tecla..."
-
-func _input(event):
-	if (event is InputEventKey || (event is InputEventMouseButton && event.pressed)):
-		_atualiza_controles(event)
 
 func _atualiza_controles(event: InputEvent):
 	if (is_remapping && remap_btn && acao_para_remap):
@@ -74,7 +105,6 @@ func _atualiza_controles(event: InputEvent):
 		is_remapping = false
 		acao_para_remap = ""
 		remap_btn = null
-	
 
 func _on_geral_slider_value_changed(value: float) -> void:
 	var geral_idx = AudioServer.get_bus_index("Master")
@@ -101,10 +131,7 @@ func _on_modo_item_selected(index: int) -> void:
 	aplicar_btn.disabled = false
 
 func _on_aplicar_button_up() -> void:
-	get_tree().root.content_scale_size = _resolucao_value
-	get_tree().root.mode = _modo_value 
-	aplicar_btn.disabled = true
-
+	_salvar_nova_resolucao(_resolucao_value, _modo_value)
 
 func _on_voltar_button_up() -> void:
 	voltar_pressed.emit()
