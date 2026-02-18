@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://54vcmnecmgu8"]
+
+[ext_resource type="Script" uid="uid://bdp2b028teqj6" path="res://scripts/desk.gd" id="1_kblhn"]
+[ext_resource type="PackedScene" uid="uid://dspk63plxgfqx" path="res://prefabs/letter.tscn" id="2_h7puy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kblhn"]
+size = Vector2(442, 20)
+
+[node name="Desk" type="Node2D"]
+script = ExtResource("1_kblhn")
+letter_scene = ExtResource("2_h7puy")
+
+[node name="PileButton" type="Button" parent="."]
+offset_left = 34.0
+offset_top = 31.0
+offset_right = 158.0
+offset_bottom = 62.0
+text = "Pilha de Cartas"
+
+[node name="GiftStamp" type="Button" parent="."]
+offset_left = 1054.0
+offset_top = 645.0
+offset_right = 1131.0
+offset_bottom = 676.0
+text = "Presente"
+
+[node name="CoalStamp" type="Button" parent="."]
+offset_left = 1160.0
+offset_top = 645.0
+offset_right = 1237.0
+offset_bottom = 676.0
+text = "Carvão"
+
+[node name="Score" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 683.0
+offset_right = 78.0
+offset_bottom = 706.0
+text = "Score: 0"
+
+[node name="LetterSpawn" type="Node2D" parent="."]
+position = Vector2(633, 425)
+
+[node name="SendArea" type="Area2D" parent="."]
+position = Vector2(620, 65)
+
+[node name="ColorRect" type="ColorRect" parent="SendArea"]
+offset_left = -220.0
+offset_top = -18.0
+offset_right = 220.0
+offset_bottom = 15.0
+color = Color(1, 1, 0.20392157, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SendArea"]
+shape = SubResource("RectangleShape2D_kblhn")
+
+[connection signal="pressed" from="PileButton" to="." method="_on_pile_button_pressed"]
+[connection signal="pressed" from="GiftStamp" to="." method="_on_gift_stamp_pressed"]
+[connection signal="pressed" from="CoalStamp" to="." method="_on_coal_stamp_pressed"]
