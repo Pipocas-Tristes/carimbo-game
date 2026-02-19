@@ -40,4 +40,4 @@ func return_home():
 		desk.held_type = ''
 		
 	var tween = create_tween()
-	tween.tween_property(self, "position", initial_position, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", initial_position, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

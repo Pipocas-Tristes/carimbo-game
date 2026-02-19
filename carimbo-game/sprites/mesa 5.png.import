@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cas86ogkjv0n4"
-path="res://.godot/imported/emotrometro seta.png-597080fbe069183b6ef0c3fe29da55ec.ctex"
+uid="uid://b0jve56eycuse"
+path="res://.godot/imported/mesa 5.png-4a19519bab50b4d43951d0c1b18c09b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/emotrometro seta.png"
-dest_files=["res://.godot/imported/emotrometro seta.png-597080fbe069183b6ef0c3fe29da55ec.ctex"]
+source_file="res://sprites/mesa 5.png"
+dest_files=["res://.godot/imported/mesa 5.png-4a19519bab50b4d43951d0c1b18c09b3.ctex"]
 
 [params]
 

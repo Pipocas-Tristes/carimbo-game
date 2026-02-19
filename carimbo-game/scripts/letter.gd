@@ -13,7 +13,7 @@ var offset: Vector2
 @onready var text_label: Label = $Text
 @onready var stamp_mark_color: ColorRect = $StampMarkColor
 @onready var envelope: AnimatedSprite2D = $Envelope
-@onready var shape: CollisionShape2D = $AreaDetector/CollisionShape2D
+@onready var envelope_shape: CollisionShape2D = $AreaDetectorEnvelope/CollisionShape2D
 
 signal letter_stashed(res: LetterResource)
 
@@ -48,9 +48,9 @@ func _input(event: InputEvent) -> void:
 func check_drop():
 	var desk: Desk = get_parent()
 
-	if desk.send_area.get_overlapping_areas().has($AreaDetector):
+	if desk.send_area.get_overlapping_areas().has($AreaDetectorEnvelope):
 		desk.validate_letter(self)
-	elif desk.tashed_area.get_overlapping_areas().has($AreaDetector):
+	elif desk.tashed_area.get_overlapping_areas().has($AreaDetectorEnvelope):
 		stash_letter()
 
 func stash_letter():
@@ -65,8 +65,8 @@ func show_feedback(correct: bool):
 
 func is_mouse_over() -> bool:
 	var local_mouse = to_local(get_global_mouse_position())
-	var rect = shape.shape.get_rect()
-	var detector_pos = $AreaDetector.position + shape.position
+	var rect = envelope_shape.shape.get_rect()
+	var detector_pos = $AreaDetectorEnvelope.position + envelope_shape.position
 	var final_rect = Rect2(rect.position + detector_pos, rect.size)
 	
 	return final_rect.has_point(local_mouse)

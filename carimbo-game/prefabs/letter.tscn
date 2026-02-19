@@ -51,6 +51,7 @@ animations = [{
 size = Vector2(278, 137)
 
 [node name="Letter" type="Node2D"]
+scale = Vector2(0.84000146, 0.84000146)
 script = ExtResource("1_m1y87")
 
 [node name="Envelope" type="AnimatedSprite2D" parent="."]
@@ -88,10 +89,10 @@ offset_top = 86.0
 offset_right = 103.0
 offset_bottom = 139.0
 
-[node name="AreaDetector" type="Area2D" parent="."]
+[node name="AreaDetectorEnvelope" type="Area2D" parent="."]
 position = Vector2(-113.00001, -130.99998)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectorEnvelope"]
 position = Vector2(113.00001, 232.49998)
 shape = SubResource("RectangleShape2D_fyey2")
 

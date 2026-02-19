@@ -1,9 +1,9 @@
 extends Node2D
 class_name Desk
 
-@onready var score_label: Label = $Score
 @onready var send_area: Area2D = $SendArea
 @onready var tashed_area: Area2D = $TashedArea
+@onready var emotrometro: Emotrometro = $Emotrometro
 
 @export_category("Configurações de Progressão")
 @export var max_letter_day: int = 7
@@ -44,6 +44,11 @@ func generate_latter() -> void:
 	current_letter.letter_stashed.connect(_on_letter_stashed)
 	current_letter.setup_from_resource(current_letter_resource)
 
+func score_upadte(value: int):
+	score += value
+	emotrometro.update_emot(score)
+	print(score)
+
 func validate_letter(letter):
 	if letter.applied_stamp == '':
 		return
@@ -51,11 +56,9 @@ func validate_letter(letter):
 	var correct = letter.applied_stamp == letter.correct_stamp
 	
 	if correct:
-		score += 1
+		score_upadte(1)
 	else:
-		score -= 1
-		
-	score_label.text = "Score: " + str(score)
+		score_upadte(-1)
 	
 	letter.show_feedback(correct)
 	
@@ -87,11 +90,9 @@ func end_day():
 func next_day():
 	day += 1
 	letters_processed = 0
-	score = 0
+	score_upadte(0)
 	required_score += 2
 	max_letter_day += 3
-	
-	score_label.text = 'Score: ' + str(score)
 	
 	print('Começando dia ', str(day))
 	
@@ -104,8 +105,7 @@ func _on_letter_stashed(res: LetterResource) -> void:
 		suspicious_pile.append(res)
 		print("Você guardou uma prova! Total: ", suspicious_pile.size())
 	else:
-		score -= 2
-		score_label.text = 'Score: ' + str(score)
+		score_upadte(-2)
 
 func _on_pile_button_pressed() -> void:	
 	generate_latter()

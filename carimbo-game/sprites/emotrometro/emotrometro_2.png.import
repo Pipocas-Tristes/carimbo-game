@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clmycjfrpaig8"
-path="res://.godot/imported/emotrometro.png-c0b55087005e7e07303605f54fb9fd62.ctex"
+uid="uid://ckusjyb6oftq4"
+path="res://.godot/imported/emotrometro_2.png-56b33bb218633e834f7c7a48efc9b84e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/emotrometro.png"
-dest_files=["res://.godot/imported/emotrometro.png-c0b55087005e7e07303605f54fb9fd62.ctex"]
+source_file="res://sprites/emotrometro/emotrometro_2.png"
+dest_files=["res://.godot/imported/emotrometro_2.png-56b33bb218633e834f7c7a48efc9b84e.ctex"]
 
 [params]
 
