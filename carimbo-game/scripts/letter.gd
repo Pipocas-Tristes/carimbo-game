@@ -11,7 +11,6 @@ var offset: Vector2
 
 @onready var background: ColorRect = $Background
 @onready var text_label: Label = $Text
-@onready var stamp_mark_label: Label = $StampMarkLabel
 @onready var stamp_mark_color: ColorRect = $StampMarkColor
 @onready var envelope: AnimatedSprite2D = $Envelope
 @onready var shape: CollisionShape2D = $AreaDetector/CollisionShape2D
@@ -20,7 +19,7 @@ signal letter_stashed(res: LetterResource)
 
 func _process(_delta: float) -> void:
 	if is_mouse_over():
-		Input.set_default_cursor_shape(Input.CURSOR_DRAG)
+		Input.set_default_cursor_shape(Input.CURSOR_MOVE)
 	else:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
@@ -28,6 +27,14 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
+				var desk: Desk = get_tree().current_scene
+				
+				if desk.held_stamp != null and is_mouse_over() and applied_stamp == '':
+					apply_mark(desk.held_stamp.type, get_local_mouse_position())
+					desk.held_stamp.return_home()
+					get_viewport().set_input_as_handled()
+					return
+				
 				if is_mouse_over():
 					dragging = true;
 					offset = global_position - get_global_mouse_position()
@@ -39,7 +46,7 @@ func _input(event: InputEvent) -> void:
 		global_position = get_global_mouse_position() + offset
 
 func check_drop():
-	var desk = get_parent()
+	var desk: Desk = get_parent()
 
 	if desk.send_area.get_overlapping_areas().has($AreaDetector):
 		desk.validate_letter(self)
@@ -57,9 +64,6 @@ func show_feedback(correct: bool):
 		envelope.modulate = Color(1, 0.5, 0.5)
 
 func is_mouse_over() -> bool:
-	if applied_stamp == '' and current_letter_resource.is_suspicious == false:
-		return false
-
 	var local_mouse = to_local(get_global_mouse_position())
 	var rect = shape.shape.get_rect()
 	var detector_pos = $AreaDetector.position + shape.position
@@ -90,18 +94,17 @@ func _on_open_finished():
 	tween.tween_property(envelope, "rotation_degrees", -15.0, 0.4)
 	tween.tween_property(envelope, "modulate:a", 0.6, 0.4)
 
-func apply_mark(stamp_type: String):
+func apply_mark(stamp_type: String, pos: Vector2):
 	if applied_stamp != '':
 		return
 
 	applied_stamp = stamp_type
 	stamp_mark_color.visible = true
+	stamp_mark_color.position = pos - (stamp_mark_color.size / 2)
 
 	if applied_stamp == 'coal':
-		stamp_mark_label.text = '🪨'
 		stamp_mark_color.modulate = Color.RED
 	else:
-		stamp_mark_label.text = '🎁'
 		stamp_mark_color.modulate = Color.GREEN
 		
 	await get_tree().create_timer(0.5).timeout
@@ -114,8 +117,7 @@ func apply_mark(stamp_type: String):
 	await get_tree().create_timer(0.4).timeout
 	
 	background.visible = false
-	text_label.visible = false
 	stamp_mark_color.visible = false
-	stamp_mark_label.visible = false
+	text_label.visible = false
 	
 	envelope.play("close")

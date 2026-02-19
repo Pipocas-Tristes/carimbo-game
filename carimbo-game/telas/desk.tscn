@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://54vcmnecmgu8"]
+[gd_scene load_steps=15 format=3 uid="uid://54vcmnecmgu8"]
 
 [ext_resource type="Script" uid="uid://bdp2b028teqj6" path="res://scripts/desk.gd" id="1_ymn6v"]
 [ext_resource type="PackedScene" uid="uid://dspk63plxgfqx" path="res://prefabs/letter.tscn" id="2_hartd"]
@@ -6,8 +6,11 @@
 [ext_resource type="Resource" uid="uid://lf5jmxsgbnog" path="res://cartinhas/carta_bia.tres" id="4_uqbv2"]
 [ext_resource type="Resource" uid="uid://b1457u6lgqb5x" path="res://cartinhas/carta_sofia.tres" id="5_al7y2"]
 [ext_resource type="Resource" uid="uid://6amtkhjjrbra" path="res://cartinhas/carta_benjamin.tres" id="6_tlwf3"]
-[ext_resource type="Texture2D" uid="uid://bwje532ieouxo" path="res://sprites/desk.png" id="7_84osi"]
+[ext_resource type="Texture2D" uid="uid://cytlldtoi7g72" path="res://sprites/desk2.png" id="7_uqbv2"]
 [ext_resource type="Script" uid="uid://blcf2k4m2sxi7" path="res://prefabs/desk_camera.gd" id="8_vhr0s"]
+[ext_resource type="Script" uid="uid://cycyb2w70fxj3" path="res://scripts/stamp.gd" id="9_al7y2"]
+[ext_resource type="Texture2D" uid="uid://77sgm7p2ykpy" path="res://sprites/Carimbo verde.png" id="11_tlwf3"]
+[ext_resource type="Texture2D" uid="uid://cali5sebygbt" path="res://sprites/Carimbo vermelho.png" id="12_84osi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kblhn"]
 size = Vector2(442, 20)
@@ -15,15 +18,19 @@ size = Vector2(442, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8kjt"]
 size = Vector2(286, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwf3"]
+size = Vector2(91, 100)
+
 [node name="Desk" type="Node2D"]
 script = ExtResource("1_ymn6v")
 letter_scene = ExtResource("2_hartd")
 day_letters = Array[ExtResource("3_4dl0g")]([ExtResource("4_uqbv2"), ExtResource("5_al7y2"), ExtResource("6_tlwf3")])
 
-[node name="Bakcground" type="Sprite2D" parent="."]
-position = Vector2(0.444458, -4.5)
-scale = Vector2(2.213889, 2.213889)
-texture = ExtResource("7_84osi")
+[node name="Bakckground" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-16.000002, 6)
+scale = Vector2(2.3336809, 2.3336806)
+texture = ExtResource("7_uqbv2")
 
 [node name="PileButton" type="Button" parent="."]
 offset_left = -609.55554
@@ -31,20 +38,6 @@ offset_top = -333.50003
 offset_right = -485.55554
 offset_bottom = -302.50003
 text = "Pilha de Cartas"
-
-[node name="GiftStamp" type="Button" parent="."]
-offset_left = 410.44446
-offset_top = 280.49997
-offset_right = 487.44446
-offset_bottom = 311.49997
-text = "Presente"
-
-[node name="CoalStamp" type="Button" parent="."]
-offset_left = 516.44446
-offset_top = 280.49997
-offset_right = 593.44446
-offset_bottom = 311.49997
-text = "Carvão"
 
 [node name="Score" type="Label" parent="."]
 offset_left = 541.44446
@@ -86,9 +79,36 @@ shape = SubResource("RectangleShape2D_e8kjt")
 [node name="DeskCamera" type="Camera2D" parent="."]
 position = Vector2(-0.555542, -0.5000305)
 script = ExtResource("8_vhr0s")
-move_intensity = 40.0
+move_intensity = 60.0
 lerp_speed = 5.0
 
+[node name="GiftStamp" type="Area2D" parent="."]
+position = Vector2(460.99994, 123.999985)
+scale = Vector2(0.6399988, 0.6399988)
+script = ExtResource("9_al7y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="GiftStamp"]
+texture_filter = 1
+texture = ExtResource("11_tlwf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftStamp"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_tlwf3")
+
+[node name="CoalStamp" type="Area2D" parent="."]
+position = Vector2(530.99994, 123.999985)
+scale = Vector2(0.6399988, 0.6399988)
+script = ExtResource("9_al7y2")
+type = "coal"
+
+[node name="Sprite2D" type="Sprite2D" parent="CoalStamp"]
+texture_filter = 1
+texture = ExtResource("12_84osi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoalStamp"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_tlwf3")
+
 [connection signal="pressed" from="PileButton" to="." method="_on_pile_button_pressed"]
-[connection signal="pressed" from="GiftStamp" to="." method="_on_gift_stamp_pressed"]
-[connection signal="pressed" from="CoalStamp" to="." method="_on_coal_stamp_pressed"]
+[connection signal="input_event" from="GiftStamp" to="GiftStamp" method="_on_input_event"]
+[connection signal="input_event" from="CoalStamp" to="CoalStamp" method="_on_input_event"]

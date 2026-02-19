@@ -1,4 +1,5 @@
 extends Node2D
+class_name Desk
 
 @onready var score_label: Label = $Score
 @onready var send_area: Area2D = $SendArea
@@ -21,6 +22,9 @@ var current_letter: Node = null
 var score: int = 0
 var current_letter_correct_stamp: String = ''
 var selected_stamp: String = ''
+
+var held_stamp: Stamp = null
+var held_type: String = ''
 
 func _ready() -> void:
 	pass
@@ -105,11 +109,3 @@ func _on_letter_stashed(res: LetterResource) -> void:
 
 func _on_pile_button_pressed() -> void:	
 	generate_latter()
-
-func _on_gift_stamp_pressed() -> void:
-	if current_letter:
-		current_letter.apply_mark('gift')
-
-func _on_coal_stamp_pressed() -> void:
-	if current_letter:
-		current_letter.apply_mark('coal')
