@@ -1,49 +1,122 @@
-[gd_scene format=3 uid="uid://dspk63plxgfqx"]
+[gd_scene load_steps=9 format=3 uid="uid://dspk63plxgfqx"]
 
 [ext_resource type="Script" uid="uid://cmy6nsk60fo0j" path="res://scripts/letter.gd" id="1_m1y87"]
+[ext_resource type="Texture2D" uid="uid://bkjv73qwu8fd6" path="res://sprites/cartas/envelope_bom_01.png" id="2_gr7t7"]
+[ext_resource type="Texture2D" uid="uid://dy3b8wmxfxwo6" path="res://sprites/cartas/Carta Boa 2.png" id="3_rsyug"]
+[ext_resource type="Texture2D" uid="uid://d1gbtirwkjj0m" path="res://sprites/cartas/Carta Boa 3.png" id="4_gxph1"]
+[ext_resource type="FontFile" uid="uid://v881brefs1b6" path="res://fonts/HomemadeApple-Regular.ttf" id="5_rsyug"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eftyu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gxph1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rsyug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gr7t7")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rsyug")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gr7t7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gr7t7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rsyug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gxph1")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyey2"]
-size = Vector2(230, 300)
+size = Vector2(278, 137)
 
-[node name="Letter" type="Node2D" unique_id=2024549867]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gr7t7"]
+size = Vector2(88.09509, 72.618866)
+
+[node name="Letter" type="Node2D"]
+scale = Vector2(0.84000146, 0.84000146)
 script = ExtResource("1_m1y87")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1852581028]
-offset_right = 230.0
-offset_bottom = 300.0
-pivot_offset = Vector2(115, 150)
+[node name="Envelope" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.3554151, 59.19996)
+scale = Vector2(0.6622219, 0.6622219)
+sprite_frames = SubResource("SpriteFrames_eftyu")
+animation = &"close"
 
-[node name="Text" type="Label" parent="." unique_id=906045400]
-modulate = Color(0, 0, 0, 1)
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -115.0
+offset_top = -150.0
+offset_right = 115.0
+offset_bottom = 150.0
+pivot_offset = Vector2(115, 150)
+color = Color(0.7019608, 0.6666667, 0.6745098, 1)
+
+[node name="Text" type="Label" parent="."]
 texture_filter = 1
-offset_left = 8.000023
-offset_top = 11.000015
-offset_right = 376.9656
-offset_bottom = 34.000015
+offset_left = -99.99983
+offset_top = -139.0
+offset_right = 242.77464
+offset_bottom = -102.54645
 scale = Vector2(0.58, 0.58)
+theme_override_colors/font_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("5_rsyug")
+theme_override_font_sizes/font_size = 13
 text = "teste de texto"
 autowrap_mode = 2
 
-[node name="StampMarkColor" type="ColorRect" parent="." unique_id=888859509]
-visible = false
+[node name="StampMarkColor" type="ColorRect" parent="."]
 modulate = Color(0.4560669, 0.7547455, 0.58278364, 1)
-offset_left = 34.0
-offset_top = 86.0
-offset_right = 103.0
-offset_bottom = 139.0
+offset_left = 34.52375
+offset_top = 92.85698
+offset_right = 82.14272
+offset_bottom = 105.952194
 
-[node name="StampMarkLabel" type="Label" parent="." unique_id=439169230]
-texture_filter = 1
-offset_left = 171.0
-offset_top = 247.0
-offset_right = 198.0
-offset_bottom = 278.0
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="AreaDetectorEnvelope" type="Area2D" parent="."]
+position = Vector2(-113.00001, -130.99998)
 
-[node name="AreaDetector" type="Area2D" parent="." unique_id=467236139]
-position = Vector2(2, 19)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector" unique_id=1485773564]
-position = Vector2(113, 131)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectorEnvelope"]
+position = Vector2(113.00001, 232.49998)
 shape = SubResource("RectangleShape2D_fyey2")
+
+[node name="AreaDetectorStamp" type="Area2D" parent="."]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectorStamp"]
+position = Vector2(57.14274, 99.40455)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_gr7t7")
+debug_color = Color(0.6187054, 0.534455, 0.08102646, 0.41960785)
+
+[node name="TextAux" type="Label" parent="."]
+offset_left = 140.47594
+offset_top = -205.95203
+offset_right = 399.99933
+offset_bottom = 208.33295
+theme_override_font_sizes/font_size = 10
+text = "testes"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="letter_stashed" from="." to="." method="_on_letter_stashed"]
