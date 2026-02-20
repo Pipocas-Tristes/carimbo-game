@@ -26,6 +26,8 @@ var selected_stamp: String = ''
 var held_stamp: Stamp = null
 var held_type: String = ''
 
+var in_focus_mode: bool = false
+
 func _ready() -> void:
 	pass
 

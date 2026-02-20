@@ -17,7 +17,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		var desk: Desk = get_tree().current_scene
 		
 		if not is_held:
-			if desk.held_stamp and desk.held_stamp != self:
+			if desk.held_stamp and desk.held_stamp != self and not desk.in_focus_mode:
 				desk.held_stamp.return_home()
 				
 			pick_up()

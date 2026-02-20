@@ -34,7 +34,7 @@ offset_left = -840.0
 offset_top = 158.0
 offset_right = 867.0
 offset_bottom = 474.0
-color = Color(0.19336796, 0.1491167, 0.10834774, 1)
+color = Color(0.13783813, 0.104056545, 0.073337786, 1)
 
 [node name="DeskBackground" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -80,10 +80,19 @@ offset_bottom = 24.0
 color = Color(1, 1, 1, 0)
 
 [node name="DeskCamera" type="Camera2D" parent="."]
-position = Vector2(-0.555542, -0.5000305)
+position = Vector2(-1, -10)
 script = ExtResource("8_vhr0s")
 move_intensity = 60.0
 lerp_speed = 5.0
+
+[node name="FocusOverlay" type="ColorRect" parent="DeskCamera"]
+visible = false
+z_index = 100
+offset_left = -817.2295
+offset_top = -442.0
+offset_right = 828.6908
+offset_bottom = 502.0
+color = Color(0, 0, 0, 0.8039216)
 
 [node name="GiftStamp" type="Area2D" parent="."]
 position = Vector2(460.99994, 123.999985)
