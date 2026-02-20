@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1x35dq66vxb6" path="res://scripts/tela_config.gd" id="1_22k8j"]
 [ext_resource type="PackedScene" uid="uid://bk64nluu06ids" path="res://prefabs/input_button.tscn" id="2_j78qo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byfl0"]
+[ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_lgoop"]
 
 [node name="tela_config" type="Control" unique_id=229657649]
 layout_mode = 3
@@ -21,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19215687, 0.25882354, 0.29803923, 1)
+color = Color(0.03137255, 0.05490196, 0.07058824, 1)
 
 [node name="margin" type="MarginContainer" parent="." unique_id=892763130]
 layout_mode = 1
@@ -41,35 +40,38 @@ layout_mode = 2
 [node name="TabContainer" type="TabContainer" parent="margin/VBoxContainer" unique_id=931504384]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/tab_separation = 16
-theme_override_styles/panel = SubResource("StyleBoxEmpty_byfl0")
+theme = ExtResource("2_lgoop")
 tab_alignment = 1
 current_tab = 0
 
 [node name="Interface" type="VBoxContainer" parent="margin/VBoxContainer/TabContainer" unique_id=875100870]
 layout_mode = 2
 size_flags_vertical = 4
+theme = ExtResource("2_lgoop")
 alignment = 1
 metadata/_tab_index = 0
 
 [node name="modo" type="OptionButton" parent="margin/VBoxContainer/TabContainer/Interface" unique_id=1812377385]
-custom_minimum_size = Vector2(160, 0)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("2_lgoop")
 action_mode = 1
 
 [node name="resolucao" type="OptionButton" parent="margin/VBoxContainer/TabContainer/Interface" unique_id=908432477]
-custom_minimum_size = Vector2(160, 0)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("2_lgoop")
 action_mode = 1
 
 [node name="aplicar" type="Button" parent="margin/VBoxContainer/TabContainer/Interface" unique_id=769099271]
-custom_minimum_size = Vector2(160, 0)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_lgoop")
 disabled = true
 text = "Aplicar"
 
@@ -77,10 +79,11 @@ text = "Aplicar"
 visible = false
 layout_mode = 2
 size_flags_vertical = 4
+theme = ExtResource("2_lgoop")
 alignment = 1
 metadata/_tab_index = 1
 
-[node name="volume_geral" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Áudio" unique_id=904965155]
+[node name="volume_geral" type="HBoxContainer" parent="margin/VBoxContainer/TabContainer/Áudio" unique_id=842004247]
 layout_mode = 2
 
 [node name="geral_label" type="Label" parent="margin/VBoxContainer/TabContainer/Áudio/volume_geral" unique_id=1927178172]
@@ -93,7 +96,7 @@ custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 value = 100.0
 
-[node name="vol_efeitos_sonoros" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Áudio" unique_id=2037130190]
+[node name="vol_efeitos_sonoros" type="HBoxContainer" parent="margin/VBoxContainer/TabContainer/Áudio" unique_id=1584560172]
 layout_mode = 2
 
 [node name="efeito_label" type="Label" parent="margin/VBoxContainer/TabContainer/Áudio/vol_efeitos_sonoros" unique_id=801860932]
@@ -106,7 +109,7 @@ custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 value = 100.0
 
-[node name="vol_musica" type="HSplitContainer" parent="margin/VBoxContainer/TabContainer/Áudio" unique_id=1874390912]
+[node name="vol_musica" type="HBoxContainer" parent="margin/VBoxContainer/TabContainer/Áudio" unique_id=226640961]
 layout_mode = 2
 
 [node name="musica_label" type="Label" parent="margin/VBoxContainer/TabContainer/Áudio/vol_musica" unique_id=1586063400]
@@ -130,9 +133,10 @@ metadata/_tab_index = 2
 layout_mode = 2
 
 [node name="voltar" type="Button" parent="margin/VBoxContainer" unique_id=465168556]
-custom_minimum_size = Vector2(160, 0)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_lgoop")
 text = "Voltar"
 
 [connection signal="item_selected" from="margin/VBoxContainer/TabContainer/Interface/modo" to="." method="_on_modo_item_selected"]

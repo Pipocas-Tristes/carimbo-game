@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwstta8psu4ph"]
+[gd_scene format=3 uid="uid://bwstta8psu4ph"]
 
 [ext_resource type="Script" uid="uid://c1y1ijhsgmp4o" path="res://scripts/tela_pause.gd" id="1_2qjsy"]
+[ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_x51w4"]
 
-[node name="tela_pause" type="Control"]
+[node name="tela_pause" type="Control" unique_id=1021161383]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,16 +12,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2qjsy")
 
-[node name="fundo" type="ColorRect" parent="."]
+[node name="fundo" type="ColorRect" parent="." unique_id=1532331302]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19215687, 0.25882354, 0.29803923, 1)
+color = Color(0.03137255, 0.05490196, 0.07058824, 1)
 
-[node name="margin" type="MarginContainer" parent="."]
+[node name="margin" type="MarginContainer" parent="." unique_id=59543348]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,26 +33,33 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="margin"]
+[node name="HBoxContainer" type="HBoxContainer" parent="margin" unique_id=2635070]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="margin/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="margin/HBoxContainer" unique_id=586111607]
 layout_mode = 2
 size_flags_vertical = 4
+theme = ExtResource("2_x51w4")
 
-[node name="continuar_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer"]
+[node name="continuar_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=93081384]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme = ExtResource("2_x51w4")
 text = "Continuar
 "
 
-[node name="configurar_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer"]
+[node name="configurar_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=234978979]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme = ExtResource("2_x51w4")
 text = "Configurações"
 
-[node name="salvar_e_sair_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer"]
+[node name="salvar_e_sair_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=1254576957]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme = ExtResource("2_x51w4")
 text = "Salvar e sair"
 
 [connection signal="button_up" from="margin/HBoxContainer/VBoxContainer/continuar_btn" to="." method="_on_continuar_btn_button_up"]

@@ -1,0 +1,141 @@
+[gd_scene load_steps=18 format=3 uid="uid://54vcmnecmgu8"]
+
+[ext_resource type="Script" uid="uid://bdp2b028teqj6" path="res://scripts/desk.gd" id="1_ymn6v"]
+[ext_resource type="PackedScene" uid="uid://dspk63plxgfqx" path="res://prefabs/letter.tscn" id="2_hartd"]
+[ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="3_4dl0g"]
+[ext_resource type="Resource" uid="uid://lf5jmxsgbnog" path="res://cartinhas/carta_bia.tres" id="4_uqbv2"]
+[ext_resource type="Resource" uid="uid://b1457u6lgqb5x" path="res://cartinhas/carta_sofia.tres" id="5_al7y2"]
+[ext_resource type="Resource" uid="uid://6amtkhjjrbra" path="res://cartinhas/carta_benjamin.tres" id="6_tlwf3"]
+[ext_resource type="Texture2D" uid="uid://b0jve56eycuse" path="res://sprites/mesa 5.png" id="7_vhr0s"]
+[ext_resource type="Script" uid="uid://blcf2k4m2sxi7" path="res://prefabs/desk_camera.gd" id="8_vhr0s"]
+[ext_resource type="Script" uid="uid://cycyb2w70fxj3" path="res://scripts/stamp.gd" id="9_al7y2"]
+[ext_resource type="Texture2D" uid="uid://77sgm7p2ykpy" path="res://sprites/Carimbo verde.png" id="11_tlwf3"]
+[ext_resource type="Texture2D" uid="uid://cali5sebygbt" path="res://sprites/Carimbo vermelho.png" id="12_84osi"]
+[ext_resource type="Script" uid="uid://b2xm73et7ncv" path="res://scripts/emotrometro.gd" id="12_vhr0s"]
+[ext_resource type="Texture2D" uid="uid://ckusjyb6oftq4" path="res://sprites/emotrometro/emotrometro_2.png" id="13_vhr0s"]
+[ext_resource type="Texture2D" uid="uid://cyvi8h5e7ofkm" path="res://sprites/emotrometro/emotrometro_seta_2.png" id="14_4qn8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kblhn"]
+size = Vector2(442, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8kjt"]
+size = Vector2(421, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwf3"]
+size = Vector2(91, 100)
+
+[node name="Desk" type="Node2D"]
+script = ExtResource("1_ymn6v")
+letter_scene = ExtResource("2_hartd")
+day_letters = Array[ExtResource("3_4dl0g")]([ExtResource("4_uqbv2"), ExtResource("5_al7y2"), ExtResource("6_tlwf3")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -840.0
+offset_top = 158.0
+offset_right = 867.0
+offset_bottom = 474.0
+color = Color(0.13783813, 0.104056545, 0.073337786, 1)
+
+[node name="DeskBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 18)
+scale = Vector2(2.3336809, 2.3336806)
+texture = ExtResource("7_vhr0s")
+
+[node name="PileButton" type="Button" parent="."]
+offset_left = -609.55554
+offset_top = -333.50003
+offset_right = -485.55554
+offset_bottom = -302.50003
+text = "Pilha de Cartas"
+
+[node name="LetterSpawn" type="Node2D" parent="."]
+position = Vector2(-2, 32)
+
+[node name="SendArea" type="Area2D" parent="."]
+position = Vector2(-23.555542, -299.50003)
+
+[node name="ColorRect" type="ColorRect" parent="SendArea"]
+offset_left = -220.0
+offset_top = -18.0
+offset_right = 220.0
+offset_bottom = 15.0
+color = Color(1, 1, 0.20392157, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SendArea"]
+shape = SubResource("RectangleShape2D_kblhn")
+
+[node name="TashedArea" type="Area2D" parent="."]
+position = Vector2(-350, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TashedArea"]
+position = Vector2(4.5, -2)
+shape = SubResource("RectangleShape2D_e8kjt")
+
+[node name="ColorRect" type="ColorRect" parent="TashedArea"]
+offset_left = -206.0
+offset_top = -29.0
+offset_right = 215.0
+offset_bottom = 24.0
+color = Color(1, 1, 1, 0)
+
+[node name="DeskCamera" type="Camera2D" parent="."]
+position = Vector2(-1, -10)
+script = ExtResource("8_vhr0s")
+move_intensity = 60.0
+lerp_speed = 5.0
+
+[node name="FocusOverlay" type="ColorRect" parent="DeskCamera"]
+visible = false
+z_index = 100
+offset_left = -817.2295
+offset_top = -442.0
+offset_right = 828.6908
+offset_bottom = 502.0
+color = Color(0, 0, 0, 0.8039216)
+
+[node name="GiftStamp" type="Area2D" parent="."]
+position = Vector2(460.99994, 123.999985)
+scale = Vector2(0.6399988, 0.6399988)
+script = ExtResource("9_al7y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="GiftStamp"]
+texture_filter = 1
+texture = ExtResource("11_tlwf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftStamp"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_tlwf3")
+
+[node name="CoalStamp" type="Area2D" parent="."]
+position = Vector2(530.99994, 123.999985)
+scale = Vector2(0.6399988, 0.6399988)
+script = ExtResource("9_al7y2")
+type = "coal"
+
+[node name="Sprite2D" type="Sprite2D" parent="CoalStamp"]
+texture_filter = 1
+texture = ExtResource("12_84osi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoalStamp"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_tlwf3")
+
+[node name="Emotrometro" type="Node2D" parent="."]
+position = Vector2(-3, -169)
+scale = Vector2(0.92000276, 0.92000276)
+script = ExtResource("12_vhr0s")
+
+[node name="Medidor" type="Sprite2D" parent="Emotrometro"]
+scale = Vector2(2.9405394, 2.9405394)
+texture = ExtResource("13_vhr0s")
+
+[node name="Seta" type="Sprite2D" parent="Emotrometro"]
+position = Vector2(0, 72.32142)
+scale = Vector2(2.941, 2.941)
+texture = ExtResource("14_4qn8q")
+offset = Vector2(0, -18.215382)
+
+[connection signal="pressed" from="PileButton" to="." method="_on_pile_button_pressed"]
+[connection signal="input_event" from="GiftStamp" to="GiftStamp" method="_on_input_event"]
+[connection signal="input_event" from="CoalStamp" to="CoalStamp" method="_on_input_event"]
