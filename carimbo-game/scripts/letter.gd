@@ -31,9 +31,12 @@ func _process(_delta: float) -> void:
 	else:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
+func _ready() -> void:
+	current_size = scale
+
 func _input(event: InputEvent) -> void:
 	var desk: Desk = get_tree().current_scene
-	
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			if event.pressed:
@@ -81,7 +84,7 @@ func toggle_focus():
 		
 		var camera_center = camera.global_position
 		
-		tween.tween_property(self, "scale", Vector2(1.5, 1.5), 0.3).set_trans(Tween.TRANS_QUART)
+		tween.tween_property(self, "scale", Vector2(1.3, 1.3), 0.3).set_trans(Tween.TRANS_QUART)
 		tween.tween_property(self, "global_position", camera_center, 0.3)
 		z_index = 101
 
@@ -140,8 +143,6 @@ func is_mouse_over() -> bool:
 		return final_rect.has_point(local_mouse)
 
 func setup_from_resource(res: LetterResource):
-	print(envelope.position)
-	
 	current_letter_resource = res
 	background.visible = false
 	text_label.visible = false
@@ -174,6 +175,13 @@ func apply_mark(stamp_type: String, pos: Vector2):
 	stamp_mark_color.position = pos - (stamp_mark_color.size / 2)
 	stamp_mark_color.position = Vector2(stamp_mark_color.position.x, stamp_mark_color.position.y + 30)
 
+	var mark_tween = create_tween()
+	mark_tween.tween_property(self, "scale", scale * 1.05, 0.05)
+	mark_tween.tween_property(self, "scale", scale, 0.05)
+	
+	if get_tree().current_scene.has_node("DeskCamera"):
+			get_tree().current_scene.get_node("DeskCamera").shake(3.0)
+
 	if applied_stamp == 'coal':
 		stamp_mark_color.modulate = Color.RED
 	else:
@@ -195,3 +203,26 @@ func apply_mark(stamp_type: String, pos: Vector2):
 	text_label.visible = false
 	
 	envelope.play("close")
+
+
+func _on_area_detector_envelope_area_entered(area: Area2D) -> void:
+	var desk: Desk = get_tree().current_scene
+
+	if dragging:
+		if area == desk.send_area and applied_stamp != '':
+			apply_hover_feedback(Color(1.2, 1.2, 0.8), Vector2(0.90, 0.90))
+		elif area == desk.tashed_area:
+			apply_hover_feedback(Color(1.2, 0.8, 1.2), Vector2(0.90, 0.90))
+
+func _on_area_detector_envelope_area_exited(area: Area2D) -> void:
+	var desk: Desk = get_tree().current_scene
+	
+	if area == desk.send_area or area == desk.tashed_area:
+		if not is_focused:
+			apply_hover_feedback(Color(1, 1, 1), current_size)
+	
+func apply_hover_feedback(target_color: Color, target_scale: Vector2):
+	var tween = create_tween()
+	tween.tween_property(self, 'modulate', target_color, 0.1)
+	tween.tween_property(self, "scale", target_scale, 0.1)
+	

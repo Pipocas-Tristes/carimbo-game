@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0jve56eycuse"
-path="res://.godot/imported/mesa 5.png-4a19519bab50b4d43951d0c1b18c09b3.ctex"
+uid="uid://bwje532ieouxo"
+path="res://.godot/imported/desk.png-72c9df8056fc68faaa374340af98987a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mesa 5.png"
-dest_files=["res://.godot/imported/mesa 5.png-4a19519bab50b4d43951d0c1b18c09b3.ctex"]
+source_file="res://sprites/mesa/desk.png"
+dest_files=["res://.godot/imported/desk.png-72c9df8056fc68faaa374340af98987a.ctex"]
 
 [params]
 
