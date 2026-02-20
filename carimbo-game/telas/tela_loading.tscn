@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ck8l2lqfa2r4y"]
+
+[ext_resource type="Script" uid="uid://cqd0b1bcw32ne" path="res://scripts/tela_loading.gd" id="1_cnqog"]
+[ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_jh7ey"]
+
+[node name="tela_loading" type="Control" unique_id=1148747155]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cnqog")
+
+[node name="fundo" type="ColorRect" parent="." unique_id=1249719604]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03137255, 0.05490196, 0.07058824, 1)
+
+[node name="margin" type="MarginContainer" parent="fundo" unique_id=1514177823]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="fundo/margin" unique_id=2066501365]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="fundo/margin/VBoxContainer" unique_id=2036245154]
+layout_mode = 2
+theme = ExtResource("2_jh7ey")

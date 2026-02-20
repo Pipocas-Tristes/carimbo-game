@@ -2,7 +2,7 @@ extends Control
 
 const TELA_CREDITOS: PackedScene = preload("uid://bok2i3ulpkeq8")
 const TELA_CONFIG: PackedScene = preload("uid://ds226ph62jpir")
-const DESK: PackedScene = preload("uid://54vcmnecmgu8")
+const TELA_LOADING: PackedScene = preload("uid://ck8l2lqfa2r4y")
 
 func _ready() -> void:
 	_define_resolucao()
@@ -13,7 +13,9 @@ func _define_resolucao():
 	get_tree().root.mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 
 func _on_novo_jogo_btn_button_up() -> void:
-	get_tree().change_scene_to_packed(DESK)
+	var tela_loading = TELA_LOADING.instantiate()
+	tela_loading.next_scene_path = "res://prefabs/desk.tscn"
+	get_tree().change_scene_to_node(tela_loading)
 
 func _on_configurar_btn_button_up() -> void:
 	var tela_config: Control = TELA_CONFIG.instantiate()

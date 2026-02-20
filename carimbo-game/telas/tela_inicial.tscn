@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfup2bdf5sdnw"]
 
 [ext_resource type="Script" uid="uid://7db7k17i621u" path="res://scripts/tela_inicial.gd" id="1_xs8lk"]
+[ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_6hiqg"]
 
 [node name="tela_inicial" type="Control" unique_id=1136923979]
 layout_mode = 3
@@ -18,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19215687, 0.25882354, 0.29803923, 1)
+color = Color(0.03137255, 0.05490196, 0.07058824, 1)
 
 [node name="margin" type="MarginContainer" parent="." unique_id=124735404]
 layout_mode = 1
@@ -40,22 +41,31 @@ size_flags_vertical = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="margin/HBoxContainer" unique_id=171905427]
 layout_mode = 2
 size_flags_vertical = 4
+theme = ExtResource("2_6hiqg")
 
 [node name="novo_jogo_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=1066986068]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme = ExtResource("2_6hiqg")
 text = "Novo jogo
 "
 
 [node name="configurar_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=151254374]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme = ExtResource("2_6hiqg")
 text = "Configurações"
 
 [node name="creditos_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=86156091]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme = ExtResource("2_6hiqg")
 text = "Créditos"
 
 [node name="sair_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=1907102265]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme = ExtResource("2_6hiqg")
 text = "Sair"
 
 [connection signal="button_up" from="margin/HBoxContainer/VBoxContainer/novo_jogo_btn" to="." method="_on_novo_jogo_btn_button_up"]
