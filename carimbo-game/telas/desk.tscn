@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://54vcmnecmgu8"]
+[gd_scene format=3 uid="uid://54vcmnecmgu8"]
 
 [ext_resource type="Script" uid="uid://bdp2b028teqj6" path="res://scripts/desk.gd" id="1_ymn6v"]
 [ext_resource type="PackedScene" uid="uid://dspk63plxgfqx" path="res://prefabs/letter.tscn" id="2_hartd"]
@@ -24,68 +24,68 @@ size = Vector2(421, 52)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwf3"]
 size = Vector2(91, 100)
 
-[node name="Desk" type="Node2D"]
+[node name="Desk" type="Node2D" unique_id=67741448]
 script = ExtResource("1_ymn6v")
 letter_scene = ExtResource("2_hartd")
 day_letters = Array[ExtResource("3_4dl0g")]([ExtResource("4_uqbv2"), ExtResource("5_al7y2"), ExtResource("6_tlwf3")])
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=116080416]
 offset_left = -840.0
 offset_top = 158.0
 offset_right = 867.0
 offset_bottom = 474.0
 color = Color(0.13783813, 0.104056545, 0.073337786, 1)
 
-[node name="DeskBackground" type="Sprite2D" parent="."]
+[node name="DeskBackground" type="Sprite2D" parent="." unique_id=1370274409]
 texture_filter = 1
 position = Vector2(0, 18)
 scale = Vector2(2.3336809, 2.3336806)
 texture = ExtResource("7_vhr0s")
 
-[node name="PileButton" type="Button" parent="."]
+[node name="PileButton" type="Button" parent="." unique_id=1374522429]
 offset_left = -609.55554
 offset_top = -333.50003
 offset_right = -485.55554
 offset_bottom = -302.50003
 text = "Pilha de Cartas"
 
-[node name="LetterSpawn" type="Node2D" parent="."]
+[node name="LetterSpawn" type="Node2D" parent="." unique_id=663920342]
 position = Vector2(-2, 32)
 
-[node name="SendArea" type="Area2D" parent="."]
+[node name="SendArea" type="Area2D" parent="." unique_id=1524395796]
 position = Vector2(-23.555542, -299.50003)
 
-[node name="ColorRect" type="ColorRect" parent="SendArea"]
+[node name="ColorRect" type="ColorRect" parent="SendArea" unique_id=2059706888]
 offset_left = -220.0
 offset_top = -18.0
 offset_right = 220.0
 offset_bottom = 15.0
 color = Color(1, 1, 0.20392157, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SendArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SendArea" unique_id=1950166342]
 shape = SubResource("RectangleShape2D_kblhn")
 
-[node name="TashedArea" type="Area2D" parent="."]
+[node name="TashedArea" type="Area2D" parent="." unique_id=416167516]
 position = Vector2(-350, 248)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TashedArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TashedArea" unique_id=967730656]
 position = Vector2(4.5, -2)
 shape = SubResource("RectangleShape2D_e8kjt")
 
-[node name="ColorRect" type="ColorRect" parent="TashedArea"]
+[node name="ColorRect" type="ColorRect" parent="TashedArea" unique_id=1930691056]
 offset_left = -206.0
 offset_top = -29.0
 offset_right = 215.0
 offset_bottom = 24.0
 color = Color(1, 1, 1, 0)
 
-[node name="DeskCamera" type="Camera2D" parent="."]
+[node name="DeskCamera" type="Camera2D" parent="." unique_id=713790814]
 position = Vector2(-1, -10)
 script = ExtResource("8_vhr0s")
 move_intensity = 60.0
 lerp_speed = 5.0
 
-[node name="FocusOverlay" type="ColorRect" parent="DeskCamera"]
+[node name="FocusOverlay" type="ColorRect" parent="DeskCamera" unique_id=1699336181]
 visible = false
 z_index = 100
 offset_left = -817.2295
@@ -94,43 +94,43 @@ offset_right = 828.6908
 offset_bottom = 502.0
 color = Color(0, 0, 0, 0.8039216)
 
-[node name="GiftStamp" type="Area2D" parent="."]
+[node name="GiftStamp" type="Area2D" parent="." unique_id=681293885]
 position = Vector2(460.99994, 123.999985)
 scale = Vector2(0.6399988, 0.6399988)
 script = ExtResource("9_al7y2")
 
-[node name="Sprite2D" type="Sprite2D" parent="GiftStamp"]
+[node name="Sprite2D" type="Sprite2D" parent="GiftStamp" unique_id=1830682781]
 texture_filter = 1
 texture = ExtResource("11_tlwf3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftStamp"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GiftStamp" unique_id=1287528108]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_tlwf3")
 
-[node name="CoalStamp" type="Area2D" parent="."]
+[node name="CoalStamp" type="Area2D" parent="." unique_id=883861198]
 position = Vector2(530.99994, 123.999985)
 scale = Vector2(0.6399988, 0.6399988)
 script = ExtResource("9_al7y2")
 type = "coal"
 
-[node name="Sprite2D" type="Sprite2D" parent="CoalStamp"]
+[node name="Sprite2D" type="Sprite2D" parent="CoalStamp" unique_id=1107454571]
 texture_filter = 1
 texture = ExtResource("12_84osi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CoalStamp"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoalStamp" unique_id=988206835]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_tlwf3")
 
-[node name="Emotrometro" type="Node2D" parent="."]
+[node name="Emotrometro" type="Node2D" parent="." unique_id=1060818706]
 position = Vector2(-3, -169)
 scale = Vector2(0.92000276, 0.92000276)
 script = ExtResource("12_vhr0s")
 
-[node name="Medidor" type="Sprite2D" parent="Emotrometro"]
+[node name="Medidor" type="Sprite2D" parent="Emotrometro" unique_id=758292299]
 scale = Vector2(2.9405394, 2.9405394)
 texture = ExtResource("13_vhr0s")
 
-[node name="Seta" type="Sprite2D" parent="Emotrometro"]
+[node name="Seta" type="Sprite2D" parent="Emotrometro" unique_id=1972204683]
 position = Vector2(0, 72.32142)
 scale = Vector2(2.941, 2.941)
 texture = ExtResource("14_4qn8q")

@@ -1,8 +1,8 @@
 extends Control
 
-const TELA_CREDITOS: PackedScene = preload(Constants.DICT_UID_SCENES[Constants.TELA_CREDITOS])
-const TELA_CONFIG: PackedScene = preload(Constants.DICT_UID_SCENES[Constants.TELA_CONFIG])
-const TELA_LOADING: PackedScene = preload(Constants.DICT_UID_SCENES[Constants.TELA_LOADING])
+const TELA_CREDITOS: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_CREDITOS])
+const TELA_CONFIG: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_CONFIG])
+const TELA_LOADING: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_LOADING])
 
 func _ready() -> void:
 	_define_resolucao()
@@ -14,17 +14,17 @@ func _define_resolucao():
 
 func _on_novo_jogo_btn_button_up() -> void:
 	var tela_loading = TELA_LOADING.instantiate()
-	tela_loading.next_scene_uid = Constants.DICT_UID_SCENES[Constants.DESK]
+	tela_loading.next_scene_uid = Constants.UID_SCENES[Constants.DESK]
 	get_tree().change_scene_to_node(tela_loading)
 
 func _on_configurar_btn_button_up() -> void:
-	var tela_config: Control = TELA_CONFIG.instantiate()
+	var tela_config = TELA_CONFIG.instantiate()
 	add_child(tela_config)
 	await tela_config.voltar_pressed
 	tela_config.queue_free()
 
 func _on_creditos_btn_button_up() -> void:
-	var tela_creditos: Control = TELA_CREDITOS.instantiate()
+	var tela_creditos = TELA_CREDITOS.instantiate()
 	add_child(tela_creditos)
 	await tela_creditos.saiu_dos_creditos
 	tela_creditos.queue_free()

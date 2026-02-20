@@ -1,6 +1,8 @@
 extends Node2D
 class_name Desk
 
+const TELA_PAUSE: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_PAUSE])
+
 @onready var send_area: Area2D = $SendArea
 @onready var tashed_area: Area2D = $TashedArea
 @onready var emotrometro: Emotrometro = $Emotrometro
@@ -28,11 +30,18 @@ var held_type: String = ''
 
 var in_focus_mode: bool = false
 
-func _ready() -> void:
-	pass
+func _input(event: InputEvent) -> void:
+	if (event is InputEventKey || (event is InputEventMouseButton && event.pressed)):
+		_mostrar_tela_pause()
 
-func _process(_delta: float) -> void:
-	pass
+func _mostrar_tela_pause():
+	if (Input.is_action_just_released("ui_cancel") and not get_tree().paused):
+		print('pausou')
+		var tela_pause = TELA_PAUSE.instantiate()
+		add_child(tela_pause)
+		get_tree().paused = true
+		await tela_pause.continuar_selected
+		tela_pause.queue_free()
 
 func generate_latter() -> void:
 	if current_letter != null or day_letters.is_empty():
@@ -80,7 +89,7 @@ func check_day_end():
 	
 	if score < -max_errors:
 		game_over()
-		
+
 func end_day():
 	if score >= required_score:
 		print('Dia completo com sucesso')

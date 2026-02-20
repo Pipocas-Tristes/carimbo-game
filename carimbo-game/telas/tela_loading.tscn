@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cqd0b1bcw32ne" path="res://scripts/tela_loading.gd" id="1_cnqog"]
 [ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_jh7ey"]
 
-[node name="tela_loading" type="Control" unique_id=1148747155]
+[node name="tela_loading" type="Control" unique_id=1768607242]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,5 +38,6 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="ProgressBar" type="ProgressBar" parent="fundo/margin/VBoxContainer" unique_id=2036245154]
+process_mode = 3
 layout_mode = 2
 theme = ExtResource("2_jh7ey")

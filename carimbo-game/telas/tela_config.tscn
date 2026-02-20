@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bk64nluu06ids" path="res://prefabs/input_button.tscn" id="2_j78qo"]
 [ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_lgoop"]
 
-[node name="tela_config" type="Control" unique_id=229657649]
+[node name="tela_config" type="Control" unique_id=153636866]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cs7fu3neb7tf" path="res://scripts/tela_creditos.gd" id="1_hcio5"]
 [ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_ia3j1"]
 
-[node name="tela_creditos" type="Control" unique_id=160994473]
+[node name="tela_creditos" type="Control" unique_id=1991189727]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,6 +43,7 @@ text = "Créditos"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="margin/VBoxContainer" unique_id=494142785]
+process_mode = 3
 layout_mode = 2
 theme = ExtResource("2_ia3j1")
 

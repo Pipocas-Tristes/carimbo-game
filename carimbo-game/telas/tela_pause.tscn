@@ -1,19 +1,18 @@
 [gd_scene format=3 uid="uid://bwstta8psu4ph"]
 
 [ext_resource type="Script" uid="uid://c1y1ijhsgmp4o" path="res://scripts/tela_pause.gd" id="1_2qjsy"]
+[ext_resource type="Shader" uid="uid://dlu76fqeihvnc" path="res://shaders/grayscale.gdshader" id="2_3df4y"]
 [ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_x51w4"]
 
-[node name="tela_pause" type="Control" unique_id=1021161383]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x51w4"]
+shader = ExtResource("2_3df4y")
+
+[node name="tela_pause" type="CanvasLayer" unique_id=1078634153]
+process_mode = 3
 script = ExtResource("1_2qjsy")
 
 [node name="fundo" type="ColorRect" parent="." unique_id=1532331302]
-layout_mode = 1
+material = SubResource("ShaderMaterial_x51w4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,7 +21,6 @@ grow_vertical = 2
 color = Color(0.03137255, 0.05490196, 0.07058824, 1)
 
 [node name="margin" type="MarginContainer" parent="." unique_id=59543348]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

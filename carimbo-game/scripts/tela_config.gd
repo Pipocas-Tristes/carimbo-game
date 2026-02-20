@@ -16,14 +16,6 @@ var is_remapping := false
 var acao_para_remap: StringName = ""
 var remap_btn: Button = null
 
-const ACOES_DICT = {
-	"para_cima": "Mover para cima",
-	"para_baixo": "Mover para baixo",
-	"para_esquerda": "Mover para esquerda",
-	"para_direita": "Mover para direita",
-	"interagir": "Interagir",
-}
-
 const RESOLUCAO_DICT = {
 	"640x320" = Vector2i(640, 320),
 	"1280x720" = Vector2i(1280, 720),
@@ -43,7 +35,7 @@ func _process(_delta: float) -> void:
 	if (Input.is_action_pressed("ui_cancel")):
 		voltar_pressed.emit()
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if (event is InputEventKey || (event is InputEventMouseButton && event.pressed)):
 		_atualiza_controles(event)
 
@@ -74,19 +66,21 @@ func _define_controles():
 	for item in controles.get_children():
 		item.queue_free()
 	
-	for acao in ACOES_DICT:
+	for acao in Constants.ACOES_CUSTOM:
+		var acao_text = Constants.ACOES_CUSTOM[acao][Constants.TEXT]
+		var acao_event = Constants.ACOES_CUSTOM[acao][Constants.EVENT]
+		
 		var input_btn = INPUT_BUTTON.instantiate()
 		var acao_lbl = input_btn.find_child("acao_lbl")
 		var input_lbl = input_btn.find_child("input_lbl")
 		
-		acao_lbl.text = ACOES_DICT[acao]
+		acao_lbl.text = acao_text
 		
-		var eventos = InputMap.action_get_events(acao)
-		print(eventos)
+		var eventos = InputMap.action_get_events(acao_event)
 		input_lbl.text = (eventos.get(0) as InputEvent).as_text().trim_suffix(" - Physical") if eventos.get(0) else ""
 		
 		controles.add_child(input_btn)
-		input_btn.pressed.connect(_on_input_button_pressed.bind(input_btn, acao))
+		input_btn.pressed.connect(_on_input_button_pressed.bind(input_btn, acao_event))
 
 func _on_input_button_pressed(input_btn: Button, acao: StringName):
 	if not is_remapping:

@@ -1,12 +1,13 @@
-extends Control
+extends CanvasLayer
 
-signal continuar_opened
+signal continuar_selected
 
-const TELA_CONFIG = preload("uid://ds226ph62jpir")
-const TELA_LOADING = preload("uid://ck8l2lqfa2r4y")
+const TELA_CONFIG: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_CONFIG])
+const TELA_LOADING: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_LOADING])
 
 func _on_continuar_btn_button_up() -> void:
-	continuar_opened.emit()
+	get_tree().paused = false
+	continuar_selected.emit()
 
 func _on_configurar_btn_button_up() -> void:
 	var tela_config: Control = TELA_CONFIG.instantiate()
@@ -15,5 +16,6 @@ func _on_configurar_btn_button_up() -> void:
 	tela_config.queue_free()
 
 func _on_salvar_e_sair_btn_button_up() -> void:
+	get_tree().paused = false
 	var tela_loading = TELA_LOADING.instantiate()
 	get_tree().change_scene_to_node(tela_loading)
