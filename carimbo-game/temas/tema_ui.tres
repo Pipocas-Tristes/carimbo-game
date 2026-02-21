@@ -113,6 +113,7 @@ expand_margin_left = 4.0
 expand_margin_right = 4.0
 
 [resource]
+Button/font_sizes/font_size = 20
 Button/styles/disabled = SubResource("StyleBoxFlat_0gawm")
 Button/styles/hover = SubResource("StyleBoxFlat_x6j7n")
 Button/styles/normal = SubResource("StyleBoxFlat_1yocl")

@@ -1,13 +1,12 @@
 extends Control
 
 @onready var progress_bar: ProgressBar = $fundo/margin/VBoxContainer/ProgressBar
-@export var next_scene_uid: String = "uid://dfup2bdf5sdnw"
+@export var next_scene_uid: String = Constants.UID_SCENES[Constants.TELA_INICIAL]
 
 var progress: Array[float] = []
 
 func _ready() -> void:
 	ResourceLoader.load_threaded_request(next_scene_uid)
-
 
 func _process(_delta: float) -> void:
 	var status = ResourceLoader.load_threaded_get_status(next_scene_uid, progress)

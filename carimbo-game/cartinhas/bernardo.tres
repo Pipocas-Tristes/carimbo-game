@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LetterResource" load_steps=2 format=3 uid="uid://b6s3su2cdlar7"]
+
+[ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_qfof8"]
+
+[resource]
+script = ExtResource("1_qfof8")
+content = "Papai noel desculpa por aquela vez que eu puxei o cabelo da Milena na escola fiquei bravo porque ela me chamou de cara de pastel. Espero que eu não esteja na lista de meninas maus. Te amo papai noel. Quero uma fantasia do homem aranha"
+sender_name = "Bernardo"
+metadata/_custom_type_script = "uid://1oycgv6x3g7y"

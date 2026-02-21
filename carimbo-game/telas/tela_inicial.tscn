@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://7db7k17i621u" path="res://scripts/tela_inicial.gd" id="1_xs8lk"]
 [ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_6hiqg"]
 
-[node name="tela_inicial" type="Control" unique_id=1136923979]
+[node name="tela_inicial" type="Control" unique_id=353792806]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
