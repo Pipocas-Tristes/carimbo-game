@@ -2,7 +2,7 @@ extends Control
 
 signal saiu_dos_creditos
 
-const SPEED := 100.0
+@export var SPEED := 50.0
 var valor_inicial: float
 var tamanho_texto: float
 

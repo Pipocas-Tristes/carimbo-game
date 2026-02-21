@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cs7fu3neb7tf" path="res://scripts/tela_creditos.gd" id="1_hcio5"]
 [ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_ia3j1"]
+[ext_resource type="AudioStream" uid="uid://knjigrxm8wvv" path="res://sons/theme.mp3" id="3_iqxt8"]
 
 [node name="tela_creditos" type="Control" unique_id=1991189727]
 process_mode = 3
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hcio5")
+SPEED = 1.0
 
 [node name="fundo" type="ColorRect" parent="." unique_id=1055793957]
 layout_mode = 1
@@ -87,3 +89,10 @@ text = "Programação:
 - Victor Lazuli
 - Ashfox
 - Neki"
+
+[node name="musica" type="AudioStreamPlayer" parent="." unique_id=1037043044]
+stream = ExtResource("3_iqxt8")
+volume_db = -13.0
+autoplay = true
+bus = &"Música"
+parameters/looping = true
