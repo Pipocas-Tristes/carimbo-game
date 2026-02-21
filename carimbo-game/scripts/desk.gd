@@ -4,6 +4,7 @@ class_name Desk
 @onready var emotrometro: Emotrometro = $Emotrometro
 @onready var send_area: Area2D = $SendArea
 @onready var tashed_area: Area2D = $TashedArea
+const TELA_PAUSE = preload(Constants.UID_SCENES[Constants.TELA_PAUSE])
 
 @export_category("Configurações de Progressão")
 @export var max_letter_day: int = 7
@@ -37,8 +38,17 @@ func _ready() -> void:
 	desk_background.texture = sprite_closed
 	pass
 
-func _process(_delta: float) -> void:
-	pass
+func _input(event: InputEvent) -> void:
+	if (event is InputEventKey || (event is InputEventMouseButton && event.pressed)):
+		_pausar_jogo(event)
+
+func _pausar_jogo(event: InputEvent):
+	if (event.is_action_pressed("ui_cancel") and not get_tree().paused):
+		get_tree().paused = true
+		var tela_pause = TELA_PAUSE.instantiate()
+		add_child(tela_pause)
+		await tela_pause.continuar_selected
+		tela_pause.queue_free()
 
 func generate_latter() -> void:
 	if current_letter != null or day_letters.is_empty():

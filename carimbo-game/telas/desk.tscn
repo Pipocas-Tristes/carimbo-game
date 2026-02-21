@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://54vcmnecmgu8"]
+[gd_scene format=3 uid="uid://54vcmnecmgu8"]
 
 [ext_resource type="Script" uid="uid://bdp2b028teqj6" path="res://scripts/desk.gd" id="1_ymn6v"]
 [ext_resource type="PackedScene" uid="uid://dspk63plxgfqx" path="res://prefabs/letter.tscn" id="2_hartd"]
@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://b6s3su2cdlar7" path="res://cartinhas/bernardo.tres" id="7_nh3ve"]
 [ext_resource type="Resource" uid="uid://ydpc522kwxfo" path="res://cartinhas/lucas.tres" id="8_aqbn0"]
 [ext_resource type="Texture2D" uid="uid://cf3esp8ampjm" path="res://sprites/mesa/desk_open.png" id="8_td716"]
-[ext_resource type="Script" uid="uid://blcf2k4m2sxi7" path="res://scripts/desk_camera.gd" id="8_vhr0s"]
+[ext_resource type="Script" path="res://scripts/desk_camera.gd" id="8_vhr0s"]
 [ext_resource type="Script" uid="uid://cycyb2w70fxj3" path="res://scripts/stamp.gd" id="9_al7y2"]
 [ext_resource type="Texture2D" uid="uid://bas1f0wic0ip2" path="res://sprites/mesa/desk_open_1.png" id="9_n2ide"]
 [ext_resource type="Resource" uid="uid://dlrkc4yluaqe4" path="res://cartinhas/sarah.tres" id="9_pd7vt"]
@@ -65,7 +65,7 @@ metadata/_edit_use_anchors_ = true
 [node name="LetterSpawn" type="Node2D" parent="." unique_id=663920342]
 position = Vector2(-2, 32)
 
-[node name="SendArea" type="Area2D" parent="."]
+[node name="SendArea" type="Area2D" parent="." unique_id=567220927]
 position = Vector2(341, -266)
 
 [node name="ColorRect" type="ColorRect" parent="SendArea" unique_id=2059706888]
@@ -79,14 +79,14 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SendArea" unique_id=1950166342]
 shape = SubResource("RectangleShape2D_kblhn")
 
-[node name="TashedArea" type="Area2D" parent="."]
+[node name="TashedArea" type="Area2D" parent="." unique_id=787536315]
 position = Vector2(-392, 243)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TashedArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TashedArea" unique_id=896602520]
 position = Vector2(1, 68)
 shape = SubResource("RectangleShape2D_e8kjt")
 
-[node name="DeskCamera" type="Camera2D" parent="."]
+[node name="DeskCamera" type="Camera2D" parent="." unique_id=913231446]
 position = Vector2(-1, -37)
 zoom = Vector2(1.07, 1.07)
 script = ExtResource("8_vhr0s")
@@ -144,9 +144,9 @@ scale = Vector2(2.941, 2.941)
 texture = ExtResource("14_4qn8q")
 offset = Vector2(0, -18.215382)
 
-[node name="DeskDecorations" type="Node2D" parent="."]
+[node name="DeskDecorations" type="Node2D" parent="." unique_id=394054441]
 
-[node name="ComidaMesaTeste" type="Sprite2D" parent="DeskDecorations"]
+[node name="ComidaMesaTeste" type="Sprite2D" parent="DeskDecorations" unique_id=443997445]
 position = Vector2(-394, -178.99998)
 scale = Vector2(1.3943661, 1.394366)
 texture = ExtResource("15_4qn8q")
