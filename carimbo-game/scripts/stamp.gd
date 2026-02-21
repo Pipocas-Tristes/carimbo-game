@@ -5,8 +5,11 @@ class_name Stamp
 var initial_position: Vector2
 var is_held: bool = false
 
+var current_scale: Vector2
+
 func _ready() -> void:
 	initial_position = position
+	current_scale = scale
 
 func _process(delta: float) -> void:
 	if is_held:
@@ -41,3 +44,16 @@ func return_home():
 		
 	var tween = create_tween()
 	tween.tween_property(self, "position", initial_position, 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", current_scale, 0.3)
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.name == 'AreaDetectorStamp':
+		var tween = create_tween()
+		tween.tween_property(self, "scale", current_scale * 1.05, 0.1)
+		modulate = Color(1.2, 1.2, 1.2)
+
+func _on_area_exited(area: Area2D) -> void:
+	if area.name == 'AreaDetectorStamp':
+		var tween = create_tween()
+		tween.tween_property(self, "scale", current_scale, 0.1)
+		modulate = Color(1, 1, 1)

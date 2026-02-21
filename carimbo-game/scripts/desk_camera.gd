@@ -4,9 +4,13 @@ extends Camera2D
 @export var move_intensity: float = 20.0
 @export var lerp_speed: float = 2.0
 var initial_position: Vector2
+var shake_intensity: float = 0.0
 
 func _ready() -> void:
 	initial_position = position
+
+func shake(intensity: float):
+	shake_intensity = intensity
 
 func _process(delta: float) -> void:
 	var desk: Desk = get_tree().current_scene
@@ -24,3 +28,9 @@ func _process(delta: float) -> void:
 	var target_pos = center_offset * move_intensity
 	
 	position = position.lerp(target_pos, delta * lerp_speed)
+
+	if shake_intensity > 0:
+		offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * shake_intensity
+		shake_intensity = lerp(shake_intensity, 0.0, delta * 10.0)
+	else:
+		offset = Vector2.ZERO

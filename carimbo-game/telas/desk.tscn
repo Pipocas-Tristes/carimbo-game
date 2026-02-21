@@ -1,25 +1,33 @@
-[gd_scene format=3 uid="uid://54vcmnecmgu8"]
+[gd_scene load_steps=26 format=3 uid="uid://54vcmnecmgu8"]
 
 [ext_resource type="Script" uid="uid://bdp2b028teqj6" path="res://scripts/desk.gd" id="1_ymn6v"]
 [ext_resource type="PackedScene" uid="uid://dspk63plxgfqx" path="res://prefabs/letter.tscn" id="2_hartd"]
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="3_4dl0g"]
-[ext_resource type="Resource" uid="uid://lf5jmxsgbnog" path="res://cartinhas/carta_bia.tres" id="4_uqbv2"]
-[ext_resource type="Resource" uid="uid://b1457u6lgqb5x" path="res://cartinhas/carta_sofia.tres" id="5_al7y2"]
-[ext_resource type="Resource" uid="uid://6amtkhjjrbra" path="res://cartinhas/carta_benjamin.tres" id="6_tlwf3"]
-[ext_resource type="Texture2D" uid="uid://b0jve56eycuse" path="res://sprites/mesa 5.png" id="7_vhr0s"]
-[ext_resource type="Script" uid="uid://blcf2k4m2sxi7" path="res://prefabs/desk_camera.gd" id="8_vhr0s"]
+[ext_resource type="Resource" uid="uid://lf5jmxsgbnog" path="res://cartinhas/bia.tres" id="4_uqbv2"]
+[ext_resource type="Resource" uid="uid://b1457u6lgqb5x" path="res://cartinhas/sofia.tres" id="5_al7y2"]
+[ext_resource type="Resource" uid="uid://6amtkhjjrbra" path="res://cartinhas/benjamin.tres" id="6_tlwf3"]
+[ext_resource type="Texture2D" uid="uid://cw36romrmsf32" path="res://sprites/mesa/desk_closed.png" id="7_4qn8q"]
+[ext_resource type="Resource" uid="uid://b6s3su2cdlar7" path="res://cartinhas/bernardo.tres" id="7_nh3ve"]
+[ext_resource type="Resource" uid="uid://ydpc522kwxfo" path="res://cartinhas/lucas.tres" id="8_aqbn0"]
+[ext_resource type="Texture2D" uid="uid://cf3esp8ampjm" path="res://sprites/mesa/desk_open.png" id="8_td716"]
+[ext_resource type="Script" uid="uid://blcf2k4m2sxi7" path="res://scripts/desk_camera.gd" id="8_vhr0s"]
 [ext_resource type="Script" uid="uid://cycyb2w70fxj3" path="res://scripts/stamp.gd" id="9_al7y2"]
+[ext_resource type="Texture2D" uid="uid://bas1f0wic0ip2" path="res://sprites/mesa/desk_open_1.png" id="9_n2ide"]
+[ext_resource type="Resource" uid="uid://dlrkc4yluaqe4" path="res://cartinhas/sarah.tres" id="9_pd7vt"]
+[ext_resource type="Texture2D" uid="uid://dn7d2xd28152b" path="res://sprites/mesa/desk_open_3.png" id="10_2eu0q"]
+[ext_resource type="Texture2D" uid="uid://yyql1vkuhtbe" path="res://sprites/mesa/desk_open_5.png" id="11_ep57s"]
 [ext_resource type="Texture2D" uid="uid://77sgm7p2ykpy" path="res://sprites/Carimbo verde.png" id="11_tlwf3"]
 [ext_resource type="Texture2D" uid="uid://cali5sebygbt" path="res://sprites/Carimbo vermelho.png" id="12_84osi"]
 [ext_resource type="Script" uid="uid://b2xm73et7ncv" path="res://scripts/emotrometro.gd" id="12_vhr0s"]
 [ext_resource type="Texture2D" uid="uid://ckusjyb6oftq4" path="res://sprites/emotrometro/emotrometro_2.png" id="13_vhr0s"]
 [ext_resource type="Texture2D" uid="uid://cyvi8h5e7ofkm" path="res://sprites/emotrometro/emotrometro_seta_2.png" id="14_4qn8q"]
+[ext_resource type="Texture2D" uid="uid://b1d8ljq334d2f" path="res://sprites/comida mesa  teste.png" id="15_4qn8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kblhn"]
 size = Vector2(442, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8kjt"]
-size = Vector2(421, 52)
+size = Vector2(432, 186)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwf3"]
 size = Vector2(91, 100)
@@ -28,7 +36,9 @@ size = Vector2(91, 100)
 position = Vector2(4, 2)
 script = ExtResource("1_ymn6v")
 letter_scene = ExtResource("2_hartd")
-day_letters = Array[ExtResource("3_4dl0g")]([ExtResource("4_uqbv2"), ExtResource("5_al7y2"), ExtResource("6_tlwf3")])
+day_letters = Array[ExtResource("3_4dl0g")]([ExtResource("4_uqbv2"), ExtResource("5_al7y2"), ExtResource("6_tlwf3"), ExtResource("7_nh3ve"), ExtResource("8_aqbn0"), ExtResource("9_pd7vt")])
+sprite_closed = ExtResource("7_4qn8q")
+sprites = Array[Texture]([ExtResource("8_td716"), ExtResource("9_n2ide"), ExtResource("10_2eu0q"), ExtResource("11_ep57s")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=116080416]
 offset_left = -840.0
@@ -42,7 +52,7 @@ metadata/_edit_use_anchors_ = true
 texture_filter = 1
 position = Vector2(0, 18)
 scale = Vector2(2.3336809, 2.3336806)
-texture = ExtResource("7_vhr0s")
+texture = ExtResource("7_4qn8q")
 
 [node name="PileButton" type="Button" parent="." unique_id=1374522429]
 offset_left = -609.55554
@@ -55,8 +65,8 @@ metadata/_edit_use_anchors_ = true
 [node name="LetterSpawn" type="Node2D" parent="." unique_id=663920342]
 position = Vector2(-2, 32)
 
-[node name="SendArea" type="Area2D" parent="." unique_id=1524395796]
-position = Vector2(-23.555542, -299.50003)
+[node name="SendArea" type="Area2D" parent="."]
+position = Vector2(341, -266)
 
 [node name="ColorRect" type="ColorRect" parent="SendArea" unique_id=2059706888]
 offset_left = -220.0
@@ -69,23 +79,16 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SendArea" unique_id=1950166342]
 shape = SubResource("RectangleShape2D_kblhn")
 
-[node name="TashedArea" type="Area2D" parent="." unique_id=416167516]
-position = Vector2(-350, 248)
+[node name="TashedArea" type="Area2D" parent="."]
+position = Vector2(-392, 243)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TashedArea" unique_id=967730656]
-position = Vector2(4.5, -2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TashedArea"]
+position = Vector2(1, 68)
 shape = SubResource("RectangleShape2D_e8kjt")
 
-[node name="ColorRect" type="ColorRect" parent="TashedArea" unique_id=1930691056]
-offset_left = -206.0
-offset_top = -29.0
-offset_right = 215.0
-offset_bottom = 24.0
-color = Color(1, 1, 1, 0)
-metadata/_edit_use_anchors_ = true
-
-[node name="DeskCamera" type="Camera2D" parent="." unique_id=713790814]
-position = Vector2(-1, -10)
+[node name="DeskCamera" type="Camera2D" parent="."]
+position = Vector2(-1, -37)
+zoom = Vector2(1.07, 1.07)
 script = ExtResource("8_vhr0s")
 move_intensity = 60.0
 lerp_speed = 5.0
@@ -141,6 +144,19 @@ scale = Vector2(2.941, 2.941)
 texture = ExtResource("14_4qn8q")
 offset = Vector2(0, -18.215382)
 
+[node name="DeskDecorations" type="Node2D" parent="."]
+
+[node name="ComidaMesaTeste" type="Sprite2D" parent="DeskDecorations"]
+position = Vector2(-394, -178.99998)
+scale = Vector2(1.3943661, 1.394366)
+texture = ExtResource("15_4qn8q")
+
 [connection signal="pressed" from="PileButton" to="." method="_on_pile_button_pressed"]
+[connection signal="area_entered" from="TashedArea" to="." method="_on_tashed_area_area_entered"]
+[connection signal="area_exited" from="TashedArea" to="." method="_on_tashed_area_area_exited"]
+[connection signal="area_entered" from="GiftStamp" to="GiftStamp" method="_on_area_entered"]
+[connection signal="area_exited" from="GiftStamp" to="GiftStamp" method="_on_area_exited"]
 [connection signal="input_event" from="GiftStamp" to="GiftStamp" method="_on_input_event"]
+[connection signal="area_entered" from="CoalStamp" to="CoalStamp" method="_on_area_entered"]
+[connection signal="area_exited" from="CoalStamp" to="CoalStamp" method="_on_area_exited"]
 [connection signal="input_event" from="CoalStamp" to="CoalStamp" method="_on_input_event"]

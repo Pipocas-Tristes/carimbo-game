@@ -1,11 +1,9 @@
 extends Node2D
 class_name Desk
 
-const TELA_PAUSE: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_PAUSE])
-
+@onready var emotrometro: Emotrometro = $Emotrometro
 @onready var send_area: Area2D = $SendArea
 @onready var tashed_area: Area2D = $TashedArea
-@onready var emotrometro: Emotrometro = $Emotrometro
 
 @export_category("Configurações de Progressão")
 @export var max_letter_day: int = 7
@@ -14,12 +12,17 @@ var day: int = 1
 var letters_processed: int = 0
 var max_errors: int = 2
 var suspicious_pile: Array[LetterResource]
+var suspicious_tashed: int = 0
 
 @export_category('Configuração de Cena')
 @export var letter_scene: PackedScene = null
 @export var day_letters: Array[LetterResource] = []
 var current_letter_resource: LetterResource = null
 var current_letter: Node = null
+
+@onready var desk_background: Sprite2D = $DeskBackground
+@export var sprite_closed: Texture
+@export var sprites: Array[Texture] = []
 
 var score: int = 0
 var current_letter_correct_stamp: String = ''
@@ -30,18 +33,12 @@ var held_type: String = ''
 
 var in_focus_mode: bool = false
 
-func _input(event: InputEvent) -> void:
-	if (event is InputEventKey || (event is InputEventMouseButton && event.pressed)):
-		_mostrar_tela_pause()
+func _ready() -> void:
+	desk_background.texture = sprite_closed
+	pass
 
-func _mostrar_tela_pause():
-	if (Input.is_action_just_released("ui_cancel") and not get_tree().paused):
-		print('pausou')
-		var tela_pause = TELA_PAUSE.instantiate()
-		add_child(tela_pause)
-		get_tree().paused = true
-		await tela_pause.continuar_selected
-		tela_pause.queue_free()
+func _process(_delta: float) -> void:
+	pass
 
 func generate_latter() -> void:
 	if current_letter != null or day_letters.is_empty():
@@ -55,10 +52,12 @@ func generate_latter() -> void:
 	current_letter.letter_stashed.connect(_on_letter_stashed)
 	current_letter.setup_from_resource(current_letter_resource)
 
-func score_upadte(value: int):
+func score_update(value: int):
 	score += value
 	emotrometro.update_emot(score)
-	print(score)
+	
+	if value < 0:
+		$DeskCamera.shake(2.0)
 
 func validate_letter(letter):
 	if letter.applied_stamp == '':
@@ -67,9 +66,9 @@ func validate_letter(letter):
 	var correct = letter.applied_stamp == letter.correct_stamp
 	
 	if correct:
-		score_upadte(1)
+		score_update(1)
 	else:
-		score_upadte(-1)
+		score_update(-1)
 	
 	letter.show_feedback(correct)
 	
@@ -80,8 +79,6 @@ func validate_letter(letter):
 	
 	letters_processed += 1
 	check_day_end()
-	
-	print(str(letters_processed) + ' | ' + str(max_letter_day))
 
 func check_day_end():
 	if letters_processed >= max_letter_day:
@@ -92,31 +89,43 @@ func check_day_end():
 
 func end_day():
 	if score >= required_score:
-		print('Dia completo com sucesso')
 		next_day()
 	else:
-		print('Falhou no dia...')
 		game_over()
 
 func next_day():
 	day += 1
 	letters_processed = 0
-	score_upadte(0)
+	score_update(0)
 	required_score += 2
 	max_letter_day += 3
-	
-	print('Começando dia ', str(day))
-	
+
 func game_over():
-	print("Game Over")
 	day = 0
 
 func _on_letter_stashed(res: LetterResource) -> void:
 	if res.is_suspicious:
 		suspicious_pile.append(res)
-		print("Você guardou uma prova! Total: ", suspicious_pile.size())
 	else:
-		score_upadte(-2)
+		score_update(-2)
+		
+	suspicious_tashed += 1
 
 func _on_pile_button_pressed() -> void:	
 	generate_latter()
+
+
+func _on_tashed_area_area_entered(area: Area2D) -> void:
+	if area.name == "AreaDetectorEnvelope" and not in_focus_mode:
+		if suspicious_tashed == 0:
+			desk_background.texture = sprites[0]
+		elif suspicious_tashed >= 1 and suspicious_tashed < 3:
+			desk_background.texture = sprites[1]
+		elif suspicious_tashed >= 3 and suspicious_tashed < 5:
+			desk_background.texture = sprites[2]
+		elif suspicious_tashed >= 5:
+			desk_background.texture = sprites[3]
+
+func _on_tashed_area_area_exited(area: Area2D) -> void:
+	if area.name == "AreaDetectorEnvelope":
+		desk_background.texture = sprite_closed
