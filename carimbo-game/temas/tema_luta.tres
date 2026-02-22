@@ -1,0 +1,65 @@
+[gd_resource type="Theme" format=3 uid="uid://fu8qrhvagooh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m72j5"]
+bg_color = Color(0.03839711, 0.038397186, 0.038397126, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an6bg"]
+bg_color = Color(0.23392534, 0.23392552, 0.23392531, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3w7s"]
+bg_color = Color(0.3069225, 0.30692276, 0.30692258, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj2w0"]
+bg_color = Color(0.11119685, 0.11119685, 0.11119678, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esjt6"]
+bg_color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fj2w0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2bt1"]
+bg_color = Color(0.03137255, 0.05490196, 0.07058824, 1)
+border_width_left = 64
+border_width_right = 64
+border_color = Color(0.03137255, 0.05490196, 0.07058824, 1)
+corner_radius_top_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m72j5"]
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/styles/disabled = SubResource("StyleBoxFlat_m72j5")
+Button/styles/focus = SubResource("StyleBoxFlat_an6bg")
+Button/styles/hover = SubResource("StyleBoxFlat_i3w7s")
+Button/styles/normal = SubResource("StyleBoxFlat_fj2w0")
+Button/styles/pressed = SubResource("StyleBoxFlat_esjt6")
+HBoxContainer/constants/separation = 12
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_fj2w0")
+MarginContainer/constants/margin_bottom = 32
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 32
+TabBar/font_sizes/font_size = 24
+TabBar/styles/tab_disabled = SubResource("StyleBoxFlat_b2bt1")
+VBoxContainer/constants/separation = 12
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_m72j5")

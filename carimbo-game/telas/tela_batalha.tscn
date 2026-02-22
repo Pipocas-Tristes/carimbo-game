@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://clk1ysjnbyd46"]
+
+[ext_resource type="Theme" uid="uid://fu8qrhvagooh" path="res://temas/tema_luta.tres" id="1_b2bt1"]
+[ext_resource type="Script" uid="uid://orhol8hq7ghi" path="res://scripts/tela_batalha.gd" id="1_qye0f"]
+
+[sub_resource type="Gradient" id="Gradient_qye0f"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8lpjt"]
+gradient = SubResource("Gradient_qye0f")
+width = 500
+height = 40
+
+[sub_resource type="Gradient" id="Gradient_ohd61"]
+colors = PackedColorArray(0.39216658, 0.071371354, 0.12379106, 1, 0.39216658, 0.071371354, 0.12379106, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1tuhd"]
+gradient = SubResource("Gradient_ohd61")
+width = 500
+height = 40
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qye0f"]
+gradient = SubResource("Gradient_qye0f")
+width = 300
+height = 20
+
+[sub_resource type="Gradient" id="Gradient_8lpjt"]
+colors = PackedColorArray(0.17287493, 0.6063083, 0.32545218, 1, 0.21268156, 0.54050535, 0.28984854, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ohd61"]
+gradient = SubResource("Gradient_8lpjt")
+width = 300
+height = 20
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m3qx2"]
+gradient = SubResource("Gradient_qye0f")
+width = 300
+height = 20
+
+[sub_resource type="Gradient" id="Gradient_qd7v7"]
+colors = PackedColorArray(0.58431375, 0.4627451, 0.12156863, 1, 0.58431375, 0.4627451, 0.12156863, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_onv2h"]
+gradient = SubResource("Gradient_qd7v7")
+width = 300
+height = 20
+
+[node name="tela_batalha" type="CanvasLayer" unique_id=548392996]
+script = ExtResource("1_qye0f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=290406989]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+alignment = 2
+
+[node name="inimigo_lbl" type="Label" parent="VBoxContainer" unique_id=87029761]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "El Papa Noel"
+
+[node name="vida_inimigo_bar" type="TextureProgressBar" parent="VBoxContainer" unique_id=1117012829]
+layout_mode = 2
+size_flags_horizontal = 4
+value = 30.0
+texture_under = SubResource("GradientTexture2D_8lpjt")
+texture_progress = SubResource("GradientTexture2D_1tuhd")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1151670520]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_b2bt1")
+
+[node name="status" type="ColorRect" parent="VBoxContainer" unique_id=1650428928]
+custom_minimum_size = Vector2(364, 186)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.34117648)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/status" unique_id=1043809956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b2bt1")
+
+[node name="status" type="VBoxContainer" parent="VBoxContainer/status/MarginContainer" unique_id=1782788336]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="vida_lbl" type="Label" parent="VBoxContainer/status/MarginContainer/status" unique_id=560329284]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Vida"
+
+[node name="vida_player_bar" type="TextureProgressBar" parent="VBoxContainer/status/MarginContainer/status" unique_id=1713820625]
+layout_mode = 2
+size_flags_horizontal = 0
+value = 25.0
+texture_under = SubResource("GradientTexture2D_qye0f")
+texture_progress = SubResource("GradientTexture2D_ohd61")
+
+[node name="energia_lbl" type="Label" parent="VBoxContainer/status/MarginContainer/status" unique_id=536068097]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Energia"
+
+[node name="energia_player_bar" type="TextureProgressBar" parent="VBoxContainer/status/MarginContainer/status" unique_id=1221846839]
+layout_mode = 2
+size_flags_horizontal = 0
+value = 70.0
+texture_under = SubResource("GradientTexture2D_m3qx2")
+texture_progress = SubResource("GradientTexture2D_onv2h")
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=2108248476]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_b2bt1")
+
+[node name="turno" type="TabBar" parent="VBoxContainer" unique_id=273915159]
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+current_tab = 0
+tab_alignment = 2
+tab_count = 1
+tab_0/title = "Seu turno"
+tab_0/disabled = true
+
+[node name="fundo" type="ColorRect" parent="VBoxContainer" unique_id=1180947763]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+color = Color(0.03137255, 0.05490196, 0.07058824, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/fundo" unique_id=1468697429]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b2bt1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/fundo/MarginContainer" unique_id=250892991]
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/fundo/MarginContainer/HBoxContainer" unique_id=1452249035]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_b2bt1")
+alignment = 1
+
+[node name="vida_btn" type="Button" parent="VBoxContainer/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1897716194]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+text = "Comer Sanduiche
+(0 dano / +10 vida)"
+
+[node name="ataque_btn" type="Button" parent="VBoxContainer/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=894821264]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+text = "Denunciar assédio moral
+(25 dano / -25 energia)"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/fundo/MarginContainer/HBoxContainer" unique_id=596443431]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_b2bt1")
+alignment = 1
+
+[node name="energia_btn" type="Button" parent="VBoxContainer/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=2094127800]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+text = "Tomar Refri
+(0 dano / +10 energia)"
+
+[node name="especial_btn" type="Button" parent="VBoxContainer/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1155171163]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+text = "Citar o ECA
+(100 dano/ -100 energia)"
+
+[connection signal="pressed" from="VBoxContainer/fundo/MarginContainer/HBoxContainer/VBoxContainer/vida_btn" to="." method="_on_vida_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/fundo/MarginContainer/HBoxContainer/VBoxContainer/ataque_btn" to="." method="_on_ataque_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/fundo/MarginContainer/HBoxContainer/VBoxContainer2/energia_btn" to="." method="_on_energia_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/fundo/MarginContainer/HBoxContainer/VBoxContainer2/especial_btn" to="." method="_on_especial_btn_pressed"]

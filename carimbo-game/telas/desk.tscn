@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://b6s3su2cdlar7" path="res://cartinhas/bernardo.tres" id="7_nh3ve"]
 [ext_resource type="Resource" uid="uid://ydpc522kwxfo" path="res://cartinhas/lucas.tres" id="8_aqbn0"]
 [ext_resource type="Texture2D" uid="uid://cf3esp8ampjm" path="res://sprites/mesa/desk_open.png" id="8_td716"]
-[ext_resource type="Script" path="res://scripts/desk_camera.gd" id="8_vhr0s"]
+[ext_resource type="Script" uid="uid://blcf2k4m2sxi7" path="res://scripts/desk_camera.gd" id="8_vhr0s"]
 [ext_resource type="Script" uid="uid://cycyb2w70fxj3" path="res://scripts/stamp.gd" id="9_al7y2"]
 [ext_resource type="Texture2D" uid="uid://bas1f0wic0ip2" path="res://sprites/mesa/desk_open_1.png" id="9_n2ide"]
 [ext_resource type="Resource" uid="uid://dlrkc4yluaqe4" path="res://cartinhas/sarah.tres" id="9_pd7vt"]
