@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ji0fgryf6u3f"]
+
+[ext_resource type="Script" uid="uid://boplucjt2sioq" path="res://scripts/intro_scene.gd" id="1_bw1x2"]
+[ext_resource type="AudioStream" uid="uid://chkxsngrotf6l" path="res://sons/stamp_fx_2.wav" id="1_sjow0"]
+[ext_resource type="PackedScene" uid="uid://54vcmnecmgu8" path="res://telas/desk.tscn" id="2_5q3ek"]
+[ext_resource type="FontFile" uid="uid://chnx81mwq17x0" path="res://fonts/VT323-Regular.ttf" id="3_of2if"]
+[ext_resource type="AudioStream" uid="uid://dvgvd33s3lu8y" path="res://sons/white_noise.mp3" id="4_5q3ek"]
+
+[node name="IntroScene" type="Control" unique_id=1310052180]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bw1x2")
+scene = ExtResource("2_5q3ek")
+
+[node name="Background" type="ColorRect" parent="." unique_id=345525077]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -22.0
+offset_right = 1298.0
+offset_bottom = 742.0
+color = Color(0.043137256, 0.043137256, 0.043137256, 1)
+
+[node name="Subtitle" type="Label" parent="." unique_id=380057783]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(640, 12)
+theme_override_fonts/font = ExtResource("3_of2if")
+theme_override_font_sizes/font_size = 20
+text = "Texto de teste"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=333295150]
+stream = ExtResource("1_sjow0")
+volume_db = 24.0
+bus = &"Efeitos sonoros"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=681082436]
+stream = ExtResource("4_5q3ek")
+volume_db = -5.0
+parameters/looping = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1d8ljq334d2f"
-path="res://.godot/imported/comida mesa  teste.png-b2e287f65804a04088039be0199cf1e2.ctex"
+uid="uid://k7s8ucuwwur7"
+path="res://.godot/imported/Carta 1 - Bia, 8 anos.png-827aa03f59180c0a43864d490d054838.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/comida mesa  teste.png"
-dest_files=["res://.godot/imported/comida mesa  teste.png-b2e287f65804a04088039be0199cf1e2.ctex"]
+source_file="res://sprites/desenhos cartas/Carta 1 - Bia, 8 anos.png"
+dest_files=["res://.godot/imported/Carta 1 - Bia, 8 anos.png-827aa03f59180c0a43864d490d054838.ctex"]
 
 [params]
 

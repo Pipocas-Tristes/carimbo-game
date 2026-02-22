@@ -26,6 +26,9 @@ buses/default_bus_layout="uid://jgc3pjccottf"
 [autoload]
 
 Constants="*uid://biwmf6e76utep"
+GameManager="*uid://bpqfwkjylpo4p"
+EventManager="*uid://cq0bqm873ntfn"
+DialogueManager="*uid://cteb5unnlf8nk"
 
 [display]
 

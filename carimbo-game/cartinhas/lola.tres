@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://bhmv8vyopgcoh"]
+
+[ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_k8c1d"]
+[ext_resource type="Texture2D" uid="uid://bn5rlpweiy7fm" path="res://sprites/desenhos cartas/Carta 10 - Lola, 9 anos_.png" id="2_12jig"]
+
+[resource]
+script = ExtResource("1_k8c1d")
+content = "Papai Noel, espero por você mais um ano ! deixei leite e biscoitos (com gotas de chocolate) perto da lareira. Tenho sido uma boa menina e sempre ajudo papai e mamãe com as tarefas de casa e vou muito bem na escola. Sou muito grata por ter uma casa confortável e muitos brinquedos, mas tem algo que eu gostaria muito neste natal: um cachorrinho.
+Com amor, Lola"
+texture = ExtResource("2_12jig")
+sender_name = "Lola"
+metadata/_custom_type_script = "uid://1oycgv6x3g7y"
