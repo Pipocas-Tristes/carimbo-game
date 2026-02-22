@@ -75,7 +75,7 @@ desk_letter_scene = ExtResource("10_8vdsp")
 sprite_closed = ExtResource("7_4qn8q")
 sprites = Array[Texture]([ExtResource("8_td716"), ExtResource("9_n2ide"), ExtResource("10_2eu0q"), ExtResource("11_ep57s")])
 
-[node name="Mesa8Chão" type="Sprite2D" parent="." unique_id=1643320816]
+[node name="MesaChão" type="Sprite2D" parent="." unique_id=1643320816]
 position = Vector2(-2.670288e-05, 17.999985)
 scale = Vector2(2.334375, 2.3333333)
 texture = ExtResource("15_n48kf")

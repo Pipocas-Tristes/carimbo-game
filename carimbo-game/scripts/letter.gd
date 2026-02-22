@@ -25,6 +25,8 @@ var in_transition: bool = false
 @onready var text_aux: Label = $TextAux
 @onready var stamp_mark: Sprite2D = $StampMark
 
+var type_sprite: String = 'boa'
+
 signal letter_stashed(res: LetterResource)
 
 func _process(_delta: float) -> void:
@@ -34,7 +36,6 @@ func _process(_delta: float) -> void:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 func _ready() -> void:
-	envelope.play("idle_close")
 	current_size = scale
 
 func _input(event: InputEvent) -> void:
@@ -150,6 +151,9 @@ func is_mouse_over() -> bool:
 func setup_from_resource(res: LetterResource, pos: Vector2):
 	area_detector_stamp.monitoring = false
 	current_letter_resource = res
+	if current_letter_resource.is_suspicious:
+		type_sprite = 'ruim'
+	envelope.play("idle_close_" + type_sprite)
 	background.visible = false
 	text_label.visible = false
 	stamp_mark.visible = false
@@ -160,7 +164,7 @@ func setup_from_resource(res: LetterResource, pos: Vector2):
 	var tween = create_tween()
 	await tween.tween_property(self, "global_position", pos, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).finished
 
-	envelope.play("open")
+	envelope.play("open_" + type_sprite)
 	envelope.animation_finished.connect(_on_open_finished, CONNECT_ONE_SHOT)
 
 func _on_open_finished():
@@ -173,7 +177,7 @@ func _on_open_finished():
 	desenho.visible = true
 	area_detector_stamp.monitoring = true
 
-	envelope.play("idle_open")
+	envelope.play("idle_open_" + type_sprite)
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(envelope, "position", Vector2(-150, -50), 0.4).set_trans(Tween.TRANS_QUART).set_ease(Tween.EaseType.EASE_OUT)
 	tween.tween_property(envelope, "rotation_degrees", -15.0, 0.4)
@@ -216,7 +220,7 @@ func apply_mark(stamp_type: String, pos: Vector2):
 	text_label.visible = false
 	desenho.visible = false
 	
-	envelope.play("close")
+	envelope.play("close_" + type_sprite)
 
 
 func _on_area_detector_envelope_area_entered(area: Area2D) -> void:

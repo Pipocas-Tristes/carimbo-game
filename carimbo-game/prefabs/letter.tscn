@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://d1gbtirwkjj0m" path="res://sprites/cartas/Carta Boa 3.png" id="4_gxph1"]
 [ext_resource type="FontFile" uid="uid://v881brefs1b6" path="res://fonts/HomemadeApple-Regular.ttf" id="5_rsyug"]
 [ext_resource type="Texture2D" uid="uid://bpfidj8gbl7si" path="res://sprites/letter.png" id="7_j1fwd"]
+[ext_resource type="Texture2D" uid="uid://dtr3hweh8vmrs" path="res://sprites/cartas/Carta Ruim frame 3.png" id="7_wbdfm"]
+[ext_resource type="Texture2D" uid="uid://b7ic3dc4ccbgb" path="res://sprites/cartas/Carta Ruim frame 2.png" id="8_5mjvw"]
+[ext_resource type="Texture2D" uid="uid://cyhew6f3vcmcw" path="res://sprites/cartas/Carta Ruim frame 1.png" id="9_pfpeb"]
 [ext_resource type="FontFile" uid="uid://chnx81mwq17x0" path="res://fonts/VT323-Regular.ttf" id="9_qlbgm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eftyu"]
@@ -23,7 +26,21 @@ animations = [{
 "texture": ExtResource("2_gr7t7")
 }],
 "loop": false,
-"name": &"close",
+"name": &"close_boa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wbdfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5mjvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pfpeb")
+}],
+"loop": false,
+"name": &"close_ruim",
 "speed": 5.0
 }, {
 "frames": [{
@@ -31,7 +48,15 @@ animations = [{
 "texture": ExtResource("2_gr7t7")
 }],
 "loop": false,
-"name": &"idle_close",
+"name": &"idle_close_boa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_pfpeb")
+}],
+"loop": false,
+"name": &"idle_close_ruim",
 "speed": 5.0
 }, {
 "frames": [{
@@ -39,7 +64,15 @@ animations = [{
 "texture": ExtResource("3_rsyug")
 }],
 "loop": false,
-"name": &"idle_open",
+"name": &"idle_open_boa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_5mjvw")
+}],
+"loop": false,
+"name": &"idle_open_ruim",
 "speed": 5.0
 }, {
 "frames": [{
@@ -56,7 +89,24 @@ animations = [{
 "texture": ExtResource("4_gxph1")
 }],
 "loop": false,
-"name": &"open",
+"name": &"open_boa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_pfpeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pfpeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5mjvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wbdfm")
+}],
+"loop": false,
+"name": &"open_ruim",
 "speed": 5.0
 }]
 
@@ -76,7 +126,7 @@ marks = Array[Texture]([ExtResource("2_eftyu"), ExtResource("3_j1fwd")])
 position = Vector2(-1.3554151, 59.19996)
 scale = Vector2(0.5867731, 0.5867731)
 sprite_frames = SubResource("SpriteFrames_eftyu")
-animation = &"idle_close"
+animation = &"open_ruim"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1210813413]
 modulate = Color(1.0845727, 1.0845727, 1.0845727, 1)
