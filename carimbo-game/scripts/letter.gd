@@ -15,13 +15,15 @@ var offset: Vector2
 var is_focused: bool = false
 var in_transition: bool = false
 
-@onready var background: ColorRect = $Background
+@export var marks: Array[Texture] = []
+
+@onready var background: Sprite2D = $Background
 @onready var text_label: Label = $Text
-@onready var stamp_mark_color: ColorRect = $StampMarkColor
 @onready var envelope: AnimatedSprite2D = $Envelope
 @onready var envelope_shape: CollisionShape2D = $AreaDetectorEnvelope/CollisionShape2D
 @onready var area_detector_stamp: Area2D = $AreaDetectorStamp
 @onready var text_aux: Label = $TextAux
+@onready var stamp_mark: Sprite2D = $StampMark
 
 signal letter_stashed(res: LetterResource)
 
@@ -32,6 +34,7 @@ func _process(_delta: float) -> void:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 func _ready() -> void:
+	envelope.play("idle_close")
 	current_size = scale
 
 func _input(event: InputEvent) -> void:
@@ -111,6 +114,8 @@ func check_drop():
 		desk.validate_letter(self)
 	elif desk.tashed_area in areas:
 		stash_letter()
+		
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 func stash_letter():
 	letter_stashed.emit(current_letter_resource)
@@ -142,12 +147,15 @@ func is_mouse_over() -> bool:
 		var final_rect = Rect2(rect.position + detector_pos, rect.size)
 		return final_rect.has_point(local_mouse)
 
-func setup_from_resource(res: LetterResource):
+func setup_from_resource(res: LetterResource, pos: Vector2):
 	current_letter_resource = res
 	background.visible = false
 	text_label.visible = false
-	stamp_mark_color.visible = false
+	stamp_mark.visible = false
 	text_aux.visible = false
+
+	var tween = create_tween()
+	await tween.tween_property(self, "global_position", pos, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).finished
 
 	envelope.play("open")
 	envelope.animation_finished.connect(_on_open_finished, CONNECT_ONE_SHOT)
@@ -160,7 +168,7 @@ func _on_open_finished():
 	correct_stamp = current_letter_resource.correct_stamp
 	letter_open = true
 
-	envelope.play("idle")
+	envelope.play("idle_open")
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(envelope, "position", Vector2(-150, -50), 0.4).set_trans(Tween.TRANS_QUART).set_ease(Tween.EaseType.EASE_OUT)
 	tween.tween_property(envelope, "rotation_degrees", -15.0, 0.4)
@@ -171,9 +179,14 @@ func apply_mark(stamp_type: String, pos: Vector2):
 		return
 
 	applied_stamp = stamp_type
-	stamp_mark_color.visible = true
-	stamp_mark_color.position = pos - (stamp_mark_color.size / 2)
-	stamp_mark_color.position = Vector2(stamp_mark_color.position.x, stamp_mark_color.position.y + 30)
+	
+	if applied_stamp == 'coal':
+		stamp_mark.texture = marks[1]
+	else:
+		stamp_mark.texture = marks[0]
+	
+	stamp_mark.visible = true
+	stamp_mark.position = Vector2(pos.x, pos.y + 35)
 
 	var mark_tween = create_tween()
 	mark_tween.tween_property(self, "scale", scale * 1.05, 0.05)
@@ -181,12 +194,7 @@ func apply_mark(stamp_type: String, pos: Vector2):
 	
 	if get_tree().current_scene.has_node("DeskCamera"):
 			get_tree().current_scene.get_node("DeskCamera").shake(3.0)
-
-	if applied_stamp == 'coal':
-		stamp_mark_color.modulate = Color.RED
-	else:
-		stamp_mark_color.modulate = Color.GREEN
-		
+	
 	await get_tree().create_timer(0.5).timeout
 	
 	letter_open = false
@@ -199,7 +207,7 @@ func apply_mark(stamp_type: String, pos: Vector2):
 	await tween.finished
 	
 	background.visible = false
-	stamp_mark_color.visible = false
+	stamp_mark.visible = false
 	text_label.visible = false
 	
 	envelope.play("close")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3r68evh3p5vq"
-path="res://.godot/imported/RepeatableStoneWall.png-067de1e31d56390493d1e119cf350c7b.ctex"
+uid="uid://b376j6ta6ob30"
+path="res://.godot/imported/caixa_correio_1.png-3ba0223f368077fcfb5ce91ec74e19f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/RepeatableStoneWall.png"
-dest_files=["res://.godot/imported/RepeatableStoneWall.png-067de1e31d56390493d1e119cf350c7b.ctex"]
+source_file="res://sprites/correio/caixa_correio_1.png"
+dest_files=["res://.godot/imported/caixa_correio_1.png-3ba0223f368077fcfb5ce91ec74e19f0.ctex"]
 
 [params]
 

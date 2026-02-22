@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cali5sebygbt"
-path="res://.godot/imported/Carimbo vermelho.png-fcf7167c52b7649e814373258040df79.ctex"
+uid="uid://w88mhlcwcybk"
+path="res://.godot/imported/caixa_correio_0.png-0b61363f7c7857fcce643a1987e63267.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Carimbo vermelho.png"
-dest_files=["res://.godot/imported/Carimbo vermelho.png-fcf7167c52b7649e814373258040df79.ctex"]
+source_file="res://sprites/correio/caixa_correio_0.png"
+dest_files=["res://.godot/imported/caixa_correio_0.png-0b61363f7c7857fcce643a1987e63267.ctex"]
 
 [params]
 

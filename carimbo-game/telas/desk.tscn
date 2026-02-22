@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://54vcmnecmgu8"]
+[gd_scene format=3 uid="uid://54vcmnecmgu8"]
 
 [ext_resource type="Script" uid="uid://bdp2b028teqj6" path="res://scripts/desk.gd" id="1_ymn6v"]
 [ext_resource type="PackedScene" uid="uid://dspk63plxgfqx" path="res://prefabs/letter.tscn" id="2_hartd"]
@@ -15,38 +15,67 @@
 [ext_resource type="Texture2D" uid="uid://bas1f0wic0ip2" path="res://sprites/mesa/desk_open_1.png" id="9_n2ide"]
 [ext_resource type="Resource" uid="uid://dlrkc4yluaqe4" path="res://cartinhas/sarah.tres" id="9_pd7vt"]
 [ext_resource type="Texture2D" uid="uid://dn7d2xd28152b" path="res://sprites/mesa/desk_open_3.png" id="10_2eu0q"]
+[ext_resource type="PackedScene" uid="uid://bo2xdxyskbsoc" path="res://prefabs/desk_letter.tscn" id="10_8vdsp"]
 [ext_resource type="Texture2D" uid="uid://yyql1vkuhtbe" path="res://sprites/mesa/desk_open_5.png" id="11_ep57s"]
-[ext_resource type="Texture2D" uid="uid://77sgm7p2ykpy" path="res://sprites/Carimbo verde.png" id="11_tlwf3"]
-[ext_resource type="Texture2D" uid="uid://cali5sebygbt" path="res://sprites/Carimbo vermelho.png" id="12_84osi"]
+[ext_resource type="Texture2D" uid="uid://77sgm7p2ykpy" path="res://sprites/carimbos/Carimbo verde.png" id="11_tlwf3"]
+[ext_resource type="Texture2D" uid="uid://cali5sebygbt" path="res://sprites/carimbos/Carimbo vermelho.png" id="12_84osi"]
 [ext_resource type="Script" uid="uid://b2xm73et7ncv" path="res://scripts/emotrometro.gd" id="12_vhr0s"]
 [ext_resource type="Texture2D" uid="uid://ckusjyb6oftq4" path="res://sprites/emotrometro/emotrometro_2.png" id="13_vhr0s"]
 [ext_resource type="Texture2D" uid="uid://cyvi8h5e7ofkm" path="res://sprites/emotrometro/emotrometro_seta_2.png" id="14_4qn8q"]
-[ext_resource type="Texture2D" uid="uid://b1d8ljq334d2f" path="res://sprites/comida mesa  teste.png" id="15_4qn8q"]
+[ext_resource type="Texture2D" uid="uid://b1d8ljq334d2f" path="res://sprites/mesa/comida mesa  teste.png" id="15_4qn8q"]
+[ext_resource type="Texture2D" uid="uid://w88mhlcwcybk" path="res://sprites/correio/caixa_correio_0.png" id="15_doxmh"]
+[ext_resource type="Texture2D" uid="uid://rfihd6cxomri" path="res://sprites/mesa 8 chão.png" id="15_n48kf"]
+[ext_resource type="Texture2D" uid="uid://b376j6ta6ob30" path="res://sprites/correio/caixa_correio_1.png" id="16_hnwq6"]
+[ext_resource type="Texture2D" uid="uid://cc7kp0bvka6sq" path="res://sprites/correio/caixa_correio_2.png" id="17_p8eao"]
+[ext_resource type="Texture2D" uid="uid://dv4lsi746cbhc" path="res://sprites/correio/caixa_correio_3.png" id="18_n48kf"]
+[ext_resource type="Texture2D" uid="uid://uwdj4c1v773" path="res://sprites/Mesa Felco Filtro.png" id="27_p8eao"]
+[ext_resource type="Texture2D" uid="uid://c4qwae4nuskcf" path="res://sprites/Mesa Felco iluminação.png" id="28_n48kf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kblhn"]
-size = Vector2(442, 20)
+[sub_resource type="SpriteFrames" id="SpriteFrames_8vdsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_doxmh")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_hnwq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_p8eao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_n48kf")
+}],
+"loop": false,
+"name": &"send_letter",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8kjt"]
-size = Vector2(432, 186)
+size = Vector2(444, 186)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwf3"]
 size = Vector2(91, 100)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p8eao"]
+
 [node name="Desk" type="Node2D" unique_id=67741448]
-position = Vector2(4, 2)
 script = ExtResource("1_ymn6v")
 letter_scene = ExtResource("2_hartd")
 day_letters = Array[ExtResource("3_4dl0g")]([ExtResource("4_uqbv2"), ExtResource("5_al7y2"), ExtResource("6_tlwf3"), ExtResource("7_nh3ve"), ExtResource("8_aqbn0"), ExtResource("9_pd7vt")])
+desk_letter_scene = ExtResource("10_8vdsp")
 sprite_closed = ExtResource("7_4qn8q")
 sprites = Array[Texture]([ExtResource("8_td716"), ExtResource("9_n2ide"), ExtResource("10_2eu0q"), ExtResource("11_ep57s")])
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=116080416]
-offset_left = -840.0
-offset_top = 158.0
-offset_right = 867.0
-offset_bottom = 474.0
-color = Color(0.13783813, 0.104056545, 0.073337786, 1)
-metadata/_edit_use_anchors_ = true
+[node name="Mesa8Chão" type="Sprite2D" parent="." unique_id=1643320816]
+position = Vector2(-2.670288e-05, 17.999985)
+scale = Vector2(2.334375, 2.3333333)
+texture = ExtResource("15_n48kf")
 
 [node name="DeskBackground" type="Sprite2D" parent="." unique_id=1370274409]
 texture_filter = 1
@@ -55,38 +84,42 @@ scale = Vector2(2.3336809, 2.3336806)
 texture = ExtResource("7_4qn8q")
 
 [node name="PileButton" type="Button" parent="." unique_id=1374522429]
-offset_left = -609.55554
-offset_top = -333.50003
-offset_right = -485.55554
-offset_bottom = -302.50003
+offset_left = -548.0
+offset_top = 148.0
+offset_right = -424.0
+offset_bottom = 179.0
 text = "Pilha de Cartas"
 metadata/_edit_use_anchors_ = true
 
 [node name="LetterSpawn" type="Node2D" parent="." unique_id=663920342]
+position = Vector2(-2, 537)
+
+[node name="LetterFinalSpawn" type="Node2D" parent="." unique_id=2051647532]
 position = Vector2(-2, 32)
 
-[node name="SendArea" type="Area2D" parent="."]
-position = Vector2(341, -266)
+[node name="SendArea" type="Area2D" parent="." unique_id=44501932]
+position = Vector2(307, -380)
 
-[node name="ColorRect" type="ColorRect" parent="SendArea" unique_id=2059706888]
-offset_left = -220.0
-offset_top = -18.0
-offset_right = 220.0
-offset_bottom = 15.0
-color = Color(1, 1, 0.20392157, 1)
-metadata/_edit_use_anchors_ = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SendArea" unique_id=1362601435]
+position = Vector2(48, 209)
+scale = Vector2(2.36, 2.36)
+sprite_frames = SubResource("SpriteFrames_8vdsp")
+animation = &"send_letter"
+frame = 2
+frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SendArea" unique_id=1950166342]
-shape = SubResource("RectangleShape2D_kblhn")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SendArea" unique_id=1658270483]
+visible = false
+polygon = PackedVector2Array(52, -27, -51, -26, -120, 45, -127, 58, -127, 66, -110, 71, -55, 197, 151, 199, 206, 69, 222, 66, 222, 59, 216, 48, 145, -28)
 
-[node name="TashedArea" type="Area2D" parent="."]
+[node name="TashedArea" type="Area2D" parent="." unique_id=1435490972]
 position = Vector2(-392, 243)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TashedArea"]
-position = Vector2(1, 68)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TashedArea" unique_id=1016664362]
+position = Vector2(7, 68)
 shape = SubResource("RectangleShape2D_e8kjt")
 
-[node name="DeskCamera" type="Camera2D" parent="."]
+[node name="DeskCamera" type="Camera2D" parent="." unique_id=1769704156]
 position = Vector2(-1, -37)
 zoom = Vector2(1.07, 1.07)
 script = ExtResource("8_vhr0s")
@@ -103,7 +136,7 @@ offset_bottom = 502.0
 color = Color(0, 0, 0, 0.8039216)
 
 [node name="GiftStamp" type="Area2D" parent="." unique_id=681293885]
-position = Vector2(460.99994, 123.999985)
+position = Vector2(406, 78)
 scale = Vector2(0.6399988, 0.6399988)
 script = ExtResource("9_al7y2")
 
@@ -116,7 +149,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_tlwf3")
 
 [node name="CoalStamp" type="Area2D" parent="." unique_id=883861198]
-position = Vector2(530.99994, 123.999985)
+position = Vector2(476, 78)
 scale = Vector2(0.6399988, 0.6399988)
 script = ExtResource("9_al7y2")
 type = "coal"
@@ -144,12 +177,30 @@ scale = Vector2(2.941, 2.941)
 texture = ExtResource("14_4qn8q")
 offset = Vector2(0, -18.215382)
 
-[node name="DeskDecorations" type="Node2D" parent="."]
+[node name="DeskDecorations" type="Node2D" parent="." unique_id=1050094454]
 
-[node name="ComidaMesaTeste" type="Sprite2D" parent="DeskDecorations"]
+[node name="ComidaMesaTeste" type="Sprite2D" parent="DeskDecorations" unique_id=1307884642]
 position = Vector2(-394, -178.99998)
 scale = Vector2(1.3943661, 1.394366)
 texture = ExtResource("15_4qn8q")
+
+[node name="LetterPileSpawn" type="Node2D" parent="." unique_id=1147148140]
+position = Vector2(-477, 69.00001)
+scale = Vector2(0.84, 0.84)
+
+[node name="MesaFelcoFiltro" type="Sprite2D" parent="." unique_id=579369054]
+modulate = Color(1, 1, 1, 0.5137255)
+material = SubResource("CanvasItemMaterial_p8eao")
+position = Vector2(-6.484985e-05, 17.99997)
+scale = Vector2(2.334375, 2.333333)
+texture = ExtResource("27_p8eao")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=115746654]
+position = Vector2(-3.4332275e-05, -28.77902)
+scale = Vector2(1.8143759, 2.0734499)
+color = Color(0.9431215, 0.53105766, 0.0735335, 1)
+energy = 2.56
+texture = ExtResource("28_n48kf")
 
 [connection signal="pressed" from="PileButton" to="." method="_on_pile_button_pressed"]
 [connection signal="area_entered" from="TashedArea" to="." method="_on_tashed_area_area_entered"]

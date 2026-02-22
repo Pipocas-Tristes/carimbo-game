@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dspk63plxgfqx"]
+[gd_scene format=3 uid="uid://dspk63plxgfqx"]
 
 [ext_resource type="Script" uid="uid://cmy6nsk60fo0j" path="res://scripts/letter.gd" id="1_m1y87"]
+[ext_resource type="Texture2D" uid="uid://ogqm2pm742fo" path="res://sprites/carimbos/carimbo_bom.png" id="2_eftyu"]
 [ext_resource type="Texture2D" uid="uid://bkjv73qwu8fd6" path="res://sprites/cartas/envelope_bom_01.png" id="2_gr7t7"]
+[ext_resource type="Texture2D" uid="uid://dauvmew48awsr" path="res://sprites/carimbos/carimbo_mal.png" id="3_j1fwd"]
 [ext_resource type="Texture2D" uid="uid://dy3b8wmxfxwo6" path="res://sprites/cartas/Carta Boa 2.png" id="3_rsyug"]
 [ext_resource type="Texture2D" uid="uid://d1gbtirwkjj0m" path="res://sprites/cartas/Carta Boa 3.png" id="4_gxph1"]
 [ext_resource type="FontFile" uid="uid://v881brefs1b6" path="res://fonts/HomemadeApple-Regular.ttf" id="5_rsyug"]
+[ext_resource type="Texture2D" uid="uid://bpfidj8gbl7si" path="res://sprites/letter.png" id="7_j1fwd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eftyu"]
 animations = [{
@@ -24,10 +27,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_gr7t7")
+}],
+"loop": false,
+"name": &"idle_close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_rsyug")
 }],
 "loop": false,
-"name": &"idle",
+"name": &"idle_open",
 "speed": 5.0
 }, {
 "frames": [{
@@ -49,36 +60,36 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyey2"]
-size = Vector2(278, 137)
+size = Vector2(280.0726, 137)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gr7t7"]
 size = Vector2(88.09509, 72.618866)
 
-[node name="Letter" type="Node2D"]
+[node name="Letter" type="Node2D" unique_id=1054178178]
+z_index = 9
 scale = Vector2(0.84000146, 0.84000146)
 script = ExtResource("1_m1y87")
+marks = Array[Texture]([ExtResource("2_eftyu"), ExtResource("3_j1fwd")])
 
-[node name="Envelope" type="AnimatedSprite2D" parent="."]
+[node name="Envelope" type="AnimatedSprite2D" parent="." unique_id=1948925570]
 position = Vector2(-1.3554151, 59.19996)
-scale = Vector2(0.6622219, 0.6622219)
+scale = Vector2(0.5867731, 0.5867731)
 sprite_frames = SubResource("SpriteFrames_eftyu")
-animation = &"close"
+animation = &"idle_close"
 
-[node name="Background" type="ColorRect" parent="."]
-offset_left = -115.0
-offset_top = -150.0
-offset_right = 115.0
-offset_bottom = 150.0
-pivot_offset = Vector2(115, 150)
-color = Color(0.7019608, 0.6666667, 0.6745098, 1)
+[node name="Background" type="Sprite2D" parent="." unique_id=1210813413]
+modulate = Color(1.0845727, 1.0845727, 1.0845727, 1)
+position = Vector2(0, -14.285689)
+scale = Vector2(1.2827498, 1.2827498)
+texture = ExtResource("7_j1fwd")
 
-[node name="Text" type="Label" parent="."]
+[node name="Text" type="Label" parent="." unique_id=580201501]
 texture_filter = 1
-offset_left = -99.99983
-offset_top = -139.0
-offset_right = 242.77464
-offset_bottom = -102.54645
-scale = Vector2(0.58, 0.58)
+offset_left = -88.095085
+offset_top = -148.80927
+offset_right = 254.67938
+offset_bottom = -112.35571
+scale = Vector2(0.51391894, 0.51391894)
 theme_override_colors/font_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
 theme_override_constants/line_spacing = 1
 theme_override_fonts/font = ExtResource("5_rsyug")
@@ -86,39 +97,38 @@ theme_override_font_sizes/font_size = 13
 text = "teste de texto"
 autowrap_mode = 2
 
-[node name="StampMarkColor" type="ColorRect" parent="."]
-modulate = Color(0.4560669, 0.7547455, 0.58278364, 1)
-offset_left = 34.52375
-offset_top = 92.85698
-offset_right = 82.14272
-offset_bottom = 105.952194
+[node name="StampMark" type="Sprite2D" parent="." unique_id=58493034]
+position = Vector2(58.33323, 98.80936)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_eftyu")
 
-[node name="AreaDetectorEnvelope" type="Area2D" parent="."]
+[node name="AreaDetectorEnvelope" type="Area2D" parent="." unique_id=3377350]
 position = Vector2(-113.00001, -130.99998)
+scale = Vector2(0.88606715, 0.88606715)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectorEnvelope"]
-position = Vector2(113.00001, 232.49998)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectorEnvelope" unique_id=529688421]
+position = Vector2(127.222626, 256.67172)
+scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_fyey2")
 
-[node name="AreaDetectorStamp" type="Area2D" parent="."]
-scale = Vector2(0.99999994, 0.99999994)
+[node name="AreaDetectorStamp" type="Area2D" parent="." unique_id=803358022]
+scale = Vector2(0.8860671, 0.8860671)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectorStamp"]
-position = Vector2(57.14274, 99.40455)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectorStamp" unique_id=138087032]
+position = Vector2(57.142746, 99.40453)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_gr7t7")
 debug_color = Color(0.6187054, 0.534455, 0.08102646, 0.41960785)
 
-[node name="TextAux" type="Label" parent="."]
-offset_left = 140.47594
-offset_top = -205.95203
-offset_right = 399.99933
-offset_bottom = 208.33295
+[node name="TextAux" type="Label" parent="." unique_id=232587272]
+offset_left = 123.80931
+offset_top = -207.1425
+offset_right = 383.3327
+offset_bottom = 207.14247
 theme_override_font_sizes/font_size = 10
 text = "testes"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="letter_stashed" from="." to="." method="_on_letter_stashed"]
 [connection signal="area_entered" from="AreaDetectorEnvelope" to="." method="_on_area_detector_envelope_area_entered"]
 [connection signal="area_exited" from="AreaDetectorEnvelope" to="." method="_on_area_detector_envelope_area_exited"]

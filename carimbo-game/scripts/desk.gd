@@ -4,6 +4,9 @@ class_name Desk
 @onready var emotrometro: Emotrometro = $Emotrometro
 @onready var send_area: Area2D = $SendArea
 @onready var tashed_area: Area2D = $TashedArea
+@onready var send_area_sprite: AnimatedSprite2D = $SendArea/AnimatedSprite2D
+@onready var letter_final_spawn: Node2D = $LetterFinalSpawn
+@onready var letter_pile_spawn: Node2D = $LetterPileSpawn
 
 @export_category("Configurações de Progressão")
 @export var max_letter_day: int = 7
@@ -17,6 +20,7 @@ var suspicious_tashed: int = 0
 @export_category('Configuração de Cena')
 @export var letter_scene: PackedScene = null
 @export var day_letters: Array[LetterResource] = []
+@export var desk_letter_scene: PackedScene = null
 var current_letter_resource: LetterResource = null
 var current_letter: Node = null
 
@@ -35,22 +39,32 @@ var in_focus_mode: bool = false
 
 func _ready() -> void:
 	desk_background.texture = sprite_closed
-	pass
+	send_area_sprite.play("idle")
+	
+	for i in day_letters.size():
+		var desk_letter: DeskLetter = desk_letter_scene.instantiate()
+		add_child(desk_letter)
+		desk_letter.global_position = Vector2(letter_pile_spawn.position.x + 20 * i, letter_pile_spawn.position.y)
+		desk_letter.rotation_degrees = randi_range(-20, 20)
+		desk_letter.letter_index = i
+		desk_letter.z_index = i + 1
+		 
 
 func _process(_delta: float) -> void:
 	pass
 
-func generate_latter() -> void:
+func generate_latter(letter_index: int) -> void:
 	if current_letter != null or day_letters.is_empty():
 		return
 		
-	current_letter_resource = day_letters.pop_front()
+	current_letter_resource = day_letters[letter_index]
 		
 	current_letter = letter_scene.instantiate()
 	add_child(current_letter)
 	current_letter.global_position = $LetterSpawn.global_position
+
 	current_letter.letter_stashed.connect(_on_letter_stashed)
-	current_letter.setup_from_resource(current_letter_resource)
+	current_letter.setup_from_resource(current_letter_resource, letter_final_spawn.position)
 
 func score_update(value: int):
 	score += value
@@ -64,17 +78,17 @@ func validate_letter(letter):
 		return
 	
 	var correct = letter.applied_stamp == letter.correct_stamp
+	letter.queue_free()
+	send_area_sprite.play("send_letter")
+	await get_tree().create_timer(0.3).timeout
 	
 	if correct:
 		score_update(1)
 	else:
 		score_update(-1)
 	
-	letter.show_feedback(correct)
+	send_area_sprite.play("idle")
 	
-	await get_tree().create_timer(0.5).timeout
-	
-	letter.queue_free()
 	current_letter = null
 	
 	letters_processed += 1
@@ -111,8 +125,18 @@ func _on_letter_stashed(res: LetterResource) -> void:
 		
 	suspicious_tashed += 1
 
+func get_top_letter() -> int:
+	var max_z = -999
+	
+	for child in get_children():
+		if child is DeskLetter:
+			if child.z_index > max_z:
+				max_z = child.z_index
+				
+	return max_z
+
 func _on_pile_button_pressed() -> void:	
-	generate_latter()
+	generate_latter(0)
 
 
 func _on_tashed_area_area_entered(area: Area2D) -> void:

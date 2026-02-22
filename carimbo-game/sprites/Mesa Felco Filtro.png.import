@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1d8ljq334d2f"
-path="res://.godot/imported/comida mesa  teste.png-b2e287f65804a04088039be0199cf1e2.ctex"
+uid="uid://uwdj4c1v773"
+path="res://.godot/imported/Mesa Felco Filtro.png-e622e2e26c743eef8667707c1fd51670.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/comida mesa  teste.png"
-dest_files=["res://.godot/imported/comida mesa  teste.png-b2e287f65804a04088039be0199cf1e2.ctex"]
+source_file="res://sprites/Mesa Felco Filtro.png"
+dest_files=["res://.godot/imported/Mesa Felco Filtro.png-e622e2e26c743eef8667707c1fd51670.ctex"]
 
 [params]
 
