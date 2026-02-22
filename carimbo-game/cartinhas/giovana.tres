@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://dq3034owhf8su"]
+
+[ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_t5wny"]
+[ext_resource type="Texture2D" uid="uid://df72xqv6ji1jf" path="res://sprites/desenhos cartas/Carta 8 - Giovana, 10 anos_.png" id="2_rjg8k"]
+
+[resource]
+script = ExtResource("1_t5wny")
+content = "Papai Noel, algumas meninas me disseram que não vou ganhar presentes esse ano por ser uma menina má. Não acredito que isso seja verdade. Todas as aulas que eu mato são chatas, todas as pessoas que eu “ofendo” merecem isso, e todas as vezes que eu menti pros meus pais eu tive meus motivos. Não sou má, eu apenas fasso o que eu quero fazer. Neste Natal, quero brincos de ouro
+-Giovana"
+correct_stamp = "coal"
+texture = ExtResource("2_rjg8k")
+metadata/_custom_type_script = "uid://1oycgv6x3g7y"

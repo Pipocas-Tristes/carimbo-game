@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d1gbtirwkjj0m" path="res://sprites/cartas/Carta Boa 3.png" id="4_gxph1"]
 [ext_resource type="FontFile" uid="uid://v881brefs1b6" path="res://fonts/HomemadeApple-Regular.ttf" id="5_rsyug"]
 [ext_resource type="Texture2D" uid="uid://bpfidj8gbl7si" path="res://sprites/letter.png" id="7_j1fwd"]
+[ext_resource type="FontFile" uid="uid://chnx81mwq17x0" path="res://fonts/VT323-Regular.ttf" id="9_qlbgm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eftyu"]
 animations = [{
@@ -63,7 +64,7 @@ animations = [{
 size = Vector2(280.0726, 137)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gr7t7"]
-size = Vector2(88.09509, 72.618866)
+size = Vector2(199.26938, 306.34473)
 
 [node name="Letter" type="Node2D" unique_id=1054178178]
 z_index = 9
@@ -97,6 +98,10 @@ theme_override_font_sizes/font_size = 13
 text = "teste de texto"
 autowrap_mode = 2
 
+[node name="Desenho" type="Sprite2D" parent="." unique_id=2017981174]
+position = Vector2(1.1904738, 47.61896)
+scale = Vector2(0.059999995, 0.059999995)
+
 [node name="StampMark" type="Sprite2D" parent="." unique_id=58493034]
 position = Vector2(58.33323, 98.80936)
 scale = Vector2(0.35, 0.35)
@@ -115,8 +120,8 @@ shape = SubResource("RectangleShape2D_fyey2")
 scale = Vector2(0.8860671, 0.8860671)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectorStamp" unique_id=138087032]
-position = Vector2(57.142746, 99.40453)
-scale = Vector2(0.99999964, 0.99999964)
+position = Vector2(1.5556203, -17.458353)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_gr7t7")
 debug_color = Color(0.6187054, 0.534455, 0.08102646, 0.41960785)
 
@@ -125,7 +130,8 @@ offset_left = 123.80931
 offset_top = -207.1425
 offset_right = 383.3327
 offset_bottom = 207.14247
-theme_override_font_sizes/font_size = 10
+theme_override_fonts/font = ExtResource("9_qlbgm")
+theme_override_font_sizes/font_size = 16
 text = "testes"
 vertical_alignment = 1
 autowrap_mode = 2

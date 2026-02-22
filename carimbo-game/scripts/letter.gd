@@ -16,7 +16,7 @@ var is_focused: bool = false
 var in_transition: bool = false
 
 @export var marks: Array[Texture] = []
-
+@onready var desenho: Sprite2D = $Desenho
 @onready var background: Sprite2D = $Background
 @onready var text_label: Label = $Text
 @onready var envelope: AnimatedSprite2D = $Envelope
@@ -112,7 +112,7 @@ func check_drop():
 	
 	if desk.send_area in areas:
 		desk.validate_letter(self)
-	elif desk.tashed_area in areas:
+	elif desk.tashed_area in areas and GameManager.stash_unlocked:
 		stash_letter()
 		
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
@@ -148,11 +148,14 @@ func is_mouse_over() -> bool:
 		return final_rect.has_point(local_mouse)
 
 func setup_from_resource(res: LetterResource, pos: Vector2):
+	area_detector_stamp.monitoring = false
 	current_letter_resource = res
 	background.visible = false
 	text_label.visible = false
 	stamp_mark.visible = false
 	text_aux.visible = false
+	desenho.visible = false
+	desenho.texture = res.texture
 
 	var tween = create_tween()
 	await tween.tween_property(self, "global_position", pos, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT).finished
@@ -167,6 +170,8 @@ func _on_open_finished():
 	text_aux.text = current_letter_resource.content
 	correct_stamp = current_letter_resource.correct_stamp
 	letter_open = true
+	desenho.visible = true
+	area_detector_stamp.monitoring = true
 
 	envelope.play("idle_open")
 	var tween = create_tween().set_parallel(true)
@@ -209,6 +214,7 @@ func apply_mark(stamp_type: String, pos: Vector2):
 	background.visible = false
 	stamp_mark.visible = false
 	text_label.visible = false
+	desenho.visible = false
 	
 	envelope.play("close")
 
@@ -219,7 +225,7 @@ func _on_area_detector_envelope_area_entered(area: Area2D) -> void:
 	if dragging:
 		if area == desk.send_area and applied_stamp != '':
 			apply_hover_feedback(Color(1.2, 1.2, 0.8), Vector2(0.90, 0.90))
-		elif area == desk.tashed_area:
+		elif area == desk.tashed_area and GameManager.stash_unlocked:
 			apply_hover_feedback(Color(1.2, 0.8, 1.2), Vector2(0.90, 0.90))
 
 func _on_area_detector_envelope_area_exited(area: Area2D) -> void:

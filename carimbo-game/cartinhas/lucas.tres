@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="LetterResource" load_steps=2 format=3 uid="uid://ydpc522kwxfo"]
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://ydpc522kwxfo"]
 
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_hlmsj"]
+[ext_resource type="Texture2D" uid="uid://bvo6pve3mmcae" path="res://sprites/desenhos cartas/Carta 5 - Lucas, 8 anos_.png" id="2_2wy7x"]
 
 [resource]
 script = ExtResource("1_hlmsj")
 content = "Olá Papai Noel, como vai o senhor? Espero que não esteja passando muito frio no Polo Norte. Lucas é um menino de 8 anos com Síndrome de Down, o que o limita em diversas ações do dia a dia, por isso, a mamãe e o papai estão o ajudando a escrever esta carta. Lucas é um menino muito bom e amoroso com todos ao seu redor, ama atividades em grupos, artes e, acima de tudo, ama o Papai Noel. Por isso, para este Natal, Lucas fez um pedido muito especial: o de conhecer pessoalmente o Papai Noel. Esperamos que possa realizar o sonho de nosso filho.
 Ass.: Mamãe, Papai e Lucas
 "
+texture = ExtResource("2_2wy7x")
 sender_name = "Mamãe, Papai e Lucas"
 metadata/_custom_type_script = "uid://1oycgv6x3g7y"
