@@ -37,6 +37,8 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fj2w0"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an6bg"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2bt1"]
 bg_color = Color(0.03137255, 0.05490196, 0.07058824, 1)
 border_width_left = 64
@@ -59,6 +61,7 @@ MarginContainer/constants/margin_bottom = 32
 MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
 MarginContainer/constants/margin_top = 32
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_an6bg")
 TabBar/font_sizes/font_size = 24
 TabBar/styles/tab_disabled = SubResource("StyleBoxFlat_b2bt1")
 VBoxContainer/constants/separation = 12
