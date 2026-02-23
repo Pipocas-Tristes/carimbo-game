@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://cryrwbl7th2pm"]
+
+[ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_pt40j"]
+[ext_resource type="Texture2D" uid="uid://iojqmf4ejvht" path="res://sprites/desenhos cartas/Carta 7 - Livia, 4 anos_.png" id="2_heo7d"]
+
+[resource]
+script = ExtResource("1_pt40j")
+content = "A carta apresenta palavras em uma letra bem ilegível. É visível que a criança se empenhou para escrever, mas ainda não sabe como. Abaixo do indecifrável, existe um desenho feito de giz de cera. Ainda que meio torta e com traços difíceis de compreender, parecia uma casa. Talvez uma casa de bonecas?"
+texture = ExtResource("2_heo7d")
+sender_name = "Lívia"
+metadata/_custom_type_script = "uid://1oycgv6x3g7y"

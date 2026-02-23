@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://clk1ysjnbyd46"]
+
+[ext_resource type="Theme" uid="uid://fu8qrhvagooh" path="res://temas/tema_luta.tres" id="1_b2bt1"]
+[ext_resource type="Script" uid="uid://orhol8hq7ghi" path="res://scripts/tela_batalha.gd" id="1_qye0f"]
+[ext_resource type="PackedScene" uid="uid://b7y3lwixsm4h0" path="res://prefabs/barra_progresso/barra_progresso.tscn" id="2_8lpjt"]
+
+[node name="tela_batalha" type="CanvasLayer" unique_id=548392996]
+script = ExtResource("1_qye0f")
+
+[node name="barra_vida_inimigo" parent="." unique_id=1738874259 instance=ExtResource("2_8lpjt")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+grow_horizontal = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="status" type="PanelContainer" parent="." unique_id=364900634]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -183.0
+offset_right = 364.0
+offset_bottom = 3.0
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="status" unique_id=1043809956]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_b2bt1")
+
+[node name="status" type="VBoxContainer" parent="status/MarginContainer" unique_id=1782788336]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="barra_vida_player" parent="status/MarginContainer/status" unique_id=2069771954 instance=ExtResource("2_8lpjt")]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+alinhamento = 0
+cor = 1
+tamanho = 2
+
+[node name="barra_energia_player" parent="status/MarginContainer/status" unique_id=410531548 instance=ExtResource("2_8lpjt")]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+alinhamento = 0
+cor = 2
+tamanho = 2
+
+[node name="acoes" type="VBoxContainer" parent="." unique_id=1014301261]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 429.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="turno" type="TabBar" parent="acoes" unique_id=273915159]
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+current_tab = 0
+tab_alignment = 2
+tab_count = 1
+tab_0/title = "Seu turno"
+tab_0/disabled = true
+
+[node name="fundo" type="PanelContainer" parent="acoes" unique_id=348673068]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+
+[node name="ColorRect" type="ColorRect" parent="acoes/fundo" unique_id=7381416]
+layout_mode = 2
+color = Color(0.03137255, 0.05490196, 0.07058824, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="acoes/fundo" unique_id=1468697429]
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="acoes/fundo/MarginContainer" unique_id=250892991]
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="acoes/fundo/MarginContainer/HBoxContainer" unique_id=1452249035]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_b2bt1")
+alignment = 1
+
+[node name="vida_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1897716194]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+text = "Comer Sanduiche
+()"
+
+[node name="ataque_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=894821264]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+text = "Denunciar assédio moral
+()"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="acoes/fundo/MarginContainer/HBoxContainer" unique_id=596443431]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_b2bt1")
+alignment = 1
+
+[node name="energia_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=2094127800]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+text = "Tomar Refri
+()"
+
+[node name="especial_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1155171163]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_b2bt1")
+text = "Citar o ECA
+()"
+
+[connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/vida_btn" to="." method="_on_vida_btn_pressed"]
+[connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/ataque_btn" to="." method="_on_ataque_btn_pressed"]
+[connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/energia_btn" to="." method="_on_energia_btn_pressed"]
+[connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/especial_btn" to="." method="_on_especial_btn_pressed"]

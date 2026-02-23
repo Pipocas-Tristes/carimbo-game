@@ -112,6 +112,8 @@ corner_radius_top_right = 8
 expand_margin_left = 4.0
 expand_margin_right = 4.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yocl"]
+
 [resource]
 Button/font_sizes/font_size = 20
 Button/styles/disabled = SubResource("StyleBoxFlat_0gawm")
@@ -135,3 +137,5 @@ TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_10lfc")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_klh82")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_5lffy")
 VBoxContainer/constants/separation = 12
+VSeparator/constants/separation = 160
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_1yocl")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3r68evh3p5vq"
-path="res://.godot/imported/RepeatableStoneWall.png-067de1e31d56390493d1e119cf350c7b.ctex"
+uid="uid://dlstgjyyb1xke"
+path="res://.godot/imported/Carta 11 - Thiago, 8 anos_.png-ebded557b7068edd14165235366e89cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/RepeatableStoneWall.png"
-dest_files=["res://.godot/imported/RepeatableStoneWall.png-067de1e31d56390493d1e119cf350c7b.ctex"]
+source_file="res://sprites/desenhos cartas/Carta 11 - Thiago, 8 anos_.png"
+dest_files=["res://.godot/imported/Carta 11 - Thiago, 8 anos_.png-ebded557b7068edd14165235366e89cb.ctex"]
 
 [params]
 

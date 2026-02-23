@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwstta8psu4ph"]
 
 [ext_resource type="Script" uid="uid://c1y1ijhsgmp4o" path="res://scripts/tela_pause.gd" id="1_2qjsy"]
-[ext_resource type="Shader" uid="uid://dlu76fqeihvnc" path="res://shaders/grayscale.gdshader" id="2_3df4y"]
+[ext_resource type="Shader" uid="uid://dlu76fqeihvnc" path="res://imagens/shaders/grayscale.gdshader" id="2_3df4y"]
 [ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_x51w4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x51w4"]

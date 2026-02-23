@@ -16,17 +16,6 @@ var is_remapping := false
 var acao_para_remap: StringName = ""
 var remap_btn: Button = null
 
-const RESOLUCAO_DICT = {
-	"640x320" = Vector2i(640, 320),
-	"1280x720" = Vector2i(1280, 720),
-	"1920x1080" = Vector2i(1920, 1080),
-	"2560x1440" = Vector2i(2560, 1440),
-}
-const MODO_DICT = {
-	"Janela" = Window.MODE_WINDOWED,
-	"Tela cheia" = Window.MODE_EXCLUSIVE_FULLSCREEN,
-}
-
 func _ready() -> void:
 	_define_variavel_resolucao()
 	_define_controles()
@@ -42,18 +31,18 @@ func _input(event: InputEvent) -> void:
 func _define_variavel_resolucao():
 	_resolucao_value = get_tree().root.size
 	var id := 0
-	for key in RESOLUCAO_DICT:
+	for key in Constants.RESOLUCAO_DICT:
 		resolucao_select.add_item(key, id)
-		if (RESOLUCAO_DICT[key] == _resolucao_value):
-			resolucao_select.select((id))
+		if (Constants.RESOLUCAO_DICT[key] == _resolucao_value):
+			resolucao_select.select(id)
 		id += 1
 	
 	id = 0
 	_modo_value = get_tree().root.mode
-	for key in MODO_DICT:
+	for key in Constants.MODO_DICT:
 		modo_select.add_item(key, id)
-		if (MODO_DICT[key] == _modo_value):
-			modo_select.select((id))
+		if (Constants.MODO_DICT[key] == _modo_value):
+			modo_select.select(id)
 		id += 1
 
 func _salvar_nova_resolucao(resolucao: Vector2i, modo: Window.Mode):
