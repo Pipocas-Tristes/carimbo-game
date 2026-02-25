@@ -77,12 +77,17 @@ func _define_controles() -> void:
 		input_btn.pressed.connect(_on_input_button_pressed.bind(input_btn, acao_event))
 
 func _define_audios_inciais() -> void:
-	var bus_volume_master = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
-	geral_slider.set_value_no_signal(_map_to_percent_volume(bus_volume_master))
-	var bus_volume_sfx = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Efeitos sonoros"))
-	efeito_slider.set_value_no_signal(_map_to_percent_volume(bus_volume_sfx))
-	var bus_volume_musica = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Música"))
-	musica_slider.set_value_no_signal(_map_to_percent_volume(bus_volume_musica))
+	geral_slider.min_value = SoundManager.MIN_PERCENT
+	geral_slider.max_value = SoundManager.MAX_PERCENT
+	geral_slider.set_value_no_signal(SoundManager.get_volume("Master"))
+	
+	efeito_slider.min_value = SoundManager.MIN_PERCENT
+	efeito_slider.max_value = SoundManager.MAX_PERCENT
+	efeito_slider.set_value_no_signal(SoundManager.get_volume("Efeitos sonoros"))
+	
+	musica_slider.min_value = SoundManager.MIN_PERCENT
+	musica_slider.max_value = SoundManager.MAX_PERCENT
+	musica_slider.set_value_no_signal(SoundManager.get_volume("Música"))
 
 func _on_input_button_pressed(input_btn: Button, acao: StringName):
 	if not is_remapping:
@@ -102,34 +107,14 @@ func _atualiza_controles(event: InputEvent):
 		acao_para_remap = ""
 		remap_btn = null
 
-func _map_to_percent_volume(bus: float) -> float:
-	#(bus-min_bus)/(max_bus-min_bus) = (percent-min_percent)/(max_percent-min_percent)
-	#(bus-(-55))/(0-(-55)) = (percent-0)/(100-0)
-	#(bus+55)/55 = percent/100
-	#100 * (bus+55) / 55 = percent
-	var valor_mapeado = 100.0 * (bus + 55.0) / 55.0
-	return valor_mapeado
-
-func _map_to_bus_volume(percent: float) -> float:
-	#(percent-min_percent)/(max_percent-min_percent) = (bus-min_bus)/(max_bus-min_bus)
-	#(percent-0)/(100-0) = (bus-(-55))/(0-(-55))
-	#percent/100 = (bus+55)/55
-	#55 * percent / 100 = bus + 55
-	#(55 * percent / 100) - 55 = bus
-	var valor_mapeado = (percent * 55.0 / 100.0) - 55.0
-	return valor_mapeado
-
 func _on_geral_slider_value_changed(value: float) -> void:
-	var geral_idx = AudioServer.get_bus_index("Master")
-	AudioServer.set_bus_volume_db(geral_idx, _map_to_bus_volume(value))
+	SoundManager.set_volume(value)
 
 func _on_efeito_slider_value_changed(value: float) -> void:
-	var geral_idx = AudioServer.get_bus_index("Efeitos sonoros")
-	AudioServer.set_bus_volume_db(geral_idx, _map_to_bus_volume(value))
+	SoundManager.set_volume(value, "Efeitos sonoros")
 
 func _on_musica_slider_value_changed(value: float) -> void:
-	var geral_idx = AudioServer.get_bus_index("Música")
-	AudioServer.set_bus_volume_db(geral_idx, _map_to_bus_volume(value))
+	SoundManager.set_volume(value, "Música")
 
 func _on_resolucao_item_selected(index: int) -> void:
 	_resolucao_value = Vector2i((index+1) * 640, (index+1) * 360)
