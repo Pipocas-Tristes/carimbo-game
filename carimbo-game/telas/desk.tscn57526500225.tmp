@@ -30,14 +30,12 @@
 [ext_resource type="Texture2D" uid="uid://dv4lsi746cbhc" path="res://sprites/correio/caixa_correio_3.png" id="18_n48kf"]
 [ext_resource type="Texture2D" uid="uid://4vviag1n4x16" path="res://sprites/carimbos/stamp_b01.png" id="25_lt03g"]
 [ext_resource type="Texture2D" uid="uid://yowpolma1ayr" path="res://sprites/carimbos/stamp_b02.png" id="26_jnjou"]
-[ext_resource type="AudioStream" uid="uid://snlhfhpjgagc" path="res://sons/stamp_g01.wav" id="27_oqly2"]
 [ext_resource type="Texture2D" uid="uid://uwdj4c1v773" path="res://sprites/Mesa Felco Filtro.png" id="27_p8eao"]
 [ext_resource type="Texture2D" uid="uid://jqvaisp42c5p" path="res://sprites/carimbos/stamp_v01.png" id="28_0h1sd"]
 [ext_resource type="Texture2D" uid="uid://ciq36upuu8ryy" path="res://sprites/emotrometro/EMOTROMETRO 4.png" id="28_2f62r"]
 [ext_resource type="Texture2D" uid="uid://c4qwae4nuskcf" path="res://sprites/Mesa Felco iluminação.png" id="28_n48kf"]
 [ext_resource type="Texture2D" uid="uid://esbo1noqnxud" path="res://sprites/carimbos/carimbo_v02.png" id="29_oqly2"]
 [ext_resource type="Texture2D" uid="uid://bkt6o3btriog4" path="res://sprites/mesa/comida mesa  minhua minhau minhau.png" id="30_2f62r"]
-[ext_resource type="AudioStream" uid="uid://l7sdret8bupx" path="res://sons/stamp_g02.wav" id="31_rurs3"]
 [ext_resource type="Script" uid="uid://bkll6cnwphtit" path="res://scripts/interacoes.gd" id="35_jnjou"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8vdsp"]
@@ -141,7 +139,6 @@ position = Vector2(406, 78)
 scale = Vector2(0.6399988, 0.6399988)
 script = ExtResource("9_al7y2")
 sprites = Array[Texture]([ExtResource("25_lt03g"), ExtResource("26_jnjou")])
-get_stream = ExtResource("27_oqly2")
 
 [node name="Sprite2D" type="Sprite2D" parent="GiftStamp" unique_id=1830682781]
 texture_filter = 1
@@ -157,7 +154,6 @@ scale = Vector2(0.6399988, 0.6399988)
 script = ExtResource("9_al7y2")
 type = "coal"
 sprites = Array[Texture]([ExtResource("28_0h1sd"), ExtResource("29_oqly2")])
-get_stream = ExtResource("31_rurs3")
 
 [node name="Sprite2D" type="Sprite2D" parent="CoalStamp" unique_id=1107454571]
 texture_filter = 1
@@ -219,13 +215,8 @@ texture = ExtResource("28_n48kf")
 [connection signal="area_entered" from="GiftStamp" to="GiftStamp" method="_on_area_entered"]
 [connection signal="area_exited" from="GiftStamp" to="GiftStamp" method="_on_area_exited"]
 [connection signal="input_event" from="GiftStamp" to="GiftStamp" method="_on_input_event"]
-[connection signal="mouse_entered" from="GiftStamp" to="GiftStamp" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="GiftStamp" to="GiftStamp" method="_on_mouse_exited"]
 [connection signal="area_entered" from="CoalStamp" to="CoalStamp" method="_on_area_entered"]
 [connection signal="area_exited" from="CoalStamp" to="CoalStamp" method="_on_area_exited"]
 [connection signal="input_event" from="CoalStamp" to="CoalStamp" method="_on_input_event"]
-[connection signal="mouse_entered" from="CoalStamp" to="CoalStamp" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CoalStamp" to="CoalStamp" method="_on_mouse_exited"]
 [connection signal="input_event" from="DeskDecorations/ComidaMesa/Area2D" to="DeskDecorations/ComidaMesa" method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="DeskDecorations/ComidaMesa/Area2D" to="DeskDecorations/ComidaMesa" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="DeskDecorations/ComidaMesa/Area2D" to="DeskDecorations/ComidaMesa" method="_on_area_2d_mouse_exited"]

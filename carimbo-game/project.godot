@@ -29,6 +29,7 @@ Constants="*uid://biwmf6e76utep"
 GameManager="*uid://bpqfwkjylpo4p"
 EventManager="*uid://cq0bqm873ntfn"
 DialogueManager="*uid://cteb5unnlf8nk"
+SoundManager="*uid://b5c5flfxgtacs"
 
 [display]
 

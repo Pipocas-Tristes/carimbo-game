@@ -7,7 +7,9 @@ enum {
 	TELA_CONFIG,
 	TELA_CREDITOS,
 	DESK,
+	TUTORIAL
 }
+
 const UID_SCENES = {
 	TELA_INICIAL: "uid://dfup2bdf5sdnw",
 	TELA_PAUSE: "uid://bwstta8psu4ph",
@@ -15,6 +17,7 @@ const UID_SCENES = {
 	TELA_CONFIG: "uid://ds226ph62jpir",
 	TELA_CREDITOS: "uid://bok2i3ulpkeq8",
 	DESK:"uid://54vcmnecmgu8",
+	TUTORIAL: "uid://i3jev2a6unrr",
 }
 
 enum {EVENT,TEXT}

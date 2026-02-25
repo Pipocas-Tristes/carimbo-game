@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://i3jev2a6unrr"]
+
+[ext_resource type="Script" uid="uid://dw0fhem0l2alj" path="res://scripts/tutorial.gd" id="1_02tug"]
+[ext_resource type="FontFile" uid="uid://chnx81mwq17x0" path="res://fonts/VT323-Regular.ttf" id="1_fhj6s"]
+[ext_resource type="AudioStream" uid="uid://nq1dl2trpmyj" path="res://sons/tutorial_00.wav" id="3_4w3ld"]
+[ext_resource type="AudioStream" uid="uid://brsqygwxtptio" path="res://sons/tutorial_01.wav" id="3_cw8yy"]
+[ext_resource type="AudioStream" uid="uid://0xl1neqtsk56" path="res://sons/tutorial_02.wav" id="4_rxlk5"]
+
+[node name="Tutorial" type="CanvasLayer" unique_id=1709777663]
+script = ExtResource("1_02tug")
+streams = Array[AudioStreamWAV]([ExtResource("3_4w3ld"), ExtResource("3_cw8yy"), ExtResource("4_rxlk5")])
+
+[node name="Label" type="Label" parent="." unique_id=1405131101]
+offset_left = 32.0
+offset_top = 29.0
+offset_right = 436.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("1_fhj6s")
+theme_override_font_sizes/font_size = 20

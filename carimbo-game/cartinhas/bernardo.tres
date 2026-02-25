@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://b6s3su2cdlar7"]
 
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_qfof8"]
-[ext_resource type="Texture2D" uid="uid://bq4crxtsx7v0h" path="res://sprites/desenhos cartas/Carta 4 - Bernardo, 5 anos_.png" id="2_uphut"]
+[ext_resource type="Texture2D" uid="uid://b07q002q4ckhx" path="res://sprites/desenhos cartas/Carta 4 - Bernardo, 5 anos.png" id="2_uphut"]
 
 [resource]
 script = ExtResource("1_qfof8")

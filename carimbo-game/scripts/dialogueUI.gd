@@ -20,11 +20,16 @@ func _show_next():
 		_finish_dialogue()
 		return
 
+	label.visible_ratio = 0
+
+	var tween = create_tween()
+	var read_time = max(1.5, label.text.length() * 0.03)
+	tween.tween_property(label, "visible_ratio", 1, read_time)
+
 	var line = dialogue_queue.pop_front()
 	label.text = line.get("text", "")
 
 	if not block_input:
-		var read_time = max(1.5, label.text.length() * 0.03)
 		await get_tree().create_timer(read_time + 1).timeout
 		_show_next()
 

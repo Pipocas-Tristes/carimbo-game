@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq4crxtsx7v0h"
-path="res://.godot/imported/Carta 4 - Bernardo, 5 anos_.png-8e4bad054172e88d7cbaab91a2c98263.ctex"
+uid="uid://yowpolma1ayr"
+path="res://.godot/imported/stamp_b02.png-4dbe0afaa4805b94c01ad7dcda458848.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/desenhos cartas/Carta 4 - Bernardo, 5 anos_.png"
-dest_files=["res://.godot/imported/Carta 4 - Bernardo, 5 anos_.png-8e4bad054172e88d7cbaab91a2c98263.ctex"]
+source_file="res://sprites/carimbos/stamp_b02.png"
+dest_files=["res://.godot/imported/stamp_b02.png-4dbe0afaa4805b94c01ad7dcda458848.ctex"]
 
 [params]
 
