@@ -7,7 +7,7 @@ class_name Desk
 @onready var send_area_sprite: AnimatedSprite2D = $SendArea/AnimatedSprite2D
 @onready var letter_final_spawn: Node2D = $LetterFinalSpawn
 @onready var letter_pile_spawn: Node2D = $LetterPileSpawn
-const TELA_PAUSE = preload(Constants.UID_SCENES[Constants.TELA_PAUSE])
+const TELA_PAUSE = preload(Constants.UID_SCENES[Constants.TELAS.TELA_PAUSE])
 
 @export_category("Configurações de Progressão")
 var required_score: int = 5

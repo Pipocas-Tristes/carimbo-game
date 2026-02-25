@@ -3,12 +3,10 @@ extends Control
 @onready var barra_valor: TextureProgressBar = $VBoxContainer/barra_valor
 @onready var barra_label: Label = $VBoxContainer/barra_label
 
-const FUNDO_GRANDE = preload("uid://dmaw81xrmk2mu")
-const FUNDO_MEDIO = preload("uid://bhpynjvstabjk")
-const FUNDO_PEQUENO = preload("uid://d006wiqadf7n5")
-const PROGRESSAO_GRANDE = preload("uid://bgtrn8gcldmrx")
-const PROGRESSAO_MEDIO = preload("uid://eyc4vnrhkgc6")
-const PROGRESSAO_PEQUENO = preload("uid://bbvh47n2lbdmy")
+const FUNDO_GRANDE = preload("uid://ban1uab6lcvkt")
+const PREENCHIMENTO_GRANDE = preload("uid://b4o0tvva5kkwv")
+const FUNDO_PEQUENO = preload("uid://cs5xfdpejc681")
+const PREENCHIMENTO_PEQUENO = preload("uid://d2xkimrpyqimi")
 
 enum COR_BARRA {VERMELHA,VERDE,AMARELA}
 const _dict_color = {
@@ -16,12 +14,11 @@ const _dict_color = {
 	COR_BARRA.VERDE: Color.DARK_GREEN,
 	COR_BARRA.AMARELA: Color.GOLD,
 }
-enum {FUNDO,PROGRESSAO}
-enum TAMANHO_BARRA {GRANDE,MEDIA,PEQUENA}
+enum {FUNDO,PROGRESSAO,FONTE}
+enum TAMANHO_BARRA {GRANDE,PEQUENA}
 const _dict_size = {
-	TAMANHO_BARRA.GRANDE: {FUNDO:FUNDO_GRANDE, PROGRESSAO:PROGRESSAO_GRANDE},
-	TAMANHO_BARRA.MEDIA: {FUNDO:FUNDO_MEDIO, PROGRESSAO:PROGRESSAO_MEDIO},
-	TAMANHO_BARRA.PEQUENA: {FUNDO:FUNDO_PEQUENO, PROGRESSAO:PROGRESSAO_PEQUENO},
+	TAMANHO_BARRA.GRANDE: {FUNDO:FUNDO_GRANDE,PROGRESSAO:PREENCHIMENTO_GRANDE,FONTE:24},
+	TAMANHO_BARRA.PEQUENA: {FUNDO:FUNDO_PEQUENO,PROGRESSAO:PREENCHIMENTO_PEQUENO,FONTE:16},
 }
 enum ALINHAMENTO {ESQUERDA,MEIO,DIREITA}
 const _dict_alignment = {
@@ -37,6 +34,7 @@ const _dict_alignment = {
 func _ready() -> void:
 	_define_barra_inicial()
 	barra_label.horizontal_alignment = _dict_alignment[alinhamento]
+	barra_label.add_theme_font_size_override("font_size",_dict_size[tamanho][FONTE])
 
 func _define_barra_inicial():
 	set_valor_inicial()

@@ -1,8 +1,8 @@
 extends Control
 
-const TELA_CREDITOS: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_CREDITOS])
-const TELA_CONFIG: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_CONFIG])
-const TELA_LOADING: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_LOADING])
+const TELA_CREDITOS: PackedScene = preload(Constants.UID_SCENES[Constants.TELAS.TELA_CREDITOS])
+const TELA_CONFIG: PackedScene = preload(Constants.UID_SCENES[Constants.TELAS.TELA_CONFIG])
+const TELA_LOADING: PackedScene = preload(Constants.UID_SCENES[Constants.TELAS.TELA_LOADING])
 
 func _ready() -> void:
 	_define_resolucao()
@@ -14,7 +14,7 @@ func _define_resolucao():
 
 func _on_novo_jogo_btn_button_up() -> void:
 	var tela_loading = TELA_LOADING.instantiate()
-	tela_loading.next_scene_uid = Constants.UID_SCENES[Constants.DESK]
+	tela_loading.next_scene_uid = Constants.UID_SCENES[Constants.TELAS.DESK]
 	get_tree().change_scene_to_node(tela_loading)
 
 func _on_configurar_btn_button_up() -> void:

@@ -178,7 +178,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_ksb78")
 
 [node name="musica" type="AudioStreamPlayer" parent="." unique_id=1037043044]
 stream = ExtResource("3_iqxt8")
-volume_db = -15.6
 autoplay = true
 bus = &"Música"
 parameters/looping = true

@@ -8,6 +8,10 @@ var _modo_value: Window.Mode
 @onready var modo_select: OptionButton = $margin/VBoxContainer/TabContainer/Interface/modo
 @onready var resolucao_select: OptionButton = $margin/VBoxContainer/TabContainer/Interface/resolucao
 
+@onready var geral_slider: HSlider = $margin/VBoxContainer/TabContainer/Áudio/volume_geral/geral_slider
+@onready var efeito_slider: HSlider = $margin/VBoxContainer/TabContainer/Áudio/vol_efeitos_sonoros/efeito_slider
+@onready var musica_slider: HSlider = $margin/VBoxContainer/TabContainer/Áudio/vol_musica/musica_slider
+
 @onready var aplicar_btn: Button = $margin/VBoxContainer/TabContainer/Interface/aplicar
 @onready var controles: VBoxContainer = $margin/VBoxContainer/TabContainer/Controles
 const INPUT_BUTTON = preload("uid://bk64nluu06ids")
@@ -19,6 +23,7 @@ var remap_btn: Button = null
 func _ready() -> void:
 	_define_variavel_resolucao()
 	_define_controles()
+	_define_audios_inciais()
 
 func _process(_delta: float) -> void:
 	if (Input.is_action_pressed("ui_cancel")):
@@ -28,36 +33,36 @@ func _input(event: InputEvent) -> void:
 	if (event is InputEventKey || (event is InputEventMouseButton && event.pressed)):
 		_atualiza_controles(event)
 
-func _define_variavel_resolucao():
+func _define_variavel_resolucao() -> void:
 	_resolucao_value = get_tree().root.size
 	var id := 0
 	for key in Constants.RESOLUCAO_DICT:
-		resolucao_select.add_item(key, id)
-		if (Constants.RESOLUCAO_DICT[key] == _resolucao_value):
+		resolucao_select.add_item(Constants.RESOLUCAO_DICT[key][Constants.OBJETO.TEXTO], id)
+		if (Constants.RESOLUCAO_DICT[key][Constants.OBJETO.VALOR] == _resolucao_value):
 			resolucao_select.select(id)
 		id += 1
 	
 	id = 0
 	_modo_value = get_tree().root.mode
 	for key in Constants.MODO_DICT:
-		modo_select.add_item(key, id)
-		if (Constants.MODO_DICT[key] == _modo_value):
+		modo_select.add_item(Constants.MODO_DICT[key][Constants.OBJETO.TEXTO], id)
+		if (Constants.MODO_DICT[key][Constants.OBJETO.VALOR] == _modo_value):
 			modo_select.select(id)
 		id += 1
 
-func _salvar_nova_resolucao(resolucao: Vector2i, modo: Window.Mode):
+func _salvar_nova_resolucao(resolucao: Vector2i, modo: Window.Mode) -> void:
 	get_tree().root.content_scale_size = resolucao
 	get_tree().root.mode = modo
 	aplicar_btn.disabled = true
 
-func _define_controles():
+func _define_controles() -> void:
 	InputMap.load_from_project_settings()
 	for item in controles.get_children():
 		item.queue_free()
 	
 	for acao in Constants.ACOES_CUSTOM:
-		var acao_text = Constants.ACOES_CUSTOM[acao][Constants.TEXT]
-		var acao_event = Constants.ACOES_CUSTOM[acao][Constants.EVENT]
+		var acao_text = Constants.ACOES_CUSTOM[acao][Constants.OBJETO.TEXTO]
+		var acao_event = Constants.ACOES_CUSTOM[acao][Constants.OBJETO.VALOR]
 		
 		var input_btn = INPUT_BUTTON.instantiate()
 		var acao_lbl = input_btn.find_child("acao_lbl")
@@ -70,6 +75,14 @@ func _define_controles():
 		
 		controles.add_child(input_btn)
 		input_btn.pressed.connect(_on_input_button_pressed.bind(input_btn, acao_event))
+
+func _define_audios_inciais() -> void:
+	var bus_volume_master = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	geral_slider.set_value_no_signal(_map_to_percent_volume(bus_volume_master))
+	var bus_volume_sfx = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Efeitos sonoros"))
+	efeito_slider.set_value_no_signal(_map_to_percent_volume(bus_volume_sfx))
+	var bus_volume_musica = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Música"))
+	musica_slider.set_value_no_signal(_map_to_percent_volume(bus_volume_musica))
 
 func _on_input_button_pressed(input_btn: Button, acao: StringName):
 	if not is_remapping:
@@ -89,17 +102,34 @@ func _atualiza_controles(event: InputEvent):
 		acao_para_remap = ""
 		remap_btn = null
 
+func _map_to_percent_volume(bus: float) -> float:
+	#(bus-min_bus)/(max_bus-min_bus) = (percent-min_percent)/(max_percent-min_percent)
+	#(bus-(-55))/(0-(-55)) = (percent-0)/(100-0)
+	#(bus+55)/55 = percent/100
+	#100 * (bus+55) / 55 = percent
+	var valor_mapeado = 100.0 * (bus + 55.0) / 55.0
+	return valor_mapeado
+
+func _map_to_bus_volume(percent: float) -> float:
+	#(percent-min_percent)/(max_percent-min_percent) = (bus-min_bus)/(max_bus-min_bus)
+	#(percent-0)/(100-0) = (bus-(-55))/(0-(-55))
+	#percent/100 = (bus+55)/55
+	#55 * percent / 100 = bus + 55
+	#(55 * percent / 100) - 55 = bus
+	var valor_mapeado = (percent * 55.0 / 100.0) - 55.0
+	return valor_mapeado
+
 func _on_geral_slider_value_changed(value: float) -> void:
 	var geral_idx = AudioServer.get_bus_index("Master")
-	AudioServer.set_bus_volume_db(geral_idx, value)
+	AudioServer.set_bus_volume_db(geral_idx, _map_to_bus_volume(value))
 
 func _on_efeito_slider_value_changed(value: float) -> void:
 	var geral_idx = AudioServer.get_bus_index("Efeitos sonoros")
-	AudioServer.set_bus_volume_db(geral_idx, value)
+	AudioServer.set_bus_volume_db(geral_idx, _map_to_bus_volume(value))
 
 func _on_musica_slider_value_changed(value: float) -> void:
 	var geral_idx = AudioServer.get_bus_index("Música")
-	AudioServer.set_bus_volume_db(geral_idx, value)
+	AudioServer.set_bus_volume_db(geral_idx, _map_to_bus_volume(value))
 
 func _on_resolucao_item_selected(index: int) -> void:
 	_resolucao_value = Vector2i((index+1) * 640, (index+1) * 360)
