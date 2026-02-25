@@ -117,7 +117,7 @@ size = Vector2(280.0726, 137)
 size = Vector2(199.26938, 306.34473)
 
 [node name="Letter" type="Node2D" unique_id=1054178178]
-z_index = 9
+z_index = 19
 scale = Vector2(0.84000146, 0.84000146)
 script = ExtResource("1_m1y87")
 marks = Array[Texture]([ExtResource("2_eftyu"), ExtResource("3_j1fwd")])
