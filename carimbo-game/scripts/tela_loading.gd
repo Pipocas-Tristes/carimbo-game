@@ -1,7 +1,7 @@
 extends Control
 
 @onready var progress_bar: ProgressBar = $fundo/margin/VBoxContainer/ProgressBar
-@export var next_scene_uid: String = Constants.UID_SCENES[Constants.TELA_INICIAL]
+@export var next_scene_uid: String = Constants.UID_SCENES[Constants.TELAS.TELA_INICIAL]
 
 var progress: Array[float] = []
 

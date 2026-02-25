@@ -7,7 +7,7 @@ class_name Desk
 @onready var send_area_sprite: AnimatedSprite2D = $SendArea/AnimatedSprite2D
 @onready var letter_final_spawn: Node2D = $LetterFinalSpawn
 @onready var letter_pile_spawn: Node2D = $LetterPileSpawn
-const TELA_PAUSE = preload(Constants.UID_SCENES[Constants.TELA_PAUSE])
+const TELA_PAUSE = preload(Constants.UID_SCENES[Constants.TELAS.TELA_PAUSE])
 
 @export_category("Configurações de Progressão")
 var required_score: int = 5
@@ -45,7 +45,7 @@ func _ready() -> void:
 	tashed_area.monitoring = GameManager.stash_unlocked
 	
 	if GameManager.tutorial:
-		call_deferred("handle_tutorial_letter", 1)
+		call_deferred("handle_tutorial_letter")
 	
 	for i in day_letters.size():
 		var desk_letter: DeskLetter = desk_letter_scene.instantiate()
@@ -57,6 +57,7 @@ func _ready() -> void:
 		 
 
 func _input(event: InputEvent) -> void:
+	
 	if (event is InputEventKey || (event is InputEventMouseButton && event.pressed)):
 		_pausar_jogo(event)
 
@@ -72,13 +73,15 @@ func generate_latter(letter_index: int) -> void:
 	if current_letter != null or day_letters.is_empty():
 		return
 	
+	if GameManager.tutorial and GameManager.tutorial_phase == 1:
+		GameManager.clear_tutorial()
+	
 	current_letter_resource = day_letters[letter_index]
 	
 	if current_letter_resource.sender_name == "Lívia":
-		handle_tutorial_letter(2)
+		handle_livia_letter()
 	
 	if current_letter_resource.sender_name == "Benjamin":
-		desk_background.texture = sprites[0]
 		handle_benjamin_arrival()
 	
 	current_letter = letter_scene.instantiate()
@@ -98,6 +101,11 @@ func score_update(value: int):
 func validate_letter(letter):
 	if letter.applied_stamp == '':
 		return
+		
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	
+	if GameManager.tutorial:
+		GameManager.finish_tutorial()
 	
 	var correct = letter.applied_stamp == letter.correct_stamp
 	letter.queue_free()
@@ -203,12 +211,14 @@ func _on_dialogue_started():
 		in_focus_mode = true
 	
 func _on_dialogue_finished():
+	if GameManager.tutorial and GameManager.tutorial_phase == 0:
+		GameManager.tutorial_phase += 1
+		GameManager.next_tutorial(0)
+	
 	if DialogueManager.block_input:
 		in_focus_mode = false
 	
 func handle_benjamin_arrival():
-	unlock_stash()
-
 	DialogueManager.start_dialogue([
 		{
 			"text": "Essa carta é… diferente."
@@ -218,29 +228,33 @@ func handle_benjamin_arrival():
 		}
 	], false)
 
-func handle_tutorial_letter(index: int):
-	match index:
-		1:
-			DialogueManager.start_dialogue([
-				{
-					"text": "Primeiro dia de trabalho"
-				},
-				{
-					"text": "Coisa super fácil, apenas pegar as cartas e carimbar"
-				},
-				{
-					"text": "Se a criança merecer o presente, carimbo verde. Caso não, carimbo vermelho"
-				},
-			], false)
-		2:
-			DialogueManager.start_dialogue([
-				{
-					"text": "Eu encontrei esse emprego de uma forma meio engraçada."
-				},
-				{
-					"text": "Um anúncio na deep web. Um trabalho fácil por uma boa quantia de dinheiro. E tudo o que eu preciso fazer…"
-				},
-				{
-					"text": "É carimbar."
-				}
-			], false)
+func handle_livia_letter():
+	DialogueManager.start_dialogue([
+		{
+			"text": "A carta apresenta palavras em uma letra bem ilegível"
+		},
+		{
+			"text": "É visível que a criança se empenhou para escrever, mas ainda não sabe como"
+		},
+		{
+			"text": "Abaixo do indecifrável, existe um desenho feito de giz de cera"
+		},
+		{
+			"text": "Ainda que meio torta e com traços difíceis de compreender, parecia uma casa. Talvez uma casa de bonecas?"
+		}
+	], false)
+
+func handle_tutorial_letter():
+	DialogueManager.start_dialogue([
+		{
+			"text": "Primeiro dia de trabalho"
+		},
+		{
+			"text": "Coisa super fácil, apenas pegar as cartas e carimbar"
+		},
+		{
+			"text": "Se a criança merecer o presente, carimbo verde. Caso não, carimbo vermelho"
+		},
+	], false)
+			
+	GameManager.start_tutorial()

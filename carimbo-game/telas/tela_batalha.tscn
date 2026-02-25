@@ -4,6 +4,90 @@
 [ext_resource type="Script" uid="uid://orhol8hq7ghi" path="res://scripts/tela_batalha.gd" id="1_qye0f"]
 [ext_resource type="PackedScene" uid="uid://b7y3lwixsm4h0" path="res://prefabs/barra_progresso/barra_progresso.tscn" id="2_8lpjt"]
 
+[sub_resource type="Animation" id="Animation_8lpjt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("barra_vida_inimigo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(440, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("status:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 167)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("acoes:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 429)]
+}
+
+[sub_resource type="Animation" id="Animation_ohd61"]
+resource_name = "tela_ataque_surge"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("barra_vida_inimigo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(440, -65), Vector2(440, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("status:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-464, 167), Vector2(0, 167)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("acoes:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 415)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tuhd"]
+_data = {
+&"RESET": SubResource("Animation_8lpjt"),
+&"tela_ataque_surge": SubResource("Animation_ohd61")
+}
+
 [node name="tela_batalha" type="CanvasLayer" unique_id=548392996]
 script = ExtResource("1_qye0f")
 
@@ -11,8 +95,9 @@ script = ExtResource("1_qye0f")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -150.0
-offset_right = 150.0
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 90.0
 grow_horizontal = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
@@ -21,11 +106,12 @@ size_flags_vertical = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -183.0
-offset_right = 364.0
-offset_bottom = 3.0
+offset_top = -193.0
+offset_right = 295.0
+offset_bottom = 27.0
 grow_vertical = 2
 size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="status" unique_id=1043809956]
 layout_mode = 2
@@ -44,7 +130,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 1
 alinhamento = 0
 cor = 1
-tamanho = 2
+tamanho = 1
 
 [node name="barra_energia_player" parent="status/MarginContainer/status" unique_id=410531548 instance=ExtResource("2_8lpjt")]
 layout_mode = 2
@@ -52,13 +138,14 @@ size_flags_horizontal = 2
 size_flags_vertical = 1
 alinhamento = 0
 cor = 2
-tamanho = 2
+tamanho = 1
 
 [node name="acoes" type="VBoxContainer" parent="." unique_id=1014301261]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 429.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -1
@@ -79,7 +166,7 @@ theme = ExtResource("1_b2bt1")
 
 [node name="ColorRect" type="ColorRect" parent="acoes/fundo" unique_id=7381416]
 layout_mode = 2
-color = Color(0.03137255, 0.05490196, 0.07058824, 1)
+color = Color(0.003921569, 0.03529412, 0.078431375, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="acoes/fundo" unique_id=1468697429]
 layout_mode = 2
@@ -96,14 +183,14 @@ theme = ExtResource("1_b2bt1")
 alignment = 1
 
 [node name="vida_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1897716194]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
 text = "Comer Sanduiche
 ()"
 
 [node name="ataque_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=894821264]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
 text = "Denunciar assédio moral
@@ -116,18 +203,23 @@ theme = ExtResource("1_b2bt1")
 alignment = 1
 
 [node name="energia_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=2094127800]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
 text = "Tomar Refri
 ()"
 
 [node name="especial_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1155171163]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
 text = "Citar o ECA
 ()"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1675967420]
+libraries/ = SubResource("AnimationLibrary_1tuhd")
+autoplay = &"tela_ataque_surge"
+movie_quit_on_finish = true
 
 [connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/vida_btn" to="." method="_on_vida_btn_pressed"]
 [connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/ataque_btn" to="." method="_on_ataque_btn_pressed"]

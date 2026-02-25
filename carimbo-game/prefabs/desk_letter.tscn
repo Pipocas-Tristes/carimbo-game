@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dyua2e7si76bg" path="res://sprites/cartas/letter_perspectiva.png" id="1_65h8n"]
 [ext_resource type="Script" uid="uid://f2e7jxx82lat" path="res://scripts/desk_letter.gd" id="1_vmt3r"]
+[ext_resource type="AudioStream" uid="uid://bdx8x26ql5laq" path="res://sons/slide_paper_sound.wav" id="2_ao7o7"]
 
 [node name="DeskLetter" type="Node2D" unique_id=668087713]
 script = ExtResource("1_vmt3r")
+slide_stream = ExtResource("2_ao7o7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1320832858]
 scale = Vector2(0.7, 0.7)
@@ -16,3 +18,5 @@ texture = ExtResource("1_65h8n")
 polygon = PackedVector2Array(-17, -82, -33, -69, -51, -64, -85, -51, 14, 76, 15, 83, 85, 35, 62, 8, 45, -8, 18, -41, 9, -54, 1, -61, -5, -66)
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

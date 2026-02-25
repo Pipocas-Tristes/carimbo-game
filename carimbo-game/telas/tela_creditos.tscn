@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cs7fu3neb7tf" path="res://scripts/tela_creditos.gd" id="1_hcio5"]
 [ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_ia3j1"]
 [ext_resource type="Texture2D" uid="uid://ufn5rtqjoj8h" path="res://imagens/logo-pipokers.png" id="3_3flh4"]
-[ext_resource type="AudioStream" uid="uid://knjigrxm8wvv" path="res://sons/theme.mp3" id="3_iqxt8"]
 [ext_resource type="Texture2D" uid="uid://dh4ffbt1paa3k" path="res://imagens/logo-pipokers-transparente.png" id="4_ksb78"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksb78"]
@@ -175,10 +174,3 @@ layout_mode = 2
 theme = ExtResource("2_ia3j1")
 theme_override_constants/separation = 80
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ksb78")
-
-[node name="musica" type="AudioStreamPlayer" parent="." unique_id=1037043044]
-stream = ExtResource("3_iqxt8")
-volume_db = -15.6
-autoplay = true
-bus = &"Música"
-parameters/looping = true

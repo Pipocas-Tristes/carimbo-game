@@ -5,7 +5,6 @@ signal dialogue_finished
 
 var dialogue_scene: PackedScene = preload("res://telas/dialogueUI.tscn")
 var dialogue_instance
-
 var block_input: bool = false
 
 func start_dialogue(dialogues: Array, block := true):

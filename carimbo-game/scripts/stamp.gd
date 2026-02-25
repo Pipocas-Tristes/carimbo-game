@@ -1,7 +1,11 @@
 extends Area2D
 class_name Stamp
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 @export_enum("gift", "coal") var type: String = 'gift'
+@export var sprites: Array[Texture] = []
+@export var get_stream: AudioStream
 var initial_position: Vector2
 var is_held: bool = false
 
@@ -10,10 +14,13 @@ var current_scale: Vector2
 func _ready() -> void:
 	initial_position = position
 	current_scale = scale
+	monitoring = false
+	sprite_2d.texture = sprites[0]
 
 func _process(delta: float) -> void:
 	if is_held:
 		global_position = global_position.lerp(get_global_mouse_position(), delta * 25)
+		monitoring = true
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -27,16 +34,34 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		else:
 			return_home()
 
+func apply_mark():
+	sprite_2d.texture = sprites[1]
+	await get_tree().create_timer(0.05).timeout
+	sprite_2d.texture = sprites[0]
+	await get_tree().create_timer(0.05).timeout
+	return_home()
+
 func pick_up():
+	if GameManager.tutorial and GameManager.tutorial_phase == 4:
+		GameManager.tutorial_phase += 1
+		GameManager.next_tutorial(4)
+	elif GameManager.tutorial and GameManager.tutorial_phase != 4:
+		return
+	
+	SoundManager.play_sfx(get_stream)
 	is_held = true
-	z_index = 10
+	z_index = 20
 	var desk: Desk = get_tree().current_scene
 	desk.held_stamp = self
 	desk.held_type = type
 
 func return_home():
+	if GameManager.tutorial and GameManager.tutorial_phase == 5:
+		return
+	
 	is_held = false
 	z_index = 1
+	monitoring = false
 	var desk: Desk = get_tree().current_scene
 	if desk.held_stamp == self:
 		desk.held_stamp = null
@@ -57,3 +82,14 @@ func _on_area_exited(area: Area2D) -> void:
 		var tween = create_tween()
 		tween.tween_property(self, "scale", current_scale, 0.1)
 		modulate = Color(1, 1, 1)
+
+func _on_mouse_entered() -> void:
+	if GameManager.tutorial and GameManager.tutorial_phase == 0:
+		return
+	
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1.08, 1.08, 1.08, 1), 0.15)
+
+func _on_mouse_exited() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.15)

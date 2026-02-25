@@ -2,8 +2,8 @@ extends CanvasLayer
 
 signal continuar_selected
 
-const TELA_CONFIG: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_CONFIG])
-const TELA_LOADING: PackedScene = preload(Constants.UID_SCENES[Constants.TELA_LOADING])
+const TELA_CONFIG: PackedScene = preload(Constants.UID_SCENES[Constants.TELAS.TELA_CONFIG])
+const TELA_LOADING: PackedScene = preload(Constants.UID_SCENES[Constants.TELAS.TELA_LOADING])
 
 func _on_continuar_btn_button_up() -> void:
 	get_tree().paused = false

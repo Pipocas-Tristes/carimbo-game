@@ -13,17 +13,17 @@ signal batalha_finalizada(vitoria: bool)
 
 @export_category("Inimigo")
 @export var nome_inimigo := "La Mama Noel"
-@export var vida_inicial_inimigo := 100.0
+@export var vida_inicial_inimigo := 5
 
 @export_category("Player")
-@export var vida_inicial_player := 100.0
-@export var energia_inicial_player := 10.0
+@export var vida_inicial_player := 5
+@export var energia_inicial_player := 1
 
 @export_category("Ações")
-@export var ganho_cura := 10.0
-@export var ganho_energia := 10.0
-@export var custo_ataque := 25.0
-@export var custo_especial := 100.0
+@export var ganho_cura := 1
+@export var ganho_energia := 1
+@export var custo_ataque := 1
+@export var custo_especial := 5
 
 func _ready() -> void:
 	_definir_barras_iniciais()
