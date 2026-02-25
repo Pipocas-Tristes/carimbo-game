@@ -6,14 +6,24 @@ var block_input: bool = false
 
 @onready var color_rect: ColorRect = $ColorRect
 @onready var label: Label = $ColorRect/Label
+@export var dialogues_stream: Array[AudioStream]
 
 func start(dialogues: Array, block := true):
 	dialogue_queue = dialogues
 	block_input = block
 	in_run = true
 	
+	DialogueManager.dialogue_started.connect(_on_dialogue_started)
+	DialogueManager.dialogue_finished.connect(_on_dialogue_finished)
+	
 	color_rect.visible = true
 	_show_next()
+
+func _on_dialogue_started():
+	pass
+	
+func _on_dialogue_finished():
+	pass
 
 func _show_next():
 	if dialogue_queue.is_empty():
@@ -21,6 +31,11 @@ func _show_next():
 		return
 
 	label.visible_ratio = 0
+
+	if randi() % 2 == 0:
+		SoundManager.play_sfx(dialogues_stream[0])
+	else:
+		SoundManager.play_sfx(dialogues_stream[1])
 
 	var tween = create_tween()
 	var read_time = max(1.5, label.text.length() * 0.03)
@@ -32,7 +47,6 @@ func _show_next():
 	if not block_input:
 		await get_tree().create_timer(read_time + 1).timeout
 		_show_next()
-
 func _input(event):
 	if not in_run:
 		return

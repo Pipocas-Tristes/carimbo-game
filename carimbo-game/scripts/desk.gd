@@ -240,7 +240,10 @@ func handle_livia_letter():
 			"text": "Abaixo do indecifrável, existe um desenho feito de giz de cera"
 		},
 		{
-			"text": "Ainda que meio torta e com traços difíceis de compreender, parecia uma casa. Talvez uma casa de bonecas?"
+			"text": "Ainda que meio torta e com traços difíceis de compreender"
+		},
+		{
+			"text": "Parecia uma casa. Talvez uma casa de bonecas?"
 		}
 	], false)
 

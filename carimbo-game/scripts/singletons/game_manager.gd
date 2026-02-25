@@ -18,7 +18,7 @@ var max_errors: int = 2
 var tutorial: bool = true
 var tutorial_phase: int = 0
 var tutorial_instance
-var tutorial_scene = preload(Constants.UID_SCENES[Constants.TUTORIAL])
+var tutorial_scene = preload(Constants.UID_SCENES[Constants.TELAS.TUTORIAL])
 
 var stash_unlocked: bool = false
 

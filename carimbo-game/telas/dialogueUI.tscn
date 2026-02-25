@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://yy4d2uwwqrga" path="res://scripts/dialogueUI.gd" id="1_xrbiq"]
 [ext_resource type="FontFile" uid="uid://chnx81mwq17x0" path="res://fonts/VT323-Regular.ttf" id="2_xrbiq"]
+[ext_resource type="AudioStream" uid="uid://efy55af2bjgf" path="res://sons/dialogue_test2.wav" id="3_eep17"]
+[ext_resource type="AudioStream" uid="uid://d4chetb7p1ogu" path="res://sons/dialogue_test.wav" id="4_vjclk"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=476368906]
 script = ExtResource("1_xrbiq")
+dialogues_stream = Array[AudioStream]([ExtResource("4_vjclk"), ExtResource("3_eep17")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=981619889]
 visible = false
