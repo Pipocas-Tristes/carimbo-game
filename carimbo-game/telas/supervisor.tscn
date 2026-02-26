@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://deripe8neoc8s"]
 
-[ext_resource type="Script" uid="uid://cippwrucsffee" path="res://sala_supervisor.gd" id="1_fsf22"]
+[ext_resource type="Script" path="res://sala_supervisor.gd" id="1_fsf22"]
 [ext_resource type="Texture2D" uid="uid://dax0bjx7l21jb" path="res://sprites/Felco/Sala do supervisor teste.png" id="2_kgg4b"]
 [ext_resource type="Script" uid="uid://d1q7uikybi2xd" path="res://scripts/player.gd" id="3_k1vel"]
 [ext_resource type="Texture2D" uid="uid://br3xbve8ddy0u" path="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 1.png" id="4_e2ygb"]
@@ -97,3 +97,4 @@ limit_enabled = false
 
 [node name="NextLevel" parent="." unique_id=1061422652 instance=ExtResource("12_1bd53")]
 position = Vector2(537, 263)
+next_scene = 8

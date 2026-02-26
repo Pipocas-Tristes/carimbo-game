@@ -1,12 +1,13 @@
 extends Area2D
 
 const FILE_BEGIN = "res://telas/"
+@export var next_scene: Constants.TELAS
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		var current_scene_file = get_tree().current_scene.scene_file_path
-		var next_level_number = current_scene_file.to_int()+1
+		# var current_scene_file = get_tree().current_scene.scene_file_path
+		# var next_level_number = current_scene_file.to_int()+1
+		# var next_level_path = FILE_BEGIN +str(next_level_number) + ".tscn"
 		
-		var next_level_path = FILE_BEGIN +str(next_level_number) + ".tscn"
-		get_tree().change_scene_to_file(next_level_path)
-		print(next_level_path)
+		get_tree().change_scene_to_file(Constants.UID_SCENES[next_scene])
+		print(next_scene)

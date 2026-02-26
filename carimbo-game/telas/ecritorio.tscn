@@ -87,6 +87,7 @@ shape = SubResource("CapsuleShape2D_w5fvh")
 
 [node name="NextLevel" parent="." unique_id=1061422652 instance=ExtResource("10_8i3nq")]
 position = Vector2(88, 579)
+next_scene = 9
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1566561979]
 position = Vector2(325, 543)
