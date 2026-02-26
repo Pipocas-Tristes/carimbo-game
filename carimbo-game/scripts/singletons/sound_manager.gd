@@ -45,7 +45,9 @@ func set_volume(percent: float, bus_name: StringName = "Master"):
 
 func get_volume(bus_name: StringName = "Master"):
 	var bus_vol = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(bus_name))
-	return _map_to_percent_volume(bus_vol)
+	return _map_to_percent_volume(bus_vol)  
+	
+
 
 func _map_to_percent_volume(bus: float) -> float:
 	# (percent-MIN_PERCENT)/(MAX_PERCENT-MIN_PERCENT) = (bus-MIN_DB)/(MAX_DB-MIN_DB)
