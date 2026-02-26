@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://deripe8neoc8s"]
+
+[ext_resource type="Script" uid="uid://cippwrucsffee" path="res://sala_supervisor.gd" id="1_fsf22"]
+[ext_resource type="Texture2D" uid="uid://dax0bjx7l21jb" path="res://sprites/Felco/Sala do supervisor teste.png" id="2_kgg4b"]
+[ext_resource type="Script" uid="uid://d1q7uikybi2xd" path="res://scripts/player.gd" id="3_k1vel"]
+[ext_resource type="Texture2D" uid="uid://br3xbve8ddy0u" path="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 1.png" id="4_e2ygb"]
+[ext_resource type="Texture2D" uid="uid://n5hcgvp3k014" path="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 2.png" id="5_l0a1p"]
+[ext_resource type="Texture2D" uid="uid://bh55ir4035yjs" path="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 3.png" id="6_yv0c8"]
+[ext_resource type="Texture2D" uid="uid://di7i2l8h7qnhu" path="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 4.png" id="7_f7cbw"]
+[ext_resource type="Texture2D" uid="uid://bu0nxhmsxdnpt" path="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 5.png" id="8_pfs7k"]
+[ext_resource type="Texture2D" uid="uid://dfph5p8al5tgw" path="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 6.png" id="9_aa1ry"]
+[ext_resource type="Texture2D" uid="uid://7eutfc32lhg8" path="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 7.png" id="10_py56e"]
+[ext_resource type="Texture2D" uid="uid://bure40ck23ot6" path="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 8.png" id="11_now4h"]
+[ext_resource type="PackedScene" uid="uid://crr54gpbpe7a" path="res://telas/next_level.tscn" id="12_1bd53"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_efe2v"]
+distance = -3.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fqel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e2ygb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l0a1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yv0c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f7cbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pfs7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_aa1ry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_py56e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_now4h")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_de84i"]
+radius = 20.0
+height = 198.0
+
+[node name="Sala supervisor" type="Node2D" unique_id=1338423675]
+position = Vector2(0, -1)
+script = ExtResource("1_fsf22")
+
+[node name="SalaDoSupervisorTeste" type="Sprite2D" parent="." unique_id=993532256]
+position = Vector2(322, 181)
+texture = ExtResource("2_kgg4b")
+
+[node name="ground" type="StaticBody2D" parent="." unique_id=714364804]
+position = Vector2(142, -356)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground" unique_id=154597879]
+position = Vector2(-57, 715)
+shape = SubResource("WorldBoundaryShape2D_efe2v")
+debug_color = Color(0.5244071, 0.000686537, 0.62420315, 1)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1104297858 groups=["player"]]
+light_mask = 15
+visibility_layer = 15
+position = Vector2(76, 263)
+script = ExtResource("3_k1vel")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1213480509]
+sprite_frames = SubResource("SpriteFrames_1fqel")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1003869790]
+position = Vector2(7, -11)
+shape = SubResource("CapsuleShape2D_de84i")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=758179464]
+position = Vector2(-321, -179)
+offset = Vector2(640, 360)
+ignore_rotation = false
+zoom = Vector2(2, 2)
+process_callback = 0
+limit_enabled = false
+
+[node name="NextLevel" parent="." unique_id=1061422652 instance=ExtResource("12_1bd53")]
+position = Vector2(537, 263)
