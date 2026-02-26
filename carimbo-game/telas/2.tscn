@@ -58,8 +58,7 @@ radius = 20.0
 height = 198.0
 
 [node name="Sala supervisor" type="Node2D" unique_id=1338423675]
-position = Vector2(0, -1)
-script = ExtResource("1_jctne")
+script = ExtResource("1_fsf22")
 
 [node name="SalaDoSupervisorTeste" type="Sprite2D" parent="." unique_id=993532256]
 position = Vector2(322, 181)
@@ -76,8 +75,9 @@ debug_color = Color(0.5244071, 0.000686537, 0.62420315, 1)
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1104297858 groups=["player"]]
 light_mask = 15
 visibility_layer = 15
-position = Vector2(76, 263)
-script = ExtResource("2_jctne")
+position = Vector2(316, 225)
+scale = Vector2(0.80013084, 0.80013084)
+script = ExtResource("3_k1vel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1213480509]
 sprite_frames = SubResource("SpriteFrames_1fqel")
