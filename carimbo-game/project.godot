@@ -39,6 +39,10 @@ window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[global_group]
+
+player=""
+
 [input]
 
 para_cima={

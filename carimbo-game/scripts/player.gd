@@ -9,9 +9,9 @@ class_name Player
 func _physics_process(delta):
 	var direction := 0
 	
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("para_direita"):
 		direction += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("para_esquerda"):
 		direction -= 1
 
 	# Movimento horizontal
