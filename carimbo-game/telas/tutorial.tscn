@@ -8,7 +8,7 @@
 
 [node name="Tutorial" type="CanvasLayer" unique_id=1709777663]
 script = ExtResource("1_02tug")
-streams = Array[AudioStreamWAV]([ExtResource("3_4w3ld"), ExtResource("3_cw8yy"), ExtResource("4_rxlk5")])
+streams = Array[AudioStream]([ExtResource("3_4w3ld"), ExtResource("3_cw8yy"), ExtResource("4_rxlk5")])
 
 [node name="Label" type="Label" parent="." unique_id=1405131101]
 offset_left = 32.0

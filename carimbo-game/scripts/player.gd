@@ -6,7 +6,7 @@ class_name Player
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction := 0
 	
 	if Input.is_action_pressed("para_direita"):

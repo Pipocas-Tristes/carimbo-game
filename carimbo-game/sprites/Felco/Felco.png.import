@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n5hcgvp3k014"
-path="res://.godot/imported/Felco Andando 2.png-e685ae9ffa9bad800955f55aad2a6eb3.ctex"
+uid="uid://cpc0at5b5wfpc"
+path="res://.godot/imported/Felco.png-70f3722e963553962be4240e5427bdb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco andando/Felco Andando 2.png"
-dest_files=["res://.godot/imported/Felco Andando 2.png-e685ae9ffa9bad800955f55aad2a6eb3.ctex"]
+source_file="res://sprites/Felco/Felco.png"
+dest_files=["res://.godot/imported/Felco.png-70f3722e963553962be4240e5427bdb1.ctex"]
 
 [params]
 

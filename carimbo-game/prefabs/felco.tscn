@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bmyu4ughrjvi5"]
+
+[ext_resource type="Script" uid="uid://d1q7uikybi2xd" path="res://scripts/player.gd" id="1_m1t40"]
+[ext_resource type="Texture2D" uid="uid://br3xbve8ddy0u" path="res://sprites/Felco/Felco andando/Felco Andando 1.png" id="2_751hb"]
+[ext_resource type="Texture2D" uid="uid://n5hcgvp3k014" path="res://sprites/Felco/Felco andando/Felco Andando 2.png" id="3_iivs7"]
+[ext_resource type="Texture2D" uid="uid://bh55ir4035yjs" path="res://sprites/Felco/Felco andando/Felco Andando 3.png" id="4_p3wb6"]
+[ext_resource type="Texture2D" uid="uid://di7i2l8h7qnhu" path="res://sprites/Felco/Felco andando/Felco Andando 4.png" id="5_36n4b"]
+[ext_resource type="Texture2D" uid="uid://bu0nxhmsxdnpt" path="res://sprites/Felco/Felco andando/Felco Andando 5.png" id="6_fcum5"]
+[ext_resource type="Texture2D" uid="uid://dfph5p8al5tgw" path="res://sprites/Felco/Felco andando/Felco Andando 6.png" id="7_ujme7"]
+[ext_resource type="Texture2D" uid="uid://7eutfc32lhg8" path="res://sprites/Felco/Felco andando/Felco Andando 7.png" id="8_8usqs"]
+[ext_resource type="Texture2D" uid="uid://bure40ck23ot6" path="res://sprites/Felco/Felco andando/Felco Andando 8.png" id="9_lc11n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14usy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_751hb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_iivs7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p3wb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_36n4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fcum5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ujme7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8usqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lc11n")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5fvh"]
+radius = 20.0
+height = 198.0
+
+[node name="felco" type="Node2D" unique_id=1010280700]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=284023802 groups=["player"]]
+light_mask = 9
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_m1t40")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=667316813]
+sprite_frames = SubResource("SpriteFrames_14usy")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=936919260]
+shape = SubResource("CapsuleShape2D_w5fvh")

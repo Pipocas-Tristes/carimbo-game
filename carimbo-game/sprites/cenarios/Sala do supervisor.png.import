@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpc0at5b5wfpc"
-path="res://.godot/imported/Felco.png-5f4cf51579bd558b1f9756178254189d.ctex"
+uid="uid://dax0bjx7l21jb"
+path="res://.godot/imported/Sala do supervisor.png-7b2b0245b1c0b67bbf8ebcf125f2a450.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco.png"
-dest_files=["res://.godot/imported/Felco.png-5f4cf51579bd558b1f9756178254189d.ctex"]
+source_file="res://sprites/cenarios/Sala do supervisor.png"
+dest_files=["res://.godot/imported/Sala do supervisor.png-7b2b0245b1c0b67bbf8ebcf125f2a450.ctex"]
 
 [params]
 

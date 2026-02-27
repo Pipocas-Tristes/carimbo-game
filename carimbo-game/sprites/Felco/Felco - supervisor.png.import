@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sx8jrguo2cpt"
-path="res://.godot/imported/Felco - supervisor.png-fae97928f25770276257429d4f457da9.ctex"
+path="res://.godot/imported/Felco - supervisor.png-92a55c654bf8b54e1e2d3d8e6a222cc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Felco/PTT- Felco-20260224T233426Z-1-001/PTT- Felco/Felco - supervisor.png"
-dest_files=["res://.godot/imported/Felco - supervisor.png-fae97928f25770276257429d4f457da9.ctex"]
+source_file="res://sprites/Felco/Felco - supervisor.png"
+dest_files=["res://.godot/imported/Felco - supervisor.png-92a55c654bf8b54e1e2d3d8e6a222cc6.ctex"]
 
 [params]
 
