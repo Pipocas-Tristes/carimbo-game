@@ -51,16 +51,17 @@ animations = [{
 radius = 20.0
 height = 198.0
 
-[node name="felco" type="Node2D" unique_id=1010280700]
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=284023802 groups=["player"]]
-light_mask = 9
+[node name="felco" type="CharacterBody2D" unique_id=1326828819 groups=["player"]]
+light_mask = 15
+visibility_layer = 15
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_m1t40")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=667316813]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=372384496]
 sprite_frames = SubResource("SpriteFrames_14usy")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=936919260]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=978987739]
+light_mask = 3
+visibility_layer = 3
 shape = SubResource("CapsuleShape2D_w5fvh")
