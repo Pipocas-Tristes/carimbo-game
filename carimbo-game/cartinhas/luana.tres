@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://bnnn4yf3uoa0c"]
+
+[ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_sso0d"]
+
+[resource]
+script = ExtResource("1_sso0d")
+metadata/_custom_type_script = "uid://1oycgv6x3g7y"
