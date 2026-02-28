@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://bnnn4yf3uoa0c"]
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://dtcfyg558irmy"]
 
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_sso0d"]
 
 [resource]
 script = ExtResource("1_sso0d")
+content = "Papai Noel, ontem meu peixinho de estimacaum dormiu de ponta cabeça e o papai jogou ele na privada. Eu chorei muito mas passo. Voce podia pegar ele embalar no presente e mandar de volta? Nao vai custar dinheiro."
 metadata/_custom_type_script = "uid://1oycgv6x3g7y"

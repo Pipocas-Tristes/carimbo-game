@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://ba6s7ngpxvet3"]
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://bq7m650prkor3"]
 
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_fm7h4"]
 
 [resource]
 script = ExtResource("1_fm7h4")
+content = "qUERIdo, papai, Noel. Eu sempre fui bonzinho, minha vó, disse que eu sou menino gentil e carinhoso. Uma ves so eu pisei no inseto do meu amigo joao mas foi sem querer e porque ele me deixou bravo. Se voce tiver presente eu peço desculpa ta bom. Eu quero uma cozinha de brinquedo."
 metadata/_custom_type_script = "uid://1oycgv6x3g7y"

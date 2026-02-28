@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://byj5076by45as"]
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://r7jebioxty65"]
 
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_fbhkr"]
 
 [resource]
 script = ExtResource("1_fbhkr")
+content = "Papai Noel, eu quero muito uma personalidade. 
+A minha prima falo ke gente legau tem isso entao eu quero"
 metadata/_custom_type_script = "uid://1oycgv6x3g7y"
