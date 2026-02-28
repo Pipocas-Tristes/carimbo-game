@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://cj8filwngcxex"]
+
+[ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_d7qj2"]
+
+[resource]
+script = ExtResource("1_d7qj2")
+content = "Querido papai, Noel. Queria curativos pros dodóis que a mamãe fez em mim."
+is_suspicious = true
+metadata/_custom_type_script = "uid://1oycgv6x3g7y"
