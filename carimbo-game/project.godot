@@ -30,7 +30,7 @@ DialogueManager="*uid://cteb5unnlf8nk"
 GameManager="*uid://bpqfwkjylpo4p"
 EventManager="*uid://cq0bqm873ntfn"
 SoundManager="*uid://b5c5flfxgtacs"
-NavegationManager="*uid://dg20kc7w8hk28"
+BatalhasManager="*uid://cfdoi6tdhtkwp"
 
 [display]
 

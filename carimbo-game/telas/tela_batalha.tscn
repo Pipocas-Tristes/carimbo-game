@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://fu8qrhvagooh" path="res://temas/tema_luta.tres" id="1_b2bt1"]
 [ext_resource type="Script" uid="uid://orhol8hq7ghi" path="res://scripts/tela_batalha.gd" id="1_qye0f"]
 [ext_resource type="PackedScene" uid="uid://b7y3lwixsm4h0" path="res://prefabs/barra_progresso/barra_progresso.tscn" id="2_8lpjt"]
+[ext_resource type="Texture2D" uid="uid://c1dg2wf6vkrgk" path="res://sprites/Chat de dialogo balao.png" id="3_ohd61"]
 
 [sub_resource type="Animation" id="Animation_8lpjt"]
 length = 0.001
@@ -33,14 +34,94 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("acoes:position")
+tracks/2/path = NodePath("Control/acoes:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 415)]
+"values": [Vector2(230, 456)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/ChatDeDialogoBalao:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(92, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, -3)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/acoes/fundo/MarginContainer/acao_dialogo:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("resultado_container:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1tuhd"]
+resource_name = "digitando"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/acoes/fundo/MarginContainer/acao_dialogo:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_m3qx2"]
+resource_name = "resultado"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("resultado_container:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
 }
 
 [sub_resource type="Animation" id="Animation_ohd61"]
@@ -72,24 +153,51 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("acoes:position")
+tracks/2/path = NodePath("Control/acoes:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 720), Vector2(0, 415)]
+"values": [Vector2(230, 456), Vector2(230, 456)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/ChatDeDialogoBalao:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(92, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-20, 297), Vector2(-20, -3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1tuhd"]
 _data = {
 &"RESET": SubResource("Animation_8lpjt"),
+&"digitando": SubResource("Animation_1tuhd"),
+&"resultado": SubResource("Animation_m3qx2"),
 &"tela_ataque_surge": SubResource("Animation_ohd61")
 }
 
 [node name="tela_batalha" type="CanvasLayer" unique_id=548392996]
 script = ExtResource("1_qye0f")
+inimigo = 3
 
 [node name="barra_vida_inimigo" parent="." unique_id=1738874259 instance=ExtResource("2_8lpjt")]
 anchors_preset = 5
@@ -107,11 +215,11 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -193.0
-offset_right = 295.0
-offset_bottom = 27.0
+offset_right = 258.0
+offset_bottom = -10.0
 grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="status" unique_id=1043809956]
 layout_mode = 2
@@ -140,16 +248,34 @@ alinhamento = 0
 cor = 2
 tamanho = 1
 
-[node name="acoes" type="VBoxContainer" parent="." unique_id=1014301261]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 415.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Control" type="Control" parent="." unique_id=1964940603]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -3.0
+offset_right = 1046.0
+offset_bottom = 659.0
+theme = ExtResource("1_b2bt1")
+
+[node name="ChatDeDialogoBalao" type="TextureRect" parent="Control" unique_id=1888890368]
+layout_mode = 0
+offset_left = 92.0
+offset_right = 1372.0
+offset_bottom = 720.0
+texture = ExtResource("3_ohd61")
+stretch_mode = 4
+
+[node name="acoes" type="VBoxContainer" parent="Control" unique_id=1014301261]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 456.0
+offset_right = 1061.9985
+offset_bottom = 638.00024
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = -1
 
-[node name="turno" type="TabBar" parent="acoes" unique_id=273915159]
+[node name="turno" type="TabBar" parent="Control/acoes" unique_id=273915159]
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
 current_tab = 0
@@ -158,69 +284,95 @@ tab_count = 1
 tab_0/title = "Seu turno"
 tab_0/disabled = true
 
-[node name="fundo" type="PanelContainer" parent="acoes" unique_id=348673068]
-custom_minimum_size = Vector2(0, 250)
+[node name="fundo" type="PanelContainer" parent="Control/acoes" unique_id=348673068]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_b2bt1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/acoes/fundo" unique_id=1468697429]
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
 
-[node name="ColorRect" type="ColorRect" parent="acoes/fundo" unique_id=7381416]
+[node name="acao_dialogo" type="Label" parent="Control/acoes/fundo/MarginContainer" unique_id=1106180017]
+visible = false
 layout_mode = 2
-color = Color(0.003921569, 0.03529412, 0.078431375, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Teste"
 
-[node name="MarginContainer" type="MarginContainer" parent="acoes/fundo" unique_id=1468697429]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/acoes/fundo/MarginContainer" unique_id=250892991]
 layout_mode = 2
+size_flags_vertical = 4
 theme = ExtResource("1_b2bt1")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="acoes/fundo/MarginContainer" unique_id=250892991]
-layout_mode = 2
-theme = ExtResource("1_b2bt1")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="acoes/fundo/MarginContainer/HBoxContainer" unique_id=1452249035]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/acoes/fundo/MarginContainer/HBoxContainer" unique_id=1452249035]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("1_b2bt1")
 alignment = 1
 
-[node name="vida_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1897716194]
-custom_minimum_size = Vector2(0, 100)
+[node name="vida_btn" type="Button" parent="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1897716194]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
-text = "Comer Sanduiche
-()"
+text = "Sanduiche"
 
-[node name="ataque_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=894821264]
-custom_minimum_size = Vector2(0, 100)
+[node name="ataque_btn" type="Button" parent="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer" unique_id=894821264]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
-text = "Denunciar assédio moral
-()"
+text = "Denúncia de assédio moral"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="acoes/fundo/MarginContainer/HBoxContainer" unique_id=596443431]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/acoes/fundo/MarginContainer/HBoxContainer" unique_id=596443431]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("1_b2bt1")
 alignment = 1
 
-[node name="energia_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=2094127800]
-custom_minimum_size = Vector2(0, 100)
+[node name="energia_btn" type="Button" parent="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=2094127800]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
-text = "Tomar Refri
-()"
+text = "Refri"
 
-[node name="especial_btn" type="Button" parent="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1155171163]
-custom_minimum_size = Vector2(0, 100)
+[node name="especial_btn" type="Button" parent="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1155171163]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme = ExtResource("1_b2bt1")
-text = "Citar o ECA
-()"
+text = "E.C.A."
+
+[node name="resultado_container" type="PanelContainer" parent="." unique_id=959773257]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resultado_label" type="Label" parent="resultado_container" unique_id=403287482]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Derrota"
+horizontal_alignment = 1
+uppercase = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1675967420]
 libraries/ = SubResource("AnimationLibrary_1tuhd")
 autoplay = &"tela_ataque_surge"
 movie_quit_on_finish = true
 
-[connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/vida_btn" to="." method="_on_vida_btn_pressed"]
-[connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/ataque_btn" to="." method="_on_ataque_btn_pressed"]
-[connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/energia_btn" to="." method="_on_energia_btn_pressed"]
-[connection signal="pressed" from="acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/especial_btn" to="." method="_on_especial_btn_pressed"]
+[connection signal="mouse_entered" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/vida_btn" to="." method="_on_vida_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/vida_btn" to="." method="_on_vida_btn_mouse_exited"]
+[connection signal="pressed" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/vida_btn" to="." method="_on_vida_btn_pressed"]
+[connection signal="mouse_entered" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/ataque_btn" to="." method="_on_ataque_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/ataque_btn" to="." method="_on_ataque_btn_mouse_exited"]
+[connection signal="pressed" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/ataque_btn" to="." method="_on_ataque_btn_pressed"]
+[connection signal="mouse_entered" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/energia_btn" to="." method="_on_energia_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/energia_btn" to="." method="_on_energia_btn_mouse_exited"]
+[connection signal="pressed" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/energia_btn" to="." method="_on_energia_btn_pressed"]
+[connection signal="mouse_entered" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/especial_btn" to="." method="_on_especial_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/especial_btn" to="." method="_on_especial_btn_mouse_exited"]
+[connection signal="pressed" from="Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/especial_btn" to="." method="_on_especial_btn_pressed"]
