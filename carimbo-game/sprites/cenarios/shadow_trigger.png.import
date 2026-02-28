@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwq1oxknmcju6"
-path="res://.godot/imported/escritorio.png-710f433c0948bced2ad51aab63f431f5.ctex"
+uid="uid://wups61e4x2js"
+path="res://.godot/imported/shadow_trigger.png-c45d685b581c17306a132640217e4c13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/escritorio.png"
-dest_files=["res://.godot/imported/escritorio.png-710f433c0948bced2ad51aab63f431f5.ctex"]
+source_file="res://sprites/cenarios/shadow_trigger.png"
+dest_files=["res://.godot/imported/shadow_trigger.png-c45d685b581c17306a132640217e4c13.ctex"]
 
 [params]
 

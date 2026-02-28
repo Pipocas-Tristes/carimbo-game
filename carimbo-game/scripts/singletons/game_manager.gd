@@ -21,6 +21,9 @@ var tutorial_instance
 var tutorial_scene = preload(Constants.UID_SCENES[Constants.TELAS.TUTORIAL])
 
 var stash_unlocked: bool = false
+var pode_levantar: bool = false
+
+var el_papa_foto: bool = false
 
 # signal day_started(day)
 # signal day_finished(success)
@@ -41,6 +44,7 @@ func start_tutorial():
 	
 func next_tutorial(res: int):
 	tutorial_instance.next(res)
+	print(tutorial_phase)
 	
 func clear_tutorial():
 	tutorial_instance.clear()

@@ -60,6 +60,11 @@ func _input(event: InputEvent) -> void:
 	
 	if (event is InputEventKey || (event is InputEventMouseButton && event.pressed)):
 		_pausar_jogo(event)
+		
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_Q:
+			if GameManager.pode_levantar:
+				levantar()
 
 func _pausar_jogo(event: InputEvent):
 	if (event.is_action_pressed("ui_cancel") and not get_tree().paused):
@@ -68,6 +73,9 @@ func _pausar_jogo(event: InputEvent):
 		add_child(tela_pause)
 		await tela_pause.continuar_selected
 		tela_pause.queue_free()
+
+func levantar():
+	get_tree().change_scene_to_file(Constants.UID_SCENES[Constants.TELAS.CENARIO])
 
 func generate_latter(letter_index: int) -> void:
 	if current_letter != null or day_letters.is_empty():
@@ -215,6 +223,11 @@ func _on_dialogue_finished():
 		GameManager.tutorial_phase += 1
 		GameManager.next_tutorial(0)
 	
+	if GameManager.tutorial and GameManager.tutorial_phase == 6:
+		GameManager.tutorial_phase += 1
+		GameManager.next_tutorial(6)
+		GameManager.pode_levantar = true
+	
 	if DialogueManager.block_input:
 		in_focus_mode = false
 	
@@ -227,6 +240,8 @@ func handle_benjamin_arrival():
 			"text": "Talvez eu devesse perguntar alguem sobre"
 		}
 	], false)
+	
+	GameManager.start_tutorial()
 
 func handle_livia_letter():
 	DialogueManager.start_dialogue([

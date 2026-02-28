@@ -21,7 +21,8 @@ func _ready() -> void:
 		TutorialSteps.new("CLIQUE EM UM DOS CARIMBOS COM [LMB] PARA SELECIONAR", streams[1]),
 		TutorialSteps.new("COM O CARIMBO EM MÃOS CLIQUE NA CARTA COM [LMB] PARA MARCAR", streams[2]),
 		TutorialSteps.new("ARRASTE O ENVELOPE ATÉ O CORREIO PARA ENVIAR", streams[1]),
-		TutorialSteps.new("USE [A]/[D] PARA MOVIMENTAR O PERSONAGEM", streams[2])
+		TutorialSteps.new("PRESSIONE [Q] PARA SAIR DA MESA", streams[1]),
+		TutorialSteps.new("USE [A]/[D] PARA MOVIMENTAR O PERSONAGEM", streams[2]),
 	]
 
 func next(index: int):

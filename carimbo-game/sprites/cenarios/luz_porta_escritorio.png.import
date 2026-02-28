@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwq1oxknmcju6"
-path="res://.godot/imported/escritorio.png-710f433c0948bced2ad51aab63f431f5.ctex"
+uid="uid://dnkwmfo6iwrhq"
+path="res://.godot/imported/luz_porta_escritorio.png-6e9cdb609c50f9102a7482f534bc81c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/escritorio.png"
-dest_files=["res://.godot/imported/escritorio.png-710f433c0948bced2ad51aab63f431f5.ctex"]
+source_file="res://sprites/cenarios/luz_porta_escritorio.png"
+dest_files=["res://.godot/imported/luz_porta_escritorio.png-6e9cdb609c50f9102a7482f534bc81c7.ctex"]
 
 [params]
 
