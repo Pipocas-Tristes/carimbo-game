@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crr54gpbpe7a"]
 
-[ext_resource type="Script" uid="uid://jvj2dk51b1hl" path="res://scripts/colisao_cenarios.gd" id="1_rc4wm"]
+[ext_resource type="Script" path="res://scripts/colisao_cenarios.gd" id="1_rc4wm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rc4wm"]
 size = Vector2(80, 720)
@@ -17,6 +17,7 @@ visibility_layer = 15
 shape = SubResource("RectangleShape2D_rc4wm")
 
 [node name="parede_esquerda" type="StaticBody2D" parent="." unique_id=1501022663]
+position = Vector2(1, -6)
 
 [node name="parede" type="CollisionShape2D" parent="parede_esquerda" unique_id=915062541]
 light_mask = 15

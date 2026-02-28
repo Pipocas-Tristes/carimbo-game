@@ -1,21 +1,19 @@
 [gd_scene format=3 uid="uid://b3o4ai3dyu5jn"]
 
 [ext_resource type="Script" uid="uid://dra8j7fopoisl" path="res://scripts/cenario.gd" id="1_afphx"]
-[ext_resource type="PackedScene" uid="uid://blaos3mogukft" path="res://prefabs/label_ui.tscn" id="2_87n5o"]
 [ext_resource type="PackedScene" uid="uid://bmyu4ughrjvi5" path="res://prefabs/felco.tscn" id="2_afphx"]
-[ext_resource type="Texture2D" uid="uid://b5j4alqatx6nx" path="res://sprites/cenarios/fabrica de brinquedo 1.png" id="2_jd0xd"]
+[ext_resource type="Texture2D" uid="uid://bivdy6tca08ih" path="res://sprites/cenarios/escritorio.png" id="2_jd0xd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awylm"]
 size = Vector2(104, 737)
-[ext_resource type="PackedScene" uid="uid://clk1ysjnbyd46" path="res://telas/tela_batalha.tscn" id="5_jd0xd"]
 
 [node name="cenario" type="Node2D" unique_id=1781242429]
 script = ExtResource("1_afphx")
-cena_atual = 1
+cena_atual = 5
 
 [node name="cenario_img" type="Sprite2D" parent="." unique_id=263740613]
-position = Vector2(642.35406, 359.3205)
-scale = Vector2(2.0295584, 2.0295584)
+position = Vector2(640, 360)
+scale = Vector2(1.001, 1.001)
 texture = ExtResource("2_jd0xd")
 
 [node name="felco" parent="." unique_id=1326828819 instance=ExtResource("2_afphx")]
@@ -24,6 +22,12 @@ position = Vector2(1077, 687)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2076113233]
 position = Vector2(640, 360)
+
+[node name="spawn_left" type="Marker2D" parent="." unique_id=1114990283]
+position = Vector2(1078, 686)
+
+[node name="spawn_right" type="Marker2D" parent="." unique_id=690684279]
+position = Vector2(160, 680)
 
 [node name="Conteudo" type="Node2D" parent="." unique_id=692890095]
 
@@ -36,20 +40,3 @@ shape = SubResource("RectangleShape2D_awylm")
 [node name="LimiteDir" type="CollisionShape2D" parent="Limites" unique_id=1315428447]
 position = Vector2(1323, 362)
 shape = SubResource("RectangleShape2D_awylm")
-
-[node name="labelUI" parent="." unique_id=1000752948 instance=ExtResource("2_87n5o")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -1.0
-offset_right = 1285.0
-offset_bottom = 720.0
-grow_horizontal = 1
-grow_vertical = 1
-[node name="spawn_right" type="Marker2D" parent="." unique_id=690684279]
-position = Vector2(167, 360)
-
-[node name="tela_batalha" parent="." unique_id=548392996 instance=ExtResource("5_jd0xd")]
-
-[connection signal="foi_para_direita" from="colisao_cenarios" to="." method="_on_colisao_cenarios_foi_para_direita"]
-[connection signal="foi_para_esquerda" from="colisao_cenarios" to="." method="_on_colisao_cenarios_foi_para_esquerda"]

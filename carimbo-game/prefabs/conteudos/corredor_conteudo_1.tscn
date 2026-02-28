@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bsugtk4ao1xgx"]
+
+[ext_resource type="Script" uid="uid://cg43lk8ixhnuw" path="res://SCRIPTS/corredor_conteudo_1.gd" id="1_35ion"]
+[ext_resource type="Script" uid="uid://bsq0tocxvxl8w" path="res://scripts/quadro.gd" id="2_ol6dx"]
+[ext_resource type="Script" uid="uid://cg3cvye4drcy7" path="res://scripts/sala_supervisor_trigger.gd" id="3_6pia8"]
+[ext_resource type="Texture2D" uid="uid://wups61e4x2js" path="res://sprites/cenarios/shadow_trigger.png" id="4_r4jam"]
+[ext_resource type="Script" uid="uid://co1a1roegnyco" path="res://scripts/corredor_2_trigger.gd" id="5_1l5i7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f3iu"]
+size = Vector2(203, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6ksm"]
+size = Vector2(119, 741)
+
+[node name="CorredorConteudo1" type="Node2D" unique_id=1600389292]
+script = ExtResource("1_35ion")
+
+[node name="Quadro" type="Area2D" parent="." unique_id=357796896]
+script = ExtResource("2_ol6dx")
+texto_interacao = "Tirar Foto do Quadro"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quadro" unique_id=1830837586]
+position = Vector2(333.5, 266)
+shape = SubResource("RectangleShape2D_2f3iu")
+
+[node name="ColorRect" type="ColorRect" parent="Quadro" unique_id=682754175]
+modulate = Color(1, 1, 1, 0)
+offset_left = 232.0
+offset_top = 122.0
+offset_right = 435.0
+offset_bottom = 410.0
+
+[node name="SalaSupervisorTrigger" type="Area2D" parent="." unique_id=705186832]
+script = ExtResource("3_6pia8")
+destino = 4
+texto_interacao = "Sala do Supervisor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SalaSupervisorTrigger" unique_id=1106122479]
+position = Vector2(1232.5, 361)
+shape = SubResource("RectangleShape2D_l6ksm")
+
+[node name="Sprite2D" type="Sprite2D" parent="SalaSupervisorTrigger" unique_id=1103504384]
+position = Vector2(1143, 361)
+scale = Vector2(1.4708996, 0.6925925)
+texture = ExtResource("4_r4jam")
+
+[node name="Corredor2Trigger" type="Area2D" parent="." unique_id=101519940]
+script = ExtResource("5_1l5i7")
+destino = 2
+texto_interacao = "Corredor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corredor2Trigger" unique_id=589211053]
+position = Vector2(57, 361)
+shape = SubResource("RectangleShape2D_l6ksm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Corredor2Trigger" unique_id=1962105060]
+position = Vector2(136, 361.00003)
+scale = Vector2(1.4708996, 0.6925925)
+texture = ExtResource("4_r4jam")
+flip_h = true
+
+[connection signal="interagido" from="Quadro" to="." method="_on_quadro_interagido"]
+[connection signal="interagido" from="SalaSupervisorTrigger" to="." method="_on_sala_supervisor_trigger_interagido"]
+[connection signal="interagido" from="Corredor2Trigger" to="." method="_on_corredor_2_trigger_interagido"]
