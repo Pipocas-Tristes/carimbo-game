@@ -12,12 +12,12 @@ const CENARIO = preload("uid://b3o4ai3dyu5jn")
 
 var enemy: AnimatedSprite2D
 
-const MUSICA_CREDITOS = preload("uid://knjigrxm8wvv")
+const MUSICA = preload("uid://bssweesetteg2")
 const TELA_PAUSE = preload(Constants.UID_SCENES[Constants.TELAS.TELA_PAUSE])
 var proxima_tela:= Constants.TELAS.TELA_CREDITOS
 
 func _ready() -> void:
-	SoundManager.change_musica(MUSICA_CREDITOS)
+	SoundManager.change_musica(MUSICA)
 	_define_inimigo()
 
 func _input(event: InputEvent) -> void:
