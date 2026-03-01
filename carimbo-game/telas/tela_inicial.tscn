@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dfup2bdf5sdnw"]
 
 [ext_resource type="Script" uid="uid://7db7k17i621u" path="res://scripts/tela_inicial.gd" id="1_xs8lk"]
+[ext_resource type="Texture2D" uid="uid://0n7rcssp3ke7" path="res://sprites/Menu Game El PAPA .png" id="2_5bdny"]
 [ext_resource type="Theme" uid="uid://ctd3ggxnomyt2" path="res://temas/tema_ui.tres" id="2_6hiqg"]
 [ext_resource type="Theme" uid="uid://4h2384ue2d34" path="res://temas/teste.tres" id="3_5sd8u"]
 
@@ -23,11 +24,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.03137255, 0.05490196, 0.07058824, 1)
 
+[node name="MenuGameElPapa" type="Sprite2D" parent="fundo" unique_id=1345537722]
+position = Vector2(641, 356)
+scale = Vector2(2.0109375, 1.9972223)
+texture = ExtResource("2_5bdny")
+
 [node name="margin" type="MarginContainer" parent="." unique_id=124735404]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 9.0
+offset_right = 2.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
@@ -45,36 +55,48 @@ layout_mode = 2
 size_flags_vertical = 8
 theme = ExtResource("2_6hiqg")
 
-[node name="novo_jogo_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=1066986068]
+[node name="novo_jogo_btn" type="Button" parent="." unique_id=1066986068]
 custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
+layout_mode = 0
+offset_left = 870.0
+offset_top = 85.0
+offset_right = 1211.0
+offset_bottom = 189.0
 theme = ExtResource("3_5sd8u")
 text = "NOVO JOGO
 "
-alignment = 0
 
-[node name="configurar_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=151254374]
+[node name="configurar_btn" type="Button" parent="." unique_id=151254374]
 custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
+layout_mode = 0
+offset_left = 939.0
+offset_top = 261.0
+offset_right = 1224.0
+offset_bottom = 330.0
 theme = ExtResource("3_5sd8u")
 text = "CONFIGURAÇÕES"
-alignment = 0
 
-[node name="creditos_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=86156091]
+[node name="creditos_btn" type="Button" parent="." unique_id=86156091]
 custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
+layout_mode = 0
+offset_left = 940.0
+offset_top = 366.0
+offset_right = 1224.0
+offset_bottom = 439.0
 theme = ExtResource("3_5sd8u")
 text = "CRÉDITOS"
-alignment = 0
 
-[node name="sair_btn" type="Button" parent="margin/HBoxContainer/VBoxContainer" unique_id=1907102265]
+[node name="sair_btn" type="Button" parent="." unique_id=1907102265]
 custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
+layout_mode = 0
+offset_left = 937.0
+offset_top = 469.0
+offset_right = 1222.0
+offset_bottom = 543.0
 theme = ExtResource("3_5sd8u")
 text = "SAIR DO JOGO"
-alignment = 0
 
-[connection signal="button_up" from="margin/HBoxContainer/VBoxContainer/novo_jogo_btn" to="." method="_on_novo_jogo_btn_button_up"]
-[connection signal="button_up" from="margin/HBoxContainer/VBoxContainer/configurar_btn" to="." method="_on_configurar_btn_button_up"]
-[connection signal="button_up" from="margin/HBoxContainer/VBoxContainer/creditos_btn" to="." method="_on_creditos_btn_button_up"]
-[connection signal="button_up" from="margin/HBoxContainer/VBoxContainer/sair_btn" to="." method="_on_sair_btn_button_up"]
+[connection signal="button_up" from="novo_jogo_btn" to="." method="_on_novo_jogo_btn_button_up"]
+[connection signal="button_up" from="configurar_btn" to="." method="_on_configurar_btn_button_up"]
+[connection signal="button_up" from="creditos_btn" to="." method="_on_creditos_btn_button_up"]
+[connection signal="button_up" from="sair_btn" to="." method="_on_sair_btn_button_up"]

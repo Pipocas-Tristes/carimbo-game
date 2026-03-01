@@ -21,7 +21,7 @@ const UID_CENAS = {
 enum TELAS {
 	TELA_INICIAL,TELA_PAUSE,TELA_LOADING,
 	TELA_CONFIG,TELA_CREDITOS,TELA_BATALHA,
-	DESK, TUTORIAL, CENARIO
+	DESK, TUTORIAL, CENARIO, INTRO_SCENE
 }
 
 const UID_SCENES = {
@@ -33,7 +33,8 @@ const UID_SCENES = {
 	TELAS.TELA_BATALHA: "uid://clk1ysjnbyd46",
 	TELAS.DESK: "uid://54vcmnecmgu8",
 	TELAS.TUTORIAL: "uid://i3jev2a6unrr",
-	TELAS.CENARIO: "uid://b3o4ai3dyu5jn"
+	TELAS.CENARIO: "uid://b3o4ai3dyu5jn",
+	TELAS.INTRO_SCENE: "uid://ji0fgryf6u3f"
 }
 
 

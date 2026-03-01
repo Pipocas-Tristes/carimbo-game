@@ -14,7 +14,7 @@ func _define_resolucao():
 
 func _on_novo_jogo_btn_button_up() -> void:
 	var tela_loading = TELA_LOADING.instantiate()
-	tela_loading.next_scene_uid = Constants.UID_SCENES[Constants.TELAS.DESK]
+	tela_loading.next_scene_uid = Constants.UID_SCENES[Constants.TELAS.INTRO_SCENE]
 	get_tree().change_scene_to_node(tela_loading)
 
 func _on_configurar_btn_button_up() -> void:

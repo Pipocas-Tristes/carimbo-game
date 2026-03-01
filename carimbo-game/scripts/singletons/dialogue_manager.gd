@@ -20,6 +20,7 @@ func start_dialogue(dialogues: Array, block := true):
 	
 	dialogue_started.emit()
 
+
 func finish_dialogue():
 	if dialogue_instance:
 		dialogue_instance.queue_free()
