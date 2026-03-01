@@ -44,6 +44,7 @@ destino = 3
 texto_interacao = "Corredor"
 
 [node name="Sprite2D" type="Sprite2D" parent="CorredorTrigger1" unique_id=227513596]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(1158, 359.00006)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("4_sgoan")
@@ -54,17 +55,26 @@ shape = SubResource("RectangleShape2D_dtx4i")
 
 [node name="RHTrigger" type="Area2D" parent="." unique_id=695890974]
 script = SubResource("GDScript_cvjq6")
-texto_interacao = "Recursos Humanos"
+texto_interacao = "Corredor dos Recursos Humanos"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RHTrigger" unique_id=1125115265]
 position = Vector2(48.5, 372.5)
 shape = SubResource("RectangleShape2D_sgoan")
 
 [node name="Sprite2D" type="Sprite2D" parent="RHTrigger" unique_id=900471018]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(136, 361.00003)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("4_sgoan")
 flip_h = true
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1361913293]
+
+[node name="spawn_corredor_2_dir" type="Node2D" parent="SpawnPoints" unique_id=253034452]
+position = Vector2(1150, 687)
+
+[node name="spawn_corredor_2_esq" type="Node2D" parent="SpawnPoints" unique_id=1019543556]
+position = Vector2(135, 687)
 
 [connection signal="interagido" from="CorredorTrigger1" to="." method="_on_corredor_trigger_1_interagido"]
 [connection signal="interagido" from="RHTrigger" to="." method="_on_rh_trigger_interagido"]

@@ -4,7 +4,13 @@ extends ConteudoBase
 @onready var corredor_trigger_2_rh: Area2D = $CorredorTrigger2Rh
 
 func _on_fabrica_trigger_interagido(_player: Variant) -> void:
-	trocar_para.emit(fabrica_trigger.destino)
+	trocar_para.emit(
+		fabrica_trigger.destino,
+		"spawn_fabrica"
+	)
 	
 func _on_corredor_trigger_2_rh_interagido(_player: Variant) -> void:
-	trocar_para.emit(corredor_trigger_2_rh.destino)
+	trocar_para.emit(
+		corredor_trigger_2_rh.destino,
+		"spawn_corredor_2_esq"
+	)

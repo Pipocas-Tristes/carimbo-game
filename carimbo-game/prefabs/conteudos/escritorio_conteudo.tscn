@@ -26,6 +26,7 @@ position = Vector2(-53.5, -32)
 shape = SubResource("RectangleShape2D_uvw1l")
 
 [node name="Sprite2D" type="Sprite2D" parent="DeskTrigger" unique_id=1075375579]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-112.000015, -35.499996)
 scale = Vector2(1.4708996, 0.6657408)
 texture = ExtResource("4_2aaos")
@@ -45,6 +46,11 @@ position = Vector2(-0.75000346, -16.500004)
 scale = Vector2(1.0073171, 1.0384616)
 color = Color(0.99607843, 0.96862745, 0.7294118, 1)
 texture = ExtResource("4_k0wdv")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=195589741]
+
+[node name="spawn_escritorio_porta" type="Node2D" parent="SpawnPoints" unique_id=1308471911]
+position = Vector2(188, 687)
 
 [connection signal="interagido" from="DeskTrigger" to="." method="_on_desk_trigger_interagido"]
 [connection signal="interagido" from="Door" to="." method="_on_door_interagido"]

@@ -31,7 +31,7 @@ const _dict_cenas_ordenadas = {
 func _ready() -> void:
 	_atualiza_cena_atual(cena_atual)
 
-func _atualiza_cena_atual(cena: Constants.CENAS_ORDENADAS) -> void:
+func _atualiza_cena_atual(cena: Constants.CENAS_ORDENADAS, spawn_id: String = '') -> void:
 	
 	if conteudo_atual:
 		conteudo_atual.on_exit()
@@ -39,9 +39,9 @@ func _atualiza_cena_atual(cena: Constants.CENAS_ORDENADAS) -> void:
 	
 	cena_atual = cena
 	_atualiza_imagem(cena)
-	_instancia_conteudo(cena)
+	_instancia_conteudo(cena,spawn_id)
 
-func _instancia_conteudo(cena: Constants.CENAS_ORDENADAS) -> void:
+func _instancia_conteudo(cena: Constants.CENAS_ORDENADAS, spawn_id: String = '') -> void:
 	if !_mapa_conteudos.has(cena):
 		return
 		
@@ -51,6 +51,16 @@ func _instancia_conteudo(cena: Constants.CENAS_ORDENADAS) -> void:
 	conteudo_container.add_child(conteudo_atual)
 	conteudo_atual.trocar_para.connect(_atualiza_cena_atual)
 	conteudo_atual.on_enter()
+	_posiciona_player(spawn_id)
+
+func _posiciona_player(spawn_id: String):
+	if spawn_id == '':
+		return
+		
+	var spawn_node = conteudo_atual.get_node_or_null("SpawnPoints/" + spawn_id)
+	
+	if spawn_node:
+		felco.global_position = spawn_node.global_position
 
 func _atualiza_imagem(cena: Constants.CENAS_ORDENADAS) -> void:
 	cenario_img.texture = load(_dict_cenas_ordenadas[cena][IMG_PATH])

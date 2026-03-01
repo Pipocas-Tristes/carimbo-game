@@ -40,6 +40,7 @@ position = Vector2(1232.5, 361)
 shape = SubResource("RectangleShape2D_l6ksm")
 
 [node name="Sprite2D" type="Sprite2D" parent="SalaSupervisorTrigger" unique_id=1103504384]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(1143, 361)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("4_r4jam")
@@ -54,10 +55,22 @@ position = Vector2(57, 361)
 shape = SubResource("RectangleShape2D_l6ksm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Corredor2Trigger" unique_id=1962105060]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(136, 361.00003)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("4_r4jam")
 flip_h = true
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1907942494]
+
+[node name="spawn_corredor_1_escr" type="Node2D" parent="SpawnPoints" unique_id=929521616]
+position = Vector2(611, 687)
+
+[node name="spawn_corredor_1_dir" type="Node2D" parent="SpawnPoints" unique_id=1669161046]
+position = Vector2(1150, 687)
+
+[node name="spawn_corredor_1_esq" type="Node2D" parent="SpawnPoints" unique_id=67134778]
+position = Vector2(135, 687)
 
 [connection signal="interagido" from="Quadro" to="." method="_on_quadro_interagido"]
 [connection signal="interagido" from="SalaSupervisorTrigger" to="." method="_on_sala_supervisor_trigger_interagido"]

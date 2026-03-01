@@ -20,9 +20,15 @@ position = Vector2(60.5, 361.5)
 shape = SubResource("RectangleShape2D_1h6f0")
 
 [node name="Sprite2D" type="Sprite2D" parent="CorredorTrigger" unique_id=1343031674]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(136, 361.00003)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("3_ayu6k")
 flip_h = true
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=453798158]
+
+[node name="spawn_supervisor" type="Node2D" parent="SpawnPoints" unique_id=883466472]
+position = Vector2(135, 687)
 
 [connection signal="interagido" from="CorredorTrigger" to="." method="_on_corredor_trigger_interagido"]

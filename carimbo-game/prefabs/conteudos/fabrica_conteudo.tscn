@@ -19,8 +19,14 @@ position = Vector2(1215.25, 364)
 shape = SubResource("RectangleShape2D_bg0hs")
 
 [node name="Sprite2D" type="Sprite2D" parent="CorredorRhTrigger" unique_id=349429781]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(1158, 359.00006)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("2_7s7fm")
+
+[node name="SpawnPoints" type="Node2D" parent="CorredorRhTrigger" unique_id=1580176529]
+
+[node name="spawn_fabrica" type="Node2D" parent="CorredorRhTrigger/SpawnPoints" unique_id=2082171981]
+position = Vector2(1150, 687)
 
 [connection signal="interagido" from="CorredorRhTrigger" to="." method="_on_corredor_rh_trigger_interagido"]

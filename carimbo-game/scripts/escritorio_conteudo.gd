@@ -3,7 +3,10 @@ extends ConteudoBase
 @onready var door: Porta = $Door
 
 func _on_door_interagido(_player: Variant) -> void:
-	trocar_para.emit(door.destino)
+	trocar_para.emit(
+		door.destino,
+		"spawn_corredor_1_escr"
+	)
 
 func _on_desk_trigger_interagido(_player: Variant) -> void:
 	if  GameManager.pode_levantar:

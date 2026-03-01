@@ -5,10 +5,16 @@ extends ConteudoBase
 @onready var quadro: Quadro = $Quadro
 
 func _on_sala_supervisor_trigger_interagido(_player: Variant) -> void:
-	trocar_para.emit(sala_supervisor_trigger.destino)
+	trocar_para.emit(
+		sala_supervisor_trigger.destino, 
+		"spawn_supervisor"
+	)
 
 func _on_corredor_2_trigger_interagido(_player: Variant) -> void:
-	trocar_para.emit(corredor_2_trigger.destino)
+	trocar_para.emit(
+		corredor_2_trigger.destino,
+		"spawn_corredor_2_dir"
+	)
 
 func _on_quadro_interagido(_player: Variant) -> void:
 	quadro.monitoring = false
