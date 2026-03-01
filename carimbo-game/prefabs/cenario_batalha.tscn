@@ -225,5 +225,8 @@ animation = &"damaged"
 
 [node name="tela_batalha" parent="." unique_id=548392996 instance=ExtResource("1_4a85h")]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1412794612]
+position = Vector2(640, 360)
+
 [connection signal="batalha_finalizada" from="tela_batalha" to="." method="_on_tela_batalha_batalha_finalizada"]
 [connection signal="enemy_damaged" from="tela_batalha" to="." method="_on_tela_batalha_enemy_damaged"]

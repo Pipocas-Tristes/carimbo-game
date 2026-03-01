@@ -7,8 +7,8 @@ extends Node2D
 @onready var enemy_papa_noel: AnimatedSprite2D = $enemy_papa_noel
 
 @onready var tela_batalha: CanvasLayer = $tela_batalha
-
 @export var inimigo: BatalhasManager.INIMIGOS
+@export var proxima_tela: Constants.TELAS
 
 var enemy: AnimatedSprite2D
 
@@ -60,3 +60,5 @@ func _on_tela_batalha_enemy_damaged() -> void:
 
 func _on_tela_batalha_batalha_finalizada(_vitoria: bool) -> void:
 	enemy.play("win")
+	var next_scene = Constants.UID_SCENES[proxima_tela]
+	get_tree().change_scene_to_file(next_scene)

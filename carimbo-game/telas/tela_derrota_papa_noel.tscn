@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c6iieit7e47j1"]
+
+[ext_resource type="Texture2D" uid="uid://jqvaisp42c5p" path="res://sprites/carimbos/stamp_v01.png" id="1_5y4sv"]
+[ext_resource type="Texture2D" uid="uid://dpq51jmktgnbn" path="res://sprites/personagens/papa_noel/ela papa derrotado ROSTO CARIMBADO.png" id="1_feere"]
+[ext_resource type="Script" uid="uid://cmn0th1qk3fl3" path="res://scripts/tela_derrota_papa_noel.gd" id="1_tibnf"]
+[ext_resource type="Texture2D" uid="uid://esbo1noqnxud" path="res://sprites/carimbos/carimbo_v02.png" id="2_ko512"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tibnf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64puu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5y4sv")
+}, {
+"duration": 5.0,
+"texture": ExtResource("2_ko512")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_5y4sv")
+}],
+"loop": false,
+"name": &"carimbo_final",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5y4sv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="tela_derrota_papa_noel" type="Node2D" unique_id=684183200]
+script = ExtResource("1_tibnf")
+
+[node name="fundo_escuro" type="Sprite2D" parent="." unique_id=250925159]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(639.5, 360.50003)
+scale = Vector2(1331.0001, 767.0001)
+texture = SubResource("CanvasTexture_tibnf")
+
+[node name="papa_derrotado" type="Sprite2D" parent="." unique_id=2063694102]
+position = Vector2(640, 360)
+scale = Vector2(2.05, 2.05)
+texture = ExtResource("1_feere")
+
+[node name="carimbo" type="AnimatedSprite2D" parent="." unique_id=1613430897]
+position = Vector2(640, -137)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_64puu")
+animation = &"carimbo_final"
+frame = 2
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1517719404]
