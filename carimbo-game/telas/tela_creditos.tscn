@@ -52,6 +52,18 @@ process_mode = 3
 layout_mode = 2
 theme = ExtResource("2_ia3j1")
 
+[node name="titulo2" type="Label" parent="PanelContainer/margin/VBoxContainer" unique_id=973600859]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "Essa foi a Demo '-'"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/margin/VBoxContainer" unique_id=1110361067]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_ia3j1")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/margin/VBoxContainer" unique_id=1139942496]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
