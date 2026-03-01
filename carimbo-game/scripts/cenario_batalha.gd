@@ -12,11 +12,11 @@ extends Node2D
 
 var enemy: AnimatedSprite2D
 
-const NOITE_CASA = preload("uid://cqf2pslkwuosx")
+const MUSICA_CREDITOS = preload("uid://knjigrxm8wvv")
 const TELA_PAUSE = preload(Constants.UID_SCENES[Constants.TELAS.TELA_PAUSE])
 
 func _ready() -> void:
-	SoundManager.change_musica(NOITE_CASA)
+	SoundManager.change_musica(MUSICA_CREDITOS)
 	_define_inimigo()
 
 func _input(event: InputEvent) -> void:
