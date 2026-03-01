@@ -3,9 +3,11 @@ extends Control
 const TELA_CREDITOS: PackedScene = preload(Constants.UID_SCENES[Constants.TELAS.TELA_CREDITOS])
 const TELA_CONFIG: PackedScene = preload(Constants.UID_SCENES[Constants.TELAS.TELA_CONFIG])
 const TELA_LOADING: PackedScene = preload(Constants.UID_SCENES[Constants.TELAS.TELA_LOADING])
+const NOITE_CLT = preload("uid://bbh2vyrjcsbgd")
 
 func _ready() -> void:
 	_define_resolucao()
+	SoundManager.change_musica(NOITE_CLT)
 
 func _define_resolucao():
 	get_tree().root.min_size = Vector2i(640, 360)

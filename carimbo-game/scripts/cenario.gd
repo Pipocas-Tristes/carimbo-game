@@ -4,7 +4,7 @@ extends Node2D
 @onready var cenario_img: Sprite2D = $cenario_img
 @onready var conteudo_container: Node2D = $Conteudo
 
-var cena_atual: Constants.CENAS_ORDENADAS
+var cena_atual := Constants.CENAS_ORDENADAS.ESCRITORIO
 var conteudo_atual: ConteudoBase
 
 const _mapa_conteudos = {
