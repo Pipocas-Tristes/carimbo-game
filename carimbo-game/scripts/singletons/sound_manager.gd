@@ -27,15 +27,19 @@ func play_sfx(stream: AudioStream):
 			player.play()
 			return
 
-func change_musica(stream: AudioStream, esperaAcabar = false):
-	if (esperaAcabar):
+func change_musica(stream: AudioStream, esperaAcabar = false, loop = false):
+	if esperaAcabar:
 		await _musica_player.finished
+	else:
+		_musica_player.stop()
+	
 	_musica_player.stream = stream
+	_musica_player.autoplay = loop
+	_musica_player.playing = loop
 	_musica_player.play()
 
 func stop_musica():
 	_musica_player.stop()
-
 
 func set_volume(percent: float, bus_name: StringName = "Master"):
 	#limita conforme o valor minimo e maximo

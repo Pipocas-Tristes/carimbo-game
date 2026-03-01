@@ -17,7 +17,7 @@ const TELA_PAUSE = preload(Constants.UID_SCENES[Constants.TELAS.TELA_PAUSE])
 var proxima_tela:= Constants.TELAS.TELA_CREDITOS
 
 func _ready() -> void:
-	SoundManager.change_musica(MUSICA)
+	SoundManager.change_musica(MUSICA, false, true)
 	_define_inimigo()
 
 func _input(event: InputEvent) -> void:

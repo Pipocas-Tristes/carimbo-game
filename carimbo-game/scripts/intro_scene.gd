@@ -4,6 +4,7 @@ extends Control
 @onready var sfx_player: AudioStreamPlayer2D = $SFXPlayer
 @onready var music: AudioStreamPlayer2D = $Music
 @export var scene: PackedScene
+const NOITE_CLT = preload("uid://bbh2vyrjcsbgd")
 
 var intro_steps = [
 	{"text": "Eu encontrei esse emprego de uma forma meio engraçada", "delay": 2.5},
@@ -16,6 +17,7 @@ var intro_steps = [
 ]
 
 func _ready() -> void:
+	SoundManager.stop_musica()
 	subtitle.modulate.a = 0
 	run_sequence()
 
@@ -45,6 +47,7 @@ func run_sequence():
 		cont += 1
 		
 	get_tree().change_scene_to_packed(scene)
+	SoundManager.change_musica(NOITE_CLT, false, true)
 
 func fade_text(show_text: bool):
 	var tween = create_tween()
