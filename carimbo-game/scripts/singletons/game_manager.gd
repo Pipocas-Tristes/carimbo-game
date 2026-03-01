@@ -3,6 +3,7 @@ extends Node
 var day: int = 1
 var letters_processed: int = 0
 
+
 var score: int = 0
 var suspicion: int = 0
 var humanity: int = 50

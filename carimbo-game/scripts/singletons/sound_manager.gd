@@ -36,6 +36,7 @@ func change_musica(stream: AudioStream, esperaAcabar = false):
 func stop_musica():
 	_musica_player.stop()
 
+
 func set_volume(percent: float, bus_name: StringName = "Master"):
 	#limita conforme o valor minimo e maximo
 	percent = MAX_PERCENT if (percent > MAX_PERCENT) else percent

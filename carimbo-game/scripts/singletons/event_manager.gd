@@ -1,5 +1,6 @@
 extends Node
 
+
 signal event_started(event_id)
 
 var current_event: String = ''
