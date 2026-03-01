@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://bpblylcbdhmj4"]
+
+[ext_resource type="PackedScene" uid="uid://clk1ysjnbyd46" path="res://telas/tela_batalha.tscn" id="1_4a85h"]
+[ext_resource type="Script" uid="uid://bhk27asqj2vvc" path="res://scripts/cenario_batalha.gd" id="1_nyvnu"]
+[ext_resource type="Texture2D" uid="uid://ct1orkpe1767r" path="res://sprites/personagens/eufu/Éufu neutro.png" id="2_jbh5l"]
+[ext_resource type="Texture2D" uid="uid://dm4jfp8xltvmo" path="res://sprites/batalha/fundo/game design - purple background.png" id="2_rt2r2"]
+[ext_resource type="Texture2D" uid="uid://bfd3way65cq6d" path="res://sprites/personagens/supervisor/Supervisor neutro.png" id="2_w0egp"]
+[ext_resource type="Texture2D" uid="uid://ctuxacv8kk3lj" path="res://sprites/batalha/fundo/game design - arvores com moeda.png" id="3_klhty"]
+[ext_resource type="Texture2D" uid="uid://b4vjwvsj0rvyw" path="res://sprites/personagens/supervisor/Supervisor bravo.png" id="3_r0eub"]
+[ext_resource type="Texture2D" uid="uid://ctj0qrq4jjcls" path="res://sprites/personagens/eufu/Éufu perdido.png" id="3_w0egp"]
+[ext_resource type="Texture2D" uid="uid://b2s1cpjoxabhb" path="res://sprites/personagens/supervisor/Supervisor ois bunitus ain.png" id="4_blek2"]
+[ext_resource type="Texture2D" uid="uid://b4ktvbuv724no" path="res://sprites/batalha/fundo/game design- efeito de anime.png" id="4_nqkyk"]
+[ext_resource type="Texture2D" uid="uid://b3miurgs078th" path="res://sprites/personagens/eufu_sup/SuperÉufu raiva.png" id="7_gue22"]
+[ext_resource type="Texture2D" uid="uid://bl6f2iyhwvbo6" path="res://sprites/personagens/eufu_sup/SuperÉufu neutro.png" id="8_1g5xv"]
+[ext_resource type="Texture2D" uid="uid://c8laffkpwco2b" path="res://sprites/personagens/eufu_sup/SuperÉufu feliz.png" id="9_4uauj"]
+[ext_resource type="Texture2D" uid="uid://cwiyqt8a81she" path="res://sprites/personagens/mama_noel/Noela BRAVA 2 me bate.png" id="10_hey3q"]
+[ext_resource type="Texture2D" uid="uid://ck63esmnduqpt" path="res://sprites/personagens/mama_noel/Noela BRAVA.png" id="12_gdfsa"]
+[ext_resource type="Texture2D" uid="uid://cp3gqs22qh5na" path="res://sprites/personagens/mama_noel/Noela SORRINDO.png" id="13_21xts"]
+[ext_resource type="Texture2D" uid="uid://clvltpn241u5a" path="res://sprites/personagens/papa_noel/el papa raiva sem barba.png" id="13_gdfsa"]
+[ext_resource type="Texture2D" uid="uid://b7iru44j7wuil" path="res://sprites/personagens/papa_noel/el papa neutro sem barba.png" id="14_21xts"]
+[ext_resource type="Texture2D" uid="uid://c6rlvahxaqs02" path="res://sprites/personagens/papa_noel/el papa sorrindo sem barba.png" id="15_sm5lg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0eub"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("3_r0eub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_w0egp")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w0egp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_blek2")
+}],
+"loop": false,
+"name": &"win",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blek2"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("3_w0egp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jbh5l")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jbh5l")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w0egp")
+}],
+"loop": false,
+"name": &"win",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2tfc"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("7_gue22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1g5xv")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1g5xv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_4uauj")
+}],
+"loop": false,
+"name": &"win",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sm5lg"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("10_hey3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gdfsa")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_gdfsa")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_21xts")
+}],
+"loop": false,
+"name": &"win",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rt2r2"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("13_gdfsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_21xts")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_21xts")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_sm5lg")
+}],
+"loop": false,
+"name": &"win",
+"speed": 1.0
+}]
+
+[node name="cenario_batalha" type="Node2D" unique_id=2031998409]
+script = ExtResource("1_nyvnu")
+inimigo = 4
+
+[node name="fundo_color" type="Sprite2D" parent="." unique_id=861945135]
+position = Vector2(640, 360)
+scale = Vector2(2.015, 2.015)
+texture = ExtResource("2_rt2r2")
+
+[node name="arverezes" type="Sprite2D" parent="." unique_id=286120498]
+position = Vector2(640, 360)
+scale = Vector2(2.04, 2.04)
+texture = ExtResource("3_klhty")
+
+[node name="fundo" type="Sprite2D" parent="." unique_id=488045634]
+position = Vector2(640, 360)
+scale = Vector2(2.015, 2.015)
+texture = ExtResource("4_nqkyk")
+
+[node name="enemy_supervisor" type="AnimatedSprite2D" parent="." unique_id=1462978207]
+visible = false
+position = Vector2(648, 357)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_r0eub")
+animation = &"damaged"
+
+[node name="enemy_elfo" type="AnimatedSprite2D" parent="." unique_id=606125645]
+position = Vector2(632, 361)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_blek2")
+animation = &"damaged"
+
+[node name="enemy_elfo_sup" type="AnimatedSprite2D" parent="." unique_id=491279930]
+visible = false
+position = Vector2(647.99994, 283)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_c2tfc")
+animation = &"win"
+
+[node name="enemy_mama_noel" type="AnimatedSprite2D" parent="." unique_id=397369281]
+visible = false
+position = Vector2(632, 308)
+scale = Vector2(1.75, 1.75)
+sprite_frames = SubResource("SpriteFrames_sm5lg")
+animation = &"damaged"
+
+[node name="enemy_papa_noel" type="AnimatedSprite2D" parent="." unique_id=1604761353]
+visible = false
+position = Vector2(706.00006, 388.00003)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_rt2r2")
+animation = &"damaged"
+
+[node name="tela_batalha" parent="." unique_id=548392996 instance=ExtResource("1_4a85h")]
+
+[connection signal="batalha_finalizada" from="tela_batalha" to="." method="_on_tela_batalha_batalha_finalizada"]
+[connection signal="enemy_damaged" from="tela_batalha" to="." method="_on_tela_batalha_enemy_damaged"]

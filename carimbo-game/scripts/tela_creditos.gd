@@ -9,13 +9,13 @@ var _terminou_fadeout := false
 
 @onready var tela_creditos: Control = $"."
 @onready var margin: MarginContainer = $margin
-const THEME = preload("uid://knjigrxm8wvv")
+const MUSICA_CREDITOS = preload("uid://knjigrxm8wvv")
 
 func _ready() -> void:
 	pos_inicial_credito = tela_creditos.position.y
 	pos_final_credito = tela_creditos.size.y + pos_inicial_credito
 	margin.position.y = pos_final_credito
-	SoundManager.change_musica(THEME)
+	SoundManager.change_musica(MUSICA_CREDITOS)
 
 func _process(delta: float) -> void:
 	var bottom_position_credito = margin.size.y + margin.position.y

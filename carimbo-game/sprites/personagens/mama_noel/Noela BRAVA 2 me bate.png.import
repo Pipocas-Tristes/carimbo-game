@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2xkimrpyqimi"
-path="res://.godot/imported/barra_progresso_preenchimento_pequeno.png-deeaa36f0c5e827ac0857ad7562abe89.ctex"
+uid="uid://cwiyqt8a81she"
+path="res://.godot/imported/Noela BRAVA 2 me bate.png-8d14a6503882aadab08a36ff30c01fb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/texturas/barra_progresso_preenchimento_pequeno.png"
-dest_files=["res://.godot/imported/barra_progresso_preenchimento_pequeno.png-deeaa36f0c5e827ac0857ad7562abe89.ctex"]
+source_file="res://sprites/personagens/mama_noel/Noela BRAVA 2 me bate.png"
+dest_files=["res://.godot/imported/Noela BRAVA 2 me bate.png-8d14a6503882aadab08a36ff30c01fb4.ctex"]
 
 [params]
 

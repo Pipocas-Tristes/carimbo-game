@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4o0tvva5kkwv"
-path="res://.godot/imported/barra_progresso_preenchimento_grande.png-08aac945ca17e80e405fd61d83f95494.ctex"
+uid="uid://ctuxacv8kk3lj"
+path="res://.godot/imported/game design - arvores com moeda.png-ffb4bd0e0c7214e63ffc3ebde5ddbf14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/texturas/barra_progresso_preenchimento_grande.png"
-dest_files=["res://.godot/imported/barra_progresso_preenchimento_grande.png-08aac945ca17e80e405fd61d83f95494.ctex"]
+source_file="res://sprites/batalha/fundo/game design - arvores com moeda.png"
+dest_files=["res://.godot/imported/game design - arvores com moeda.png-ffb4bd0e0c7214e63ffc3ebde5ddbf14.ctex"]
 
 [params]
 

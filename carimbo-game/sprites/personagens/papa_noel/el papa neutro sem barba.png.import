@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs5xfdpejc681"
-path="res://.godot/imported/barra_progresso_fundo_pequeno.png-20788ec153bd61e4ef89801745bcc7ce.ctex"
+uid="uid://b7iru44j7wuil"
+path="res://.godot/imported/el papa neutro sem barba.png-7616c84e3eb0c852cd8f461a10828af9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/texturas/barra_progresso_fundo_pequeno.png"
-dest_files=["res://.godot/imported/barra_progresso_fundo_pequeno.png-20788ec153bd61e4ef89801745bcc7ce.ctex"]
+source_file="res://sprites/personagens/papa_noel/el papa neutro sem barba.png"
+dest_files=["res://.godot/imported/el papa neutro sem barba.png-7616c84e3eb0c852cd8f461a10828af9.ctex"]
 
 [params]
 

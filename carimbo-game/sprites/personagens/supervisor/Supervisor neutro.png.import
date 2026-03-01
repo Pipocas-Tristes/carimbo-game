@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sx8jrguo2cpt"
-path="res://.godot/imported/Felco - supervisor.png-92a55c654bf8b54e1e2d3d8e6a222cc6.ctex"
+uid="uid://bfd3way65cq6d"
+path="res://.godot/imported/Supervisor neutro.png-52b16e72a0c388f14c03f1422ddaf893.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Felco/Felco - supervisor.png"
-dest_files=["res://.godot/imported/Felco - supervisor.png-92a55c654bf8b54e1e2d3d8e6a222cc6.ctex"]
+source_file="res://sprites/personagens/supervisor/Supervisor neutro.png"
+dest_files=["res://.godot/imported/Supervisor neutro.png-52b16e72a0c388f14c03f1422ddaf893.ctex"]
 
 [params]
 

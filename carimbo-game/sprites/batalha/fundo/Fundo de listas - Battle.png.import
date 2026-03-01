@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ban1uab6lcvkt"
-path="res://.godot/imported/barra_progresso_fundo_grande.png-19127807b9d4fd5d72a21583f8c8c371.ctex"
+uid="uid://d0xjand7f7tsy"
+path="res://.godot/imported/Fundo de listas - Battle.png-c17593de98cdf94c0e7cac51053bb50e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/texturas/barra_progresso_fundo_grande.png"
-dest_files=["res://.godot/imported/barra_progresso_fundo_grande.png-19127807b9d4fd5d72a21583f8c8c371.ctex"]
+source_file="res://sprites/batalha/fundo/Fundo de listas - Battle.png"
+dest_files=["res://.godot/imported/Fundo de listas - Battle.png-c17593de98cdf94c0e7cac51053bb50e.ctex"]
 
 [params]
 

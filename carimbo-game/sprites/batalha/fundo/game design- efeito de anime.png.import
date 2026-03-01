@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpc0at5b5wfpc"
-path="res://.godot/imported/Felco.png-70f3722e963553962be4240e5427bdb1.ctex"
+uid="uid://b4ktvbuv724no"
+path="res://.godot/imported/game design- efeito de anime.png-baa3435039352b0e079315a2de1914b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Felco/Felco.png"
-dest_files=["res://.godot/imported/Felco.png-70f3722e963553962be4240e5427bdb1.ctex"]
+source_file="res://sprites/batalha/fundo/game design- efeito de anime.png"
+dest_files=["res://.godot/imported/game design- efeito de anime.png-baa3435039352b0e079315a2de1914b7.ctex"]
 
 [params]
 
