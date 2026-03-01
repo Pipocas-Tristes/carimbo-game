@@ -39,8 +39,6 @@ const UID_SCENES = {
 
 enum ACOES {PARA_CIMA,PARA_BAIXO,PARA_ESQUERDA,PARA_DIREITA,INTERAGIR}
 const ACOES_CUSTOM = {
-	ACOES.PARA_CIMA: {OBJETO.VALOR: "para_cima", OBJETO.TEXTO: "Mover para cima"},
-	ACOES.PARA_BAIXO: {OBJETO.VALOR: "para_baixo", OBJETO.TEXTO: "Mover para baixo"},
 	ACOES.PARA_ESQUERDA: {OBJETO.VALOR: "para_esquerda", OBJETO.TEXTO: "Mover para esquerda"},
 	ACOES.PARA_DIREITA: {OBJETO.VALOR: "para_direita", OBJETO.TEXTO: "Mover para direita"},
 	ACOES.INTERAGIR: {OBJETO.VALOR: "interagir", OBJETO.TEXTO: "Interagir"},

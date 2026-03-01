@@ -7,7 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awylm"]
 size = Vector2(104, 737)
-[ext_resource type="PackedScene" uid="uid://clk1ysjnbyd46" path="res://telas/tela_batalha.tscn" id="5_jd0xd"]
 
 [node name="cenario" type="Node2D" unique_id=1781242429]
 script = ExtResource("1_afphx")
@@ -46,10 +45,3 @@ offset_right = 1285.0
 offset_bottom = 720.0
 grow_horizontal = 1
 grow_vertical = 1
-[node name="spawn_right" type="Marker2D" parent="." unique_id=690684279]
-position = Vector2(167, 360)
-
-[node name="tela_batalha" parent="." unique_id=548392996 instance=ExtResource("5_jd0xd")]
-
-[connection signal="foi_para_direita" from="colisao_cenarios" to="." method="_on_colisao_cenarios_foi_para_direita"]
-[connection signal="foi_para_esquerda" from="colisao_cenarios" to="." method="_on_colisao_cenarios_foi_para_esquerda"]

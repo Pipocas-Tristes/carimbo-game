@@ -43,7 +43,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_lgoop")
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="Interface" type="VBoxContainer" parent="margin/VBoxContainer/TabContainer" unique_id=875100870]
 visible = false
@@ -78,6 +78,7 @@ disabled = true
 text = "Aplicar"
 
 [node name="Áudio" type="VBoxContainer" parent="margin/VBoxContainer/TabContainer" unique_id=918948503]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("2_lgoop")
