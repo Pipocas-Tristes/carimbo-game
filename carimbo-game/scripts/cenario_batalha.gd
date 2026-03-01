@@ -8,12 +8,13 @@ extends Node2D
 
 @onready var tela_batalha: CanvasLayer = $tela_batalha
 @export var inimigo: BatalhasManager.INIMIGOS
-@export var proxima_tela: Constants.TELAS
+const CENARIO = preload("uid://b3o4ai3dyu5jn")
 
 var enemy: AnimatedSprite2D
 
 const MUSICA_CREDITOS = preload("uid://knjigrxm8wvv")
 const TELA_PAUSE = preload(Constants.UID_SCENES[Constants.TELAS.TELA_PAUSE])
+var proxima_tela:= Constants.TELAS.TELA_CREDITOS
 
 func _ready() -> void:
 	SoundManager.change_musica(MUSICA_CREDITOS)

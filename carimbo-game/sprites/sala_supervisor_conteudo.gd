@@ -1,7 +1,10 @@
 extends ConteudoBase
 
+@onready var cenario: Node2D = $"."
 @onready var corredor_trigger: Area2D = $CorredorTrigger
 @onready var supervisor: Area2D = $Supervisor
+
+const CENARIO_BATALHA = preload("uid://bpblylcbdhmj4")
 
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
@@ -24,6 +27,11 @@ func _on_dialogue_finished():
 		GameManager.pode_levantar = false
 		GameManager.next_day()
 	
+	if GameManager.day == 3:
+		var cenario_batalha = CENARIO_BATALHA.instantiate()
+		cenario_batalha.inimigo = BatalhasManager.INIMIGOS.SUPERVISOR
+		get_tree().change_scene_to_node(cenario_batalha)
+
 func _on_supervisor_interagido(_player: Variant) -> void:
 	supervisor.monitoring = false
 	
@@ -74,3 +82,5 @@ func _on_supervisor_interagido(_player: Variant) -> void:
 				"text": "continua seu trabalho."
 			}
 		], true)
+	
+	
