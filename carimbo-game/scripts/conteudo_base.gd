@@ -2,7 +2,7 @@ extends Node2D
 class_name ConteudoBase
 
 @warning_ignore("unused_signal")
-signal trocar_para(cena_destino)
+signal trocar_para(cena_destino, spawn_id)
 
 func on_enter():
 	pass

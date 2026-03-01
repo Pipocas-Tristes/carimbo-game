@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://cj8filwngcxex"]
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://dbxn7r4y6uq7d"]
 
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_d7qj2"]
+[ext_resource type="Texture2D" uid="uid://bnksw04yf833y" path="res://sprites/desenhos cartas/Carta 9 - Felipe, 8 anos.png" id="2_1gc12"]
 
 [resource]
 script = ExtResource("1_d7qj2")
 content = "Querido papai, Noel. Queria curativos pros dodóis que a mamãe fez em mim."
 is_suspicious = true
+texture = ExtResource("2_1gc12")
 metadata/_custom_type_script = "uid://1oycgv6x3g7y"

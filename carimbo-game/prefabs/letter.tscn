@@ -178,10 +178,11 @@ debug_color = Color(0.6187054, 0.534455, 0.08102646, 0.41960785)
 [node name="TextAux" type="Label" parent="." unique_id=232587272]
 offset_left = 123.80931
 offset_top = -207.1425
-offset_right = 383.3327
-offset_bottom = 207.14247
+offset_right = 654.3627
+offset_bottom = 762.298
+scale = Vector2(0.42857242, 0.42857242)
 theme_override_fonts/font = ExtResource("9_qlbgm")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 40
 text = "testes"
 vertical_alignment = 1
 autowrap_mode = 2

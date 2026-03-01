@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c8hr8qunmmlyo"]
+
+[ext_resource type="Script" uid="uid://bxpewlsrgpalh" path="res://scripts/objetivo_ui.gd" id="1_4efnt"]
+[ext_resource type="FontFile" uid="uid://chnx81mwq17x0" path="res://fonts/VT323-Regular.ttf" id="1_bn0ca"]
+
+[sub_resource type="Theme" id="Theme_4efnt"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/styles/normal = null
+
+[node name="ObjetivoUI" type="CanvasLayer" unique_id=1769203102]
+script = ExtResource("1_4efnt")
+
+[node name="ObjetivoLabel" type="Label" parent="." unique_id=315698674]
+offset_left = 659.0
+offset_top = 26.0
+offset_right = 1257.0
+offset_bottom = 49.0
+theme = SubResource("Theme_4efnt")
+theme_override_fonts/font = ExtResource("1_bn0ca")
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 2
+vertical_alignment = 1

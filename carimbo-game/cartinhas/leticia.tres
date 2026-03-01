@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://r7jebioxty65"]
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://dkgabm3ns8wuf"]
 
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_fbhkr"]
+[ext_resource type="Texture2D" uid="uid://c6876xa11kp2x" path="res://sprites/desenhos cartas/Carta 16 - Letícia 7 anos.png" id="2_chavg"]
 
 [resource]
 script = ExtResource("1_fbhkr")
 content = "Papai Noel, eu quero muito uma personalidade. 
 A minha prima falo ke gente legau tem isso entao eu quero"
+texture = ExtResource("2_chavg")
 metadata/_custom_type_script = "uid://1oycgv6x3g7y"

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://cie3dxq1n283q"]
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://ckivhshb2dqj"]
 
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_mup0q"]
+[ext_resource type="Texture2D" uid="uid://dlstgjyyb1xke" path="res://sprites/desenhos cartas/Carta 11 - Thiago, 8 anos_.png" id="2_1yh8i"]
 
 [resource]
 script = ExtResource("1_mup0q")
@@ -8,4 +9,6 @@ content = "Olá Papai Noel, tudo bem com o senhor? Um dia papai saiu de casa, se
 Ass.: Thiago.
 "
 is_suspicious = true
+texture = ExtResource("2_1yh8i")
+sender_name = "Thiago"
 metadata/_custom_type_script = "uid://1oycgv6x3g7y"

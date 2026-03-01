@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://bsugtk4ao1xgx"]
 
-[ext_resource type="Script" uid="uid://cg43lk8ixhnuw" path="res://SCRIPTS/corredor_conteudo_1.gd" id="1_35ion"]
+[ext_resource type="Script" uid="uid://cg43lk8ixhnuw" path="res://scripts/corredor_conteudo_1.gd" id="1_35ion"]
 [ext_resource type="Script" uid="uid://bsq0tocxvxl8w" path="res://scripts/quadro.gd" id="2_ol6dx"]
 [ext_resource type="Script" uid="uid://cg3cvye4drcy7" path="res://scripts/sala_supervisor_trigger.gd" id="3_6pia8"]
 [ext_resource type="Texture2D" uid="uid://wups61e4x2js" path="res://sprites/cenarios/shadow_trigger.png" id="4_r4jam"]
 [ext_resource type="Script" uid="uid://co1a1roegnyco" path="res://scripts/corredor_2_trigger.gd" id="5_1l5i7"]
+[ext_resource type="Script" uid="uid://digweotfrfb6o" path="res://scripts/escritorio_trigger.gd" id="6_ol6dx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f3iu"]
 size = Vector2(203, 288)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6ksm"]
 size = Vector2(119, 741)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pia8"]
+size = Vector2(284, 549)
 
 [node name="CorredorConteudo1" type="Node2D" unique_id=1600389292]
 script = ExtResource("1_35ion")
@@ -40,6 +44,7 @@ position = Vector2(1232.5, 361)
 shape = SubResource("RectangleShape2D_l6ksm")
 
 [node name="Sprite2D" type="Sprite2D" parent="SalaSupervisorTrigger" unique_id=1103504384]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(1143, 361)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("4_r4jam")
@@ -54,11 +59,33 @@ position = Vector2(57, 361)
 shape = SubResource("RectangleShape2D_l6ksm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Corredor2Trigger" unique_id=1962105060]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(136, 361.00003)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("4_r4jam")
 flip_h = true
 
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1907942494]
+
+[node name="spawn_corredor_1_escr" type="Node2D" parent="SpawnPoints" unique_id=929521616]
+position = Vector2(792, 687)
+
+[node name="spawn_corredor_1_dir" type="Node2D" parent="SpawnPoints" unique_id=1669161046]
+position = Vector2(1150, 687)
+
+[node name="spawn_corredor_1_esq" type="Node2D" parent="SpawnPoints" unique_id=67134778]
+position = Vector2(135, 687)
+
+[node name="EscritorioTrigger" type="Area2D" parent="." unique_id=1416307018]
+script = ExtResource("6_ol6dx")
+destino = 5
+texto_interacao = "Escritório"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EscritorioTrigger" unique_id=1522350745]
+position = Vector2(785, 438.5)
+shape = SubResource("RectangleShape2D_6pia8")
+
 [connection signal="interagido" from="Quadro" to="." method="_on_quadro_interagido"]
 [connection signal="interagido" from="SalaSupervisorTrigger" to="." method="_on_sala_supervisor_trigger_interagido"]
 [connection signal="interagido" from="Corredor2Trigger" to="." method="_on_corredor_2_trigger_interagido"]
+[connection signal="interagido" from="EscritorioTrigger" to="." method="_on_escritorio_trigger_interagido"]

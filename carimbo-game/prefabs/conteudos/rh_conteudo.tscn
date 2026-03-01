@@ -21,6 +21,7 @@ destino = 2
 texto_interacao = "Corredor"
 
 [node name="Sprite2D" type="Sprite2D" parent="CorredorTrigger2Rh" unique_id=301345268]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(1158, 359.00006)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("3_griht")
@@ -40,10 +41,19 @@ position = Vector2(48.5, 372.5)
 shape = SubResource("RectangleShape2D_p5kpa")
 
 [node name="Sprite2D" type="Sprite2D" parent="FabricaTrigger" unique_id=383443604]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(136, 361.00003)
 scale = Vector2(1.4708996, 0.6925925)
 texture = ExtResource("3_griht")
 flip_h = true
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1198254769]
+
+[node name="spawn_corredor_rh_dir" type="Node2D" parent="SpawnPoints" unique_id=348257774]
+position = Vector2(1150, 687)
+
+[node name="spawn_corredor_rh_esq" type="Node2D" parent="SpawnPoints" unique_id=486367666]
+position = Vector2(135, 687)
 
 [connection signal="interagido" from="CorredorTrigger2Rh" to="." method="_on_corredor_trigger_2_rh_interagido"]
 [connection signal="interagido" from="FabricaTrigger" to="." method="_on_fabrica_trigger_interagido"]
