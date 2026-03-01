@@ -1,12 +1,13 @@
 extends CanvasLayer
 
 signal batalha_finalizada(vitoria: bool)
+signal enemy_damaged
 
 @onready var barra_vida_inimigo: PanelContainer = $barra_vida_inimigo
-@onready var barra_vida_player: PanelContainer = $status/MarginContainer/status/barra_vida_player
-@onready var barra_energia_player: PanelContainer = $status/MarginContainer/status/barra_energia_player
+@onready var barra_vida_player: PanelContainer = $barra_vida_player
+@onready var barra_energia_player: PanelContainer = $barra_energia_player
 
-@onready var turno: TabBar = $Control/acoes/turno
+@onready var turno: TabBar = $Control/acoes/tab/turno
 @onready var h_box_container: HBoxContainer = $Control/acoes/fundo/MarginContainer/HBoxContainer
 @onready var acao_dialogo: Label = $Control/acoes/fundo/MarginContainer/acao_dialogo
 @onready var vida_btn: Button = $Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer/vida_btn
@@ -15,10 +16,13 @@ signal batalha_finalizada(vitoria: bool)
 @onready var especial_btn: Button = $Control/acoes/fundo/MarginContainer/HBoxContainer/VBoxContainer2/especial_btn
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var timer: Timer = $Timer
 @onready var resultado_label: Label = $resultado_container/resultado_label
 
-@export_category("Inimigo")
-@export var inimigo: BatalhasManager.INIMIGOS
+@export_category("Cena")
+@export var fundo: Texture2D
+
+var inimigo: BatalhasManager.INIMIGOS
 const valor_ataque_inimigo := 1.0
 const vida_inicial_inimigo := 5.0
 
@@ -38,16 +42,23 @@ const vida_inicial_inimigo := 5.0
 
 func _ready() -> void:
 	_definir_barras_iniciais()
+	
 	vida_btn.text = nome_cura
 	ataque_btn.text = nome_ataque
 	energia_btn.text = nome_energia
 	especial_btn.text = nome_especial
 	
+	acao_dialogo.visible = false
+	h_box_container.visible = true
+	
 	_atualizar_estado_botoes()
 
+func set_inimigo(enemy: BatalhasManager.INIMIGOS) -> void:
+	inimigo = enemy
+	barra_vida_inimigo.set_texto(BatalhasManager.INIMIGOS_TEXT[enemy])
+	barra_vida_inimigo.set_valor_inicial(5.0)
+
 func _definir_barras_iniciais() -> void:
-	barra_vida_inimigo.set_texto(BatalhasManager.INIMIGOS_TEXT[inimigo])
-	barra_vida_inimigo.set_valor_inicial(vida_inicial_inimigo)
 	barra_vida_player.set_texto("Vida")
 	barra_vida_player.set_valor_inicial(vida_inicial_player)
 	barra_energia_player.set_texto("Energia")
@@ -55,6 +66,8 @@ func _definir_barras_iniciais() -> void:
 
 func _atualizar_estado_botoes() -> void:
 	var energia_player_atual = barra_energia_player.get_valor_barra()
+	vida_btn.disabled = false
+	energia_btn.disabled = false
 	ataque_btn.disabled = true if energia_player_atual < custo_ataque else false
 	especial_btn.disabled = true if energia_player_atual < custo_especial else false
 
@@ -80,9 +93,9 @@ func _exibir_dialogo_acao(enemy_turn: bool, item: String, cura: float, energia: 
 	var linha4: String = ""
 	
 	if (enemy_turn):
-		linha1 = "%s usa %s" % [BatalhasManager.INIMIGOS_TEXT[inimigo], item]
+		linha1 = "%s usa \"%s\"" % [BatalhasManager.INIMIGOS_TEXT[inimigo], item]
 	else:
-		linha1 = "Você usa %s" % item
+		linha1 = "Você usa \"%s\"" % item
 	
 	if (cura > 0):
 		linha2 = "\nVida curada: %d" % ceil(cura)
@@ -100,47 +113,73 @@ func _exibir_dialogo_acao(enemy_turn: bool, item: String, cura: float, energia: 
 	h_box_container.visible = false
 	animation_player.play("digitando")
 	await animation_player.animation_finished
-	await _verifica_estado_batalha()
 	
+	
+	if dano > 0:
+		if enemy_turn:
+			animation_player.play("dano_player")
+			barra_vida_player.diminui_valor_barra(dano)
+			await animation_player.animation_finished
+		else:
+			animation_player.play("dano_inimigo")
+			barra_vida_inimigo.diminui_valor_barra(dano)
+			barra_energia_player.diminui_valor_barra(-energia)
+			enemy_damaged.emit()
+			await animation_player.animation_finished
+	elif cura > 0:
+		if enemy_turn:
+			barra_vida_inimigo.aumenta_valor_barra(cura)
+		else:
+			barra_vida_player.aumenta_valor_barra(cura)
+	elif energia > 0:
+		barra_energia_player.aumenta_valor_barra(energia)
+	timer.start(2.0)
+	await timer.timeout #tempo generico para leitura do dialogo
+	
+	await _verifica_estado_batalha()
 	var tab_turno: String = "Seu turno" if enemy_turn else ("Vez de %s" % BatalhasManager.INIMIGOS_TEXT[inimigo])
 	turno.set_tab_title(0, tab_turno)
 	_atualizar_estado_botoes()
 	if not enemy_turn:
-		var random: float = randf()
-		var is_atq: bool = random > 0.2
-		if is_atq:
-			var quantidade_atq: int = len(BatalhasManager.ATQ_INIMIGO)
-			var ataque_inimigo_idx := (int(ceil(random*100)) % quantidade_atq)
-			print(ataque_inimigo_idx)
-			var nome_ataque_inimigo: String = BatalhasManager.ATQ_INIMIGO_TEXT[ataque_inimigo_idx]
-			barra_vida_player.diminui_valor_barra(valor_ataque_inimigo)
-			await _exibir_dialogo_acao(!enemy_turn, nome_ataque_inimigo, 0.0, 0.0, valor_ataque_inimigo)
-		else:
-			var quantidade_cura: int = len(BatalhasManager.CURAS_INIMIGO)
-			var cura_inimigo_idx := (int(ceil(random*100)) % quantidade_cura)
-			print(cura_inimigo_idx)
-			var nome_cura_inimigo: String = BatalhasManager.CURAS_INIMIGO_TEXT[cura_inimigo_idx]
-			await _exibir_dialogo_acao(!enemy_turn, nome_cura_inimigo, valor_ataque_inimigo, 0.0, 0.0)
+		await _ataque_inimigo()
 	else:
 		acao_dialogo.visible = false
 		h_box_container.visible = true
 
+func _ataque_inimigo():
+	var random: float = randf()
+	var is_atq: bool = random > 0.2
+	if is_atq:
+		var quantidade_atq: int = len(BatalhasManager.ATQ_INIMIGO)
+		var ataque_inimigo_idx := (int(ceil(random*100)) % quantidade_atq)
+		var nome_ataque_inimigo: String = BatalhasManager.ATQ_INIMIGO_TEXT[ataque_inimigo_idx]
+		await _exibir_dialogo_acao(true, nome_ataque_inimigo, 0.0, 0.0, valor_ataque_inimigo)
+	else:
+		var quantidade_cura: int = len(BatalhasManager.CURAS_INIMIGO)
+		var cura_inimigo_idx := (int(ceil(random*100)) % quantidade_cura)
+		var nome_cura_inimigo: String = BatalhasManager.CURAS_INIMIGO_TEXT[cura_inimigo_idx]
+		await _exibir_dialogo_acao(true, nome_cura_inimigo, valor_ataque_inimigo, 0.0, 0.0)
+
+func _desabilita_todos_botoes() -> void:
+	vida_btn.disabled = true
+	energia_btn.disabled = true
+	ataque_btn.disabled = true
+	especial_btn.disabled = true
+
 func _on_vida_btn_pressed() -> void:
-	barra_vida_player.aumenta_valor_barra(ganho_cura)
+	_desabilita_todos_botoes() #evitar duplos cliques
 	await _exibir_dialogo_acao(false, nome_cura, ganho_cura, 0.0, 0.0)
 
 func _on_energia_btn_pressed() -> void:
-	barra_energia_player.aumenta_valor_barra(ganho_energia)
+	_desabilita_todos_botoes() #evitar duplos cliques
 	await _exibir_dialogo_acao(false, nome_energia, 0.0, ganho_energia, 0.0)
 
 func _on_ataque_btn_pressed() -> void:
-	barra_vida_inimigo.diminui_valor_barra(custo_ataque)
-	barra_energia_player.diminui_valor_barra(custo_ataque)
+	_desabilita_todos_botoes() #evitar duplos cliques
 	await _exibir_dialogo_acao(false, nome_ataque, 0.0, -custo_ataque, custo_ataque)
 
 func _on_especial_btn_pressed() -> void:
-	barra_vida_inimigo.diminui_valor_barra(custo_especial)
-	barra_energia_player.diminui_valor_barra(custo_especial)
+	_desabilita_todos_botoes() #evitar duplos cliques
 	await _exibir_dialogo_acao(false, nome_especial, 0.0, -custo_especial, custo_especial)
 
 

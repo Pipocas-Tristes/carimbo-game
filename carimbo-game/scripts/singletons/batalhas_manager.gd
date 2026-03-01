@@ -22,9 +22,9 @@ const ATQ_INIMIGO_TEXT = {
 	ATQ_INIMIGO.REDUCAO_INTERVALO_ALMOCO: "Redução do intervalo de almoço",
 	ATQ_INIMIGO.REDUCAO_VA: "Redução do vale alimentação",
 	ATQ_INIMIGO.TRABALHO_FERIADO: "Trabalho no feriado",
-	ATQ_INIMIGO.PEJOTIZACAO: "Contrato PJ com obrigações CLT (Pejotização)",
+	ATQ_INIMIGO.PEJOTIZACAO: "Pejotização celetista (Contrato PJ com obrigações CLT)",
 	ATQ_INIMIGO.ACUMULO_FUNCOES: "Acúmulo de funções para funcionários",
-	ATQ_INIMIGO.ATRASO_PAGAMENTO: "Pagamento após 5 dia útil (atrasado)",
+	ATQ_INIMIGO.ATRASO_PAGAMENTO: "Atraso no pagamento (após 5 dia útil)",
 	ATQ_INIMIGO.DECIMO_TERCEIRO_NEGADO: "Revogação do décimo terceiro",
 	ATQ_INIMIGO.FGTS_ATRASADO: "Atraso de 6 meses no FGTS",
 }

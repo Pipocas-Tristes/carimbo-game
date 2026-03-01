@@ -2,8 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://fu8qrhvagooh" path="res://temas/tema_luta.tres" id="1_1kc4d"]
 [ext_resource type="Script" uid="uid://cmvvn80m22bsj" path="res://prefabs/barra_progresso/barra_progresso.gd" id="1_yh7wh"]
-[ext_resource type="Texture2D" uid="uid://cs5xfdpejc681" path="res://imagens/texturas/barra_progresso_fundo_pequeno.png" id="3_dcup5"]
-[ext_resource type="Texture2D" uid="uid://d2xkimrpyqimi" path="res://imagens/texturas/barra_progresso_preenchimento_pequeno.png" id="4_wrelf"]
+[ext_resource type="Texture2D" uid="uid://cs5xfdpejc681" path="res://sprites/barra_progresso/barra_progresso_fundo_pequeno.png" id="3_dcup5"]
+[ext_resource type="Texture2D" uid="uid://d2xkimrpyqimi" path="res://sprites/barra_progresso/barra_progresso_preenchimento_pequeno.png" id="4_wrelf"]
 
 [node name="barra_progresso" type="PanelContainer" unique_id=1738874259]
 offset_right = 300.0
@@ -19,6 +19,7 @@ size_flags_horizontal = 0
 
 [node name="barra_label" type="Label" parent="VBoxContainer" unique_id=699385499]
 layout_mode = 2
+theme_override_constants/outline_size = 8
 text = "El Papa Noel"
 horizontal_alignment = 1
 

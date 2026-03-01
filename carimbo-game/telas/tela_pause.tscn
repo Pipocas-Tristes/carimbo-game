@@ -58,7 +58,7 @@ text = "Configurações"
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme = ExtResource("2_x51w4")
-text = "Salvar e sair"
+text = "Sair"
 
 [connection signal="button_up" from="margin/HBoxContainer/VBoxContainer/continuar_btn" to="." method="_on_continuar_btn_button_up"]
 [connection signal="button_up" from="margin/HBoxContainer/VBoxContainer/configurar_btn" to="." method="_on_configurar_btn_button_up"]

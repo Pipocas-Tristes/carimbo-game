@@ -1,47 +1,21 @@
 [gd_resource type="Theme" format=3 uid="uid://fu8qrhvagooh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m72j5"]
-bg_color = Color(0, 0, 0, 0.39215687)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[ext_resource type="Texture2D" uid="uid://bbg5bbgjptmpa" path="res://sprites/batalha/Escolha - Battle.png" id="1_m72j5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an6bg"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_an6bg"]
+texture = ExtResource("1_m72j5")
+modulate_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3w7s"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i3w7s"]
+texture = ExtResource("1_m72j5")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj2w0"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_esjt6"]
+texture = ExtResource("1_m72j5")
+modulate_color = Color(0.6955032, 0.6955031, 0.6955031, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esjt6"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lkpxg"]
+texture = ExtResource("1_m72j5")
+modulate_color = Color(0.4045111, 0.40451115, 0.4045111, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fj2w0"]
 
@@ -53,24 +27,25 @@ border_width_left = 64
 border_width_right = 64
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 16
+corner_radius_top_right = 16
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m72j5"]
 
 [resource]
 Button/font_sizes/font_size = 20
-Button/styles/disabled = SubResource("StyleBoxFlat_m72j5")
-Button/styles/focus = SubResource("StyleBoxFlat_an6bg")
-Button/styles/hover = SubResource("StyleBoxFlat_i3w7s")
-Button/styles/normal = SubResource("StyleBoxFlat_fj2w0")
-Button/styles/pressed = SubResource("StyleBoxFlat_esjt6")
-HBoxContainer/constants/separation = 0
+Button/styles/disabled = SubResource("StyleBoxTexture_an6bg")
+Button/styles/focus = SubResource("StyleBoxTexture_i3w7s")
+Button/styles/hover = SubResource("StyleBoxTexture_i3w7s")
+Button/styles/normal = SubResource("StyleBoxTexture_esjt6")
+Button/styles/pressed = SubResource("StyleBoxTexture_lkpxg")
+HBoxContainer/constants/separation = 16
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_fj2w0")
-MarginContainer/constants/margin_bottom = 14
-MarginContainer/constants/margin_left = 12
-MarginContainer/constants/margin_right = 15
-MarginContainer/constants/margin_top = 13
+MarginContainer/constants/margin_bottom = 32
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 32
 PanelContainer/styles/panel = SubResource("StyleBoxEmpty_an6bg")
 TabBar/font_sizes/font_size = 20
 TabBar/styles/tab_disabled = SubResource("StyleBoxFlat_b2bt1")
-VBoxContainer/constants/separation = 0
+VBoxContainer/constants/separation = 11
 VSeparator/styles/separator = SubResource("StyleBoxEmpty_m72j5")
