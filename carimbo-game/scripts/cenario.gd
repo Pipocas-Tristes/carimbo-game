@@ -32,6 +32,11 @@ func _ready() -> void:
 	_atualiza_cena_atual(cena_atual)
 
 func _atualiza_cena_atual(cena: Constants.CENAS_ORDENADAS, spawn_id: String = '') -> void:
+	if GameManager.objetivo_atual == Constants.OBJETIVOS.JULGAR_CARTAS:
+		GameManager.set_objetivo(Constants.OBJETIVOS.ENCONTRAR_SUPERVISOR)
+	
+	if GameManager.objetivo_atual == Constants.OBJETIVOS.JULGAR_OUTRAS_CARTAS:
+		GameManager.set_objetivo(Constants.OBJETIVOS.ENCONTRAR_SUPERVISOR)
 	
 	if conteudo_atual:
 		conteudo_atual.on_exit()

@@ -17,6 +17,9 @@ func _ready() -> void:
 		GameManager.next_tutorial(7)
 
 func _physics_process(_delta):
+	if DialogueManager.block_input:
+		return
+	
 	if interagivel_atual and Input.is_action_just_pressed("interagir"):
 		if interagivel_atual.pode_interagir(self):
 			interagivel_atual.interagir(self)

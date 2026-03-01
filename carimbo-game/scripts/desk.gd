@@ -15,7 +15,9 @@ var suspicious_tashed: int = 0
 
 @export_category('Configuração de Cena')
 @export var letter_scene: PackedScene = null
-@export var day_letters: Array[LetterResource] = []
+var day_letters: Array[LetterResource]
+@export var day_one_letters: Array[LetterResource]
+@export var day_two_latters: Array[LetterResource]
 @export var desk_letter_scene: PackedScene = null
 var current_letter_resource: LetterResource = null
 var current_letter: Node = null
@@ -39,12 +41,23 @@ func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_finished.connect(_on_dialogue_finished)
 	
+	if GameManager.day == 1:
+		day_letters = day_one_letters
+	if GameManager.day == 2:
+		if GameManager.objetivo_atual == Constants.OBJETIVOS.VOLTAR_TRABALHAR:
+			GameManager.set_objetivo(Constants.OBJETIVOS.JULGAR_OUTRAS_CARTAS)
+		
+		day_letters = day_two_latters
+		GameManager.tutorial = false
+		call_deferred("unlock_stash")
+		
+	
 	desk_background.texture = sprite_closed
 	send_area_sprite.play("idle")
 	
 	tashed_area.monitoring = GameManager.stash_unlocked
 	
-	if GameManager.tutorial:
+	if GameManager.tutorial and GameManager.day == 1:
 		call_deferred("handle_tutorial_letter")
 	
 	for i in day_letters.size():
@@ -76,6 +89,9 @@ func _pausar_jogo(event: InputEvent):
 
 func levantar():
 	get_tree().change_scene_to_file(Constants.UID_SCENES[Constants.TELAS.CENARIO])
+
+	if GameManager.day == 2:
+		GameManager.finish_tutorial()
 
 func generate_latter(letter_index: int) -> void:
 	if current_letter != null or day_letters.is_empty():
@@ -112,7 +128,8 @@ func validate_letter(letter):
 		
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	
-	if GameManager.tutorial:
+	if GameManager.tutorial and GameManager.tutorial_phase == 6:
+		GameManager.set_objetivo(Constants.OBJETIVOS.JULGAR_CARTAS)
 		GameManager.finish_tutorial()
 	
 	var correct = letter.applied_stamp == letter.correct_stamp
@@ -192,9 +209,16 @@ func resolve_letter(res: LetterResource, decision: String, correct: bool = false
 
 	desk_background.texture = sprite_closed
 	GameManager.letters_processed += 1
-	check_day_end()
+	
+	if current_letter_resource.sender_name == "Thiago" and suspicious_tashed > 0:
+		finish_desk()
 
 func unlock_stash():
+	DialogueManager.start_dialogue([
+		{
+			"text": "Talvez eu devesse guardar essas cartas estranhas?"
+		}
+	], false)
 	GameManager.stash_unlocked = true
 	tashed_area.monitoring = true
 	
@@ -209,6 +233,10 @@ func _on_tashed_area_area_entered(area: Area2D) -> void:
 			desk_background.texture = sprites[2]
 		elif suspicious_tashed >= 5:
 			desk_background.texture = sprites[3]
+
+func finish_desk():
+	DialogueManager.start_dialogue([{"text": "Eu deveria ir tirar satisfação com ele agora"}], false)
+	GameManager.start_tutorial()
 
 func _on_tashed_area_area_exited(area: Area2D) -> void:
 	if area.name == "AreaDetectorEnvelope":
@@ -228,8 +256,16 @@ func _on_dialogue_finished():
 		GameManager.next_tutorial(6)
 		GameManager.pode_levantar = true
 	
+	if GameManager.tutorial and GameManager.day == 2 and suspicious_tashed > 0:
+		GameManager.tutorial_phase += 1
+		GameManager.next_tutorial(6)
+		GameManager.pode_levantar = true
+	
 	if DialogueManager.block_input:
 		in_focus_mode = false
+		
+	if GameManager.day == 2 and GameManager.objetivo_atual == Constants.OBJETIVOS.JULGAR_OUTRAS_CARTAS:
+		desk_background.texture = sprites[0]
 	
 func handle_benjamin_arrival():
 	DialogueManager.start_dialogue([

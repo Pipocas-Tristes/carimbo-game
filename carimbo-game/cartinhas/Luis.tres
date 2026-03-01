@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://bq7m650prkor3"]
+[gd_resource type="Resource" script_class="LetterResource" format=3 uid="uid://bcinplueca1gr"]
 
 [ext_resource type="Script" uid="uid://1oycgv6x3g7y" path="res://scripts/letter_data.gd" id="1_fm7h4"]
+[ext_resource type="Texture2D" uid="uid://c63fjbnmxp4aw" path="res://sprites/desenhos cartas/Carta 13 - Luis 6 anos_.png" id="2_exq26"]
 
 [resource]
 script = ExtResource("1_fm7h4")
 content = "qUERIdo, papai, Noel. Eu sempre fui bonzinho, minha vó, disse que eu sou menino gentil e carinhoso. Uma ves so eu pisei no inseto do meu amigo joao mas foi sem querer e porque ele me deixou bravo. Se voce tiver presente eu peço desculpa ta bom. Eu quero uma cozinha de brinquedo."
+texture = ExtResource("2_exq26")
 metadata/_custom_type_script = "uid://1oycgv6x3g7y"

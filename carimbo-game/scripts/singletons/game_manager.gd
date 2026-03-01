@@ -40,7 +40,7 @@ func get_route() -> String:
 
 func set_objetivo(novo_objetivo: Constants.OBJETIVOS):
 	objetivo_atual = novo_objetivo
-	var text = Constants.OBJETIVOS.get(novo_objetivo, "")
+	var text = Constants.OBJETIVOS_TEXTOS.get(novo_objetivo, "")
 	emit_signal("objetivo_atualizado", text)
 
 func start_tutorial():
@@ -62,3 +62,7 @@ func finish_tutorial():
 		tutorial_instance.queue_free()
 		tutorial_instance = null
 		tutorial = false
+		
+func next_day():
+	day += 1
+	print(day)

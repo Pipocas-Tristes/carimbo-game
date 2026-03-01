@@ -7,17 +7,10 @@
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/styles/normal = null
 
-[node name="ObjetivoUI" type="Control" unique_id=1511444960]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ObjetivoUI" type="CanvasLayer" unique_id=1769203102]
 script = ExtResource("1_4efnt")
 
 [node name="ObjetivoLabel" type="Label" parent="." unique_id=315698674]
-layout_mode = 0
 offset_left = 659.0
 offset_top = 26.0
 offset_right = 1257.0
@@ -25,6 +18,5 @@ offset_bottom = 49.0
 theme = SubResource("Theme_4efnt")
 theme_override_fonts/font = ExtResource("1_bn0ca")
 theme_override_font_sizes/font_size = 22
-text = "TEXTO DOS OBJETIVOS"
 horizontal_alignment = 2
 vertical_alignment = 1
