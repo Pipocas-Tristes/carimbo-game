@@ -4,7 +4,7 @@ extends ConteudoBase
 @onready var corredor_trigger: Area2D = $CorredorTrigger
 @onready var supervisor: Area2D = $Supervisor
 
-const CENARIO_BATALHA = preload("uid://bpblylcbdhmj4")
+const CENARIO_BATALHA = preload("uid://bsce6tf6ehlh4")
 
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
@@ -51,9 +51,6 @@ func _on_supervisor_interagido(_player: Variant) -> void:
 			},
 			{
 				"text": "Protagonista: eu vou entregar essas cartas para as autoridades com as minhas próprias mãos"
-			},
-			{
-				"text": "e você não deveria fazer tantas perguntas, o contrato do emprego explicita isso."
 			},
 			{
 				"text": "Supervisor: se eu fosse você, não faria isso. ELE vai ir atrás de tudo com o que você se importa"

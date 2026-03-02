@@ -82,7 +82,7 @@ func toggle_focus():
 	var desk: Desk = get_tree().current_scene
 	var camera: Camera2D = desk.get_node("DeskCamera")
 	
-	if GameManager.tutorial and GameManager.tutorial_phase != 2:
+	if GameManager.tutorial and GameManager.tutorial_phase < 2:
 		return
 	
 	is_focused = !is_focused

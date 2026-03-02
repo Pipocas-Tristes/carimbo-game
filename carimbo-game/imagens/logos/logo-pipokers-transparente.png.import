@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dh4ffbt1paa3k"
-path="res://.godot/imported/logo-pipokers-transparente.png-9193e3eb1177e483b46bca8db5b772e9.ctex"
+path="res://.godot/imported/logo-pipokers-transparente.png-bb31b937537244c47f48aa81bd46702a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/logo-pipokers-transparente.png"
-dest_files=["res://.godot/imported/logo-pipokers-transparente.png-9193e3eb1177e483b46bca8db5b772e9.ctex"]
+source_file="res://imagens/logos/logo-pipokers-transparente.png"
+dest_files=["res://.godot/imported/logo-pipokers-transparente.png-bb31b937537244c47f48aa81bd46702a.ctex"]
 
 [params]
 

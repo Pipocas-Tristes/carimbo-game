@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bpblylcbdhmj4"]
+[gd_scene format=3 uid="uid://bsce6tf6ehlh4"]
 
 [ext_resource type="PackedScene" uid="uid://clk1ysjnbyd46" path="res://telas/tela_batalha.tscn" id="1_4a85h"]
 [ext_resource type="Script" uid="uid://bhk27asqj2vvc" path="res://scripts/cenario_batalha.gd" id="1_nyvnu"]
