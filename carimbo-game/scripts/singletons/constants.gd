@@ -86,3 +86,28 @@ var OBJETIVOS_TEXTOS := {
 	OBJETIVOS.PASSAR_RH: "PASSE NO RH",
 	OBJETIVOS.DERROTAR_EL_PAPA: "DERROTE O EL PAPA"
 }
+
+const DIALOGOS = {
+	"INTRO_DIA_1": [
+		{"text": "Primeiro dia de trabalho"},
+		{"text": "Coisa super fácil, apenas pegar as cartas e carimbar"},
+		{"text": "Se a criança merecer o presente, carimbo verde. Caso não, carimbo vermelho"}
+	],
+	"LIVIA": [
+		{"text": "A carta apresenta palavras em uma letra bem ilegível"},
+		{"text": "É visível que a criança se empenhou para escrever, mas ainda não sabe como"},
+		{"text": "Abaixo do indecifrável, existe um desenho feito de giz de cera"},
+		{"text": "Parecia uma casa. Talvez uma casa de bonecas?"}
+	],
+	"BENJAMIN": [
+		{"text": "Essa carta é… diferente."},
+		{"text": "Parece conter um código ou um pedido de socorro escondido."},
+		{"text": "Eu não deveria carimbar isso sem falar com o Supervisor antes."}
+	],
+	"THIAGO_FINISH": [
+		{"text": "Eu deveria ir tirar satisfação com ele agora"}
+	],
+	"UNLOCK_STASH": [
+		{"text": "Talvez eu devesse guardar essas cartas estranhas?"}
+	]
+}

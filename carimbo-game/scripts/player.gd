@@ -12,9 +12,6 @@ var interagivel_atual: Interagivel = null
 
 func _ready() -> void:
 	interacao_prompt.visible = false
-	if GameManager.tutorial and GameManager.tutorial_phase == 7:
-		GameManager.tutorial_phase += 1
-		GameManager.next_tutorial(7)
 
 func _physics_process(_delta):
 	if DialogueManager.block_input:

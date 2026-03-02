@@ -13,7 +13,6 @@ var stash_unlocked: bool = false
 var pode_levantar: bool = false
 var el_papa_foto: bool = false
 
-
 var score: int = 0
 var suspicion: int = 0
 var humanity: int = 50
@@ -27,7 +26,6 @@ var suspicious_letters: Array[LetterResource] = []
 var suspicious_stashed_total: int = 0
 
 var tutorial: bool = true
-var tutorial_phase: int = 0
 var tutorial_instance
 var tutorial_scene = preload(Constants.UID_SCENES[Constants.TELAS.TUTORIAL])
 
@@ -47,16 +45,7 @@ func set_objetivo(novo_objetivo: Constants.OBJETIVOS):
 func start_tutorial():
 	tutorial = true
 	tutorial_instance = tutorial_scene.instantiate()
-	get_tree().root.add_child(tutorial_instance)
-
-func next_tutorial(res: int):
-	if tutorial_instance:
-		tutorial_instance.next(res)
-		print(tutorial_phase)
-
-func clear_tutorial():
-	if tutorial_instance:
-		tutorial_instance.clear()
+	get_tree().root.add_child.call_deferred(tutorial_instance)
 
 func finish_tutorial():
 	if tutorial_instance:

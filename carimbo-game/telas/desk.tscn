@@ -21,21 +21,13 @@
 [ext_resource type="Texture2D" uid="uid://yyql1vkuhtbe" path="res://sprites/mesa/desk_open_5.png" id="11_ep57s"]
 [ext_resource type="Texture2D" uid="uid://77sgm7p2ykpy" path="res://sprites/carimbos/Carimbo verde.png" id="11_tlwf3"]
 [ext_resource type="Texture2D" uid="uid://cali5sebygbt" path="res://sprites/carimbos/Carimbo vermelho.png" id="12_84osi"]
-[ext_resource type="Resource" uid="uid://ckivhshb2dqj" path="res://cartinhas/thiago.tres" id="12_hwnh2"]
 [ext_resource type="Script" uid="uid://b2xm73et7ncv" path="res://scripts/emotrometro.gd" id="12_vhr0s"]
-[ext_resource type="Resource" uid="uid://dkgabm3ns8wuf" path="res://cartinhas/leticia.tres" id="13_jfxa4"]
 [ext_resource type="Texture2D" uid="uid://cyvi8h5e7ofkm" path="res://sprites/emotrometro/emotrometro_seta_2.png" id="14_4qn8q"]
-[ext_resource type="Resource" uid="uid://dbxn7r4y6uq7d" path="res://cartinhas/felipe.tres" id="14_kmrtj"]
 [ext_resource type="Texture2D" uid="uid://w88mhlcwcybk" path="res://sprites/correio/caixa_correio_0.png" id="15_doxmh"]
-[ext_resource type="Resource" uid="uid://dde63v6je4k6k" path="res://cartinhas/luana.tres" id="15_ef6ea"]
 [ext_resource type="Texture2D" uid="uid://rfihd6cxomri" path="res://sprites/mesa 8 chão.png" id="15_n48kf"]
 [ext_resource type="Texture2D" uid="uid://b376j6ta6ob30" path="res://sprites/correio/caixa_correio_1.png" id="16_hnwq6"]
-[ext_resource type="Resource" uid="uid://lf5jmxsgbnog" path="res://cartinhas/bia.tres" id="16_ox27i"]
-[ext_resource type="Resource" uid="uid://dihvf71stwkcg" path="res://cartinhas/thais.tres" id="17_iq6q4"]
 [ext_resource type="Texture2D" uid="uid://cc7kp0bvka6sq" path="res://sprites/correio/caixa_correio_2.png" id="17_p8eao"]
-[ext_resource type="Resource" uid="uid://bcinplueca1gr" path="res://cartinhas/Luis.tres" id="18_codid"]
 [ext_resource type="Texture2D" uid="uid://dv4lsi746cbhc" path="res://sprites/correio/caixa_correio_3.png" id="18_n48kf"]
-[ext_resource type="Resource" uid="uid://dlrkc4yluaqe4" path="res://cartinhas/sarah.tres" id="19_pby15"]
 [ext_resource type="Script" uid="uid://cynyf3dx1csih" path="res://scripts/send_area.gd" id="19_rurs3"]
 [ext_resource type="Texture2D" uid="uid://4vviag1n4x16" path="res://sprites/carimbos/stamp_b01.png" id="25_lt03g"]
 [ext_resource type="Texture2D" uid="uid://yowpolma1ayr" path="res://sprites/carimbos/stamp_b02.png" id="26_jnjou"]
@@ -87,7 +79,6 @@ size = Vector2(91, 100)
 script = ExtResource("1_ymn6v")
 letter_scene = ExtResource("2_hartd")
 day_one_letters = Array[ExtResource("3_4dl0g")]([ExtResource("6_tlwf3"), ExtResource("10_ys4ap"), ExtResource("9_524r7"), ExtResource("8_aqbn0"), ExtResource("5_al7y2"), ExtResource("7_nh3ve"), ExtResource("5_no6ry"), ExtResource("4_2f62r")])
-day_two_latters = Array[ExtResource("3_4dl0g")]([ExtResource("12_hwnh2"), ExtResource("13_jfxa4"), ExtResource("14_kmrtj"), ExtResource("15_ef6ea"), ExtResource("16_ox27i"), ExtResource("17_iq6q4"), ExtResource("18_codid"), ExtResource("19_pby15")])
 desk_letter_scene = ExtResource("10_8vdsp")
 sprite_closed = ExtResource("7_4qn8q")
 sprites = Array[Texture]([ExtResource("8_td716"), ExtResource("9_n2ide"), ExtResource("10_2eu0q"), ExtResource("11_ep57s")])

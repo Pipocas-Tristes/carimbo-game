@@ -21,9 +21,6 @@ func create_letter():
 
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if GameManager.tutorial and GameManager.tutorial_phase == 0:
-		return
-	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
@@ -38,16 +35,15 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 					return
 					
 				create_letter()
+				
+				EventManager.player_opened_letter.emit()
 
 
 func _on_area_2d_mouse_entered() -> void:
 	var desk: Desk = get_tree().current_scene
 	if z_index != desk.get_top_letter():
 		return
-		
-	if GameManager.tutorial and GameManager.tutorial_phase == 0:
-		return
-		
+	
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1.08, 1.08, 1.08, 1), 0.15)
 
