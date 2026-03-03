@@ -28,7 +28,7 @@ func _on_dialogue_finished():
 		GameManager.next_day()
 	
 	if GameManager.day == 3:
-		var cenario_batalha = CENARIO_BATALHA.instantiate()
+		var cenario_batalha: Node2D = CENARIO_BATALHA.instantiate()
 		cenario_batalha.inimigo = BatalhasManager.INIMIGOS.SUPERVISOR
 		get_tree().change_scene_to_node(cenario_batalha)
 
