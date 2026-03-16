@@ -4,8 +4,8 @@ var dialogue_queue: Array = []
 var in_run: bool = false
 var block_input: bool = false
 
-@onready var color_rect: ColorRect = $ColorRect
-@onready var label: Label = $ColorRect/Label
+@onready var color_rect: ColorRect = $MarginContainer/ColorRect
+@onready var label: Label = $MarginContainer/ColorRect/Label
 @export var dialogues_stream: Array[AudioStream]
 
 func start(dialogues: Array, block := true):

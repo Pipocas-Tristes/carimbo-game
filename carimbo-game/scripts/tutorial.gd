@@ -9,7 +9,7 @@ class TutorialSteps:
 		text = t
 		sound = s
 
-@onready var label: Label = $Label
+@onready var label: Label = $MarginContainer/VBoxContainer/HBoxContainer/Label
 @export var streams: Array[AudioStream]
 var steps: Array[TutorialSteps]
 var current_step: int = 0
@@ -57,4 +57,5 @@ func update_tutorial_text():
 	SoundManager.play_sfx(step.sound)
 	
 func clear():
+	GameManager.tutorial = false
 	label.text = ''

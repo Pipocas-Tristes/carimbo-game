@@ -32,6 +32,7 @@ EventManager="*uid://cq0bqm873ntfn"
 SoundManager="*uid://b5c5flfxgtacs"
 BatalhasManager="*uid://cfdoi6tdhtkwp"
 Dialogic="*uid://ds2q0uclmolvu"
+TransitionManager="*uid://c3jku2g0sllpi"
 
 [dialogic]
 
@@ -78,10 +79,15 @@ audio/channel_defaults={
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+
+[dotnet]
+
+project/assembly_name="Carimbo Game"
 
 [editor_plugins]
 

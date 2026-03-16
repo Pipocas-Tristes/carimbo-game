@@ -12,7 +12,7 @@ func create_letter():
 	
 	SoundManager.play_sfx(slide_stream)
 	var tween = create_tween()
-	await tween.tween_property(self, "global_position", Vector2(position.x, position.y + 470), 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN).finished
+	await tween.tween_property(self, "global_position", Vector2(position.x, position.y + 650), 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN).finished
 	
 	await get_tree().create_timer(0.5).timeout
 	

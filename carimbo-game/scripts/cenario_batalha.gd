@@ -8,7 +8,6 @@ extends Node2D
 
 @onready var tela_batalha: CanvasLayer = $tela_batalha
 @export var inimigo: BatalhasManager.INIMIGOS
-const CENARIO = preload("uid://b3o4ai3dyu5jn")
 
 var enemy: AnimatedSprite2D
 

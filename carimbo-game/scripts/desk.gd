@@ -83,10 +83,8 @@ func _pausar_jogo(event: InputEvent):
 		tela_pause.queue_free()
 
 func levantar():
-	get_tree().change_scene_to_file(Constants.UID_SCENES[Constants.TELAS.CENARIO])
-
-	if GameManager.day == 2:
-		GameManager.finish_tutorial()
+	if GameManager.pode_levantar:
+		TransitionManager.change_scene(Constants.UID_SCENES[Constants.TELAS.WORLD])
 
 func generate_latter(letter_index: int) -> void:
 	if current_letter != null or day_letters.is_empty():

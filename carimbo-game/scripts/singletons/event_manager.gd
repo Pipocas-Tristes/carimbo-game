@@ -2,11 +2,13 @@ extends Node
 
 
 # Sinais de Tutorial
+@warning_ignore_start("unused_signal")
 signal player_opened_letter
 signal player_entered_reading_mode
 signal player_get_stamp
 signal player_stamped_letter(type: String)
 signal player_sent_letter
+@warning_ignore_restore("unused_signal")
 
 # Sinais de Eventos
 signal letter_spawned(resource: LetterResource)
@@ -58,12 +60,14 @@ func _on_benjamin_event_finished():
 	DialogueManager.dialogue_finished.disconnect(_on_benjamin_event_finished)
 	GameManager.set_objetivo(Constants.OBJETIVOS.ENCONTRAR_SUPERVISOR)
 	GameManager.pode_levantar = true
+	GameManager.tutorial = true
 	player_can_leave_desk.emit()
 
 func _on_day_started(day: int):
 	if day == 1 and GameManager.tutorial:
 		DialogueManager.start_dialogue(Constants.DIALOGOS.INTRO_DIA_1, false)
 		GameManager.start_tutorial()
+		GameManager.tutorial = true
 
 func _on_letter_resolved(res: LetterResource, decision: String):
 	if res.sender_name == "Thiago" and decision == "stash":
