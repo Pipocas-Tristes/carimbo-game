@@ -8,6 +8,8 @@ signal player_entered_reading_mode
 signal player_get_stamp
 signal player_stamped_letter(type: String)
 signal player_sent_letter
+signal player_leave
+signal player_moved
 @warning_ignore_restore("unused_signal")
 
 # Sinais de Eventos

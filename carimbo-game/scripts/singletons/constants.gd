@@ -110,5 +110,25 @@ const DIALOGOS = {
 	],
 	"UNLOCK_STASH": [
 		{"text": "Talvez eu devesse guardar essas cartas estranhas?"}
+	],
+	"SUPERVISOR_01": [
+		{"text": "Protagonista: Com licença senhor supervisor"},
+		{"text": "em meio às cartas de hoje, encontrei esta."},
+		{"text": "achei a carta meio estranha"},
+		{"text": "acho que a situação deveria ser levada para as autoridades e investigada."},
+		{"text": "*Entrega a carta para o supervisor*"},
+		{"text": "Supervisor: Não dá muita bola pra isso não"},
+		{"text": "*supervisor guarda a carta no bolso do paletó*"},
+		{"text": "Supervisor: Em caso de mais cartas do tipo, me entregue"},
+		{"text": "agora volte ao tranbalho"},
+	],
+	"SUPERVISOR_02": [
+		{"text": "Protagonista: Você?! Por que você descartaria essas cartas?!"},
+		{"text": "podem ser provas de crimes! No que você está pensando?!"},
+		{"text": "Supervisor: Eu não tenho as suas respostas, só sigo ordens de cima"},
+		{"text": "e você não deveria fazer tantas perguntas, o contrato do emprego explicita isso."},
+		{"text": "Protagonista: eu vou entregar essas cartas para as autoridades com as minhas próprias mãos"},
+		{"text": "Supervisor: se eu fosse você, não faria isso. ELE vai ir atrás de tudo com o que você se importa"},
+		{"text": "Protagonista: Então irei começar derrotando você!!!!"},
 	]
 }

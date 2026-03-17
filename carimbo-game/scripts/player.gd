@@ -28,6 +28,9 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("para_esquerda"):
 		direction -= 1
 
+	if direction != 0 and GameManager.tutorial:
+			EventManager.player_moved.emit()
+
 	# Movimento horizontal
 	velocity.x = direction * speed
 	move_and_slide()

@@ -84,6 +84,7 @@ func _pausar_jogo(event: InputEvent):
 
 func levantar():
 	if GameManager.pode_levantar:
+		EventManager.player_leave.emit()
 		TransitionManager.change_scene(Constants.UID_SCENES[Constants.TELAS.WORLD])
 
 func generate_latter(letter_index: int) -> void:

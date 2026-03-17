@@ -21,6 +21,7 @@ func change_scene(scene_path: String) -> void:
 	
 	_start_fade_out()
 	
+
 func _start_fade_out() -> void:
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)

@@ -21,7 +21,8 @@ func _ready() -> void:
 		TutorialSteps.new("CLIQUE EM UM DOS CARIMBOS COM [LMB] PARA SELECIONAR", streams[2]),
 		TutorialSteps.new("COM O CARIMBO EM MÃOS CLIQUE NA CARTA COM [LMB] PARA MARCAR", streams[1]),
 		TutorialSteps.new("ARRASTE O ENVELOPE ATÉ O CORREIO PARA ENVIAR", streams[2]),
-		TutorialSteps.new("PRESSIONE [Q] PARA SAIR DA MESA E PROCURAR O SUPERVISOR", streams[1])
+		TutorialSteps.new("PRESSIONE [Q] PARA SAIR DA MESA E PROCURAR O SUPERVISOR", streams[1]),
+		TutorialSteps.new("USE [A]/[D] PARA SE MOVIMENTAR", streams[2])
 	]
 	
 	EventManager.player_opened_letter.connect(_on_action_performed.bind(0))
@@ -29,8 +30,10 @@ func _ready() -> void:
 	EventManager.player_get_stamp.connect(_on_action_performed.bind(2))
 	EventManager.player_stamped_letter.connect(_on_action_performed.bind(3))
 	EventManager.player_sent_letter.connect(_on_action_performed.bind(4))
-	EventManager.player_can_leave_desk.connect(_on_benjamin_event_triggered)
-	
+	EventManager.player_can_leave_desk.connect(_on_action_perfomed_2d.bind(5))
+	EventManager.player_leave.connect(_on_action_perfomed_2d.bind(6))
+	EventManager.player_moved.connect(_on_action_perfomed_2d.bind(7))
+
 	update_tutorial_text()
 
 func _on_action_performed(step_index: int):
@@ -47,9 +50,13 @@ func _on_action_performed(step_index: int):
 		if current_step < steps.size():
 			update_tutorial_text()
 
-func _on_benjamin_event_triggered():
-	current_step = 5
-	update_tutorial_text()
+func _on_action_perfomed_2d(step_index: int):
+		current_step = step_index
+
+		if current_step < steps.size():
+			update_tutorial_text()
+		elif current_step >= steps.size():
+			clear()
 
 func update_tutorial_text():
 	var step = steps[current_step]
